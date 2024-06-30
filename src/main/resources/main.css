@@ -1,0 +1,7 @@
+.default-button {
+    -fx-background-radius: 5;
+    -fx-min-width: 200px;
+    -fx-min-height: 40px;
+    -fx-background-color: #0B7972;
+    -fx-text-fill: white;
+}
