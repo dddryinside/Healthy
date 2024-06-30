@@ -6,17 +6,22 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.web.WebView;
 
 public class WeightCalculatorController {
     @FXML Spinner<Integer> currentWeightSpinner;
     @FXML Spinner<Integer> heightSpinner;
     @FXML ToggleGroup sexToggleGroup;
-    @FXML VBox mainResultBlock;
     @FXML Label mainResultText;
     @FXML Label totalResultText;
+    @FXML WebView description;
+
+    @FXML
+    public void initialize() {
+        String filePath = getClass().getResource("/html/weight-calculator-description.html").toExternalForm();
+        description.getEngine().load(filePath);
+    }
+
 
     public void calculate() {
         RadioButton sexOption = (RadioButton) sexToggleGroup.getSelectedToggle();

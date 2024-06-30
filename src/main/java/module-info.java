@@ -2,6 +2,7 @@ module com.dddryinside.weightchecker {
     requires javafx.controls;
     requires javafx.fxml;
     requires MaterialFX;
+    requires javafx.web;
 
 
     opens com.dddryinside to javafx.fxml;

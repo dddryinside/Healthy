@@ -3,7 +3,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.geometry.Insets?>
-
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.control.TreeItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.ListView?>
+<?import java.lang.String?>
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.dddryinside.controllers.MainPageController" stylesheets="main.css">
   <fx:include source="menu-bar.fxml" />
@@ -12,6 +18,10 @@
     <padding>
       <Insets left="20" right="20" top="20"/>
     </padding>
-    <Label text="Добро пожаловать в  медицинский калькулятор!"/>
+    <TitledPane text="Калькуляторы">
+      <ListView >
+
+      </ListView>
+    </TitledPane>
   </VBox>
 </VBox>
