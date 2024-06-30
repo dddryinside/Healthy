@@ -1,13 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="WeightCalculatorController">
+<?import javafx.geometry.Insets?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.dddryinside.controllers.WeightCalculatorController" stylesheets="main.css">
+    <fx:include source="menu-bar.fxml" />
 
-</AnchorPane>
+    <TabPane tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Калькулятор">
+                <HBox spacing="20">
+                    <padding>
+                        <Insets left="20" right="20" top="20"/>
+                    </padding>
+                    <VBox spacing="10">
+                        <Label text="Текущий вес (кг):"/>
+                        <Spinner fx:id="currentWeightSpinner" prefWidth="200" editable="true" min="10" max="500" initialValue="65"/>
+                        <Label text="Рост (см):"/>
+                        <Spinner fx:id="heightSpinner" prefWidth="200" editable="true" min="80" max="210" initialValue="170"/>
+                        <RadioButton text="Мужчина">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="sexToggleGroup"/>
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton text="Женщина">
+                            <toggleGroup>
+                                <fx:reference source="sexToggleGroup"/>
+                            </toggleGroup>
+                        </RadioButton>
+                        <Button text="Рассчитать" onAction="#calculate"/>
+                    </VBox>
+                    <VBox>
+                        <Label fx:id="mainResultText" styleClass="bold-text"/>
+                        <Label fx:id="totalResultText"/>
+                    </VBox>
+                </HBox>
+            </Tab>
+            <Tab text="Справочная информация">
+                <!-- Содержимое первой вкладки -->
+            </Tab>
+        </tabs>
+    </TabPane>
+</VBox>

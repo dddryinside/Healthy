@@ -2,28 +2,16 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
 
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuItem?>
-<VBox spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.dddryinside.MainPageController" stylesheets="main.css">
-  <MenuBar prefHeight="25.0" prefWidth="Infinity">
-    <menus>
-      <Menu text="Меню">
-        <items>
-          <MenuItem text="Главная"/>
-          <MenuItem text="Калькулятор нормы веса" />
-          <MenuItem text="Калькулятор потребления воды" />
-        </items>
-      </Menu>
-      <Menu text="Информация">
-        <items>
-          <MenuItem text="О приложении" />
-        </items>
-      </Menu>
-    </menus>
-  </MenuBar>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.dddryinside.controllers.MainPageController" stylesheets="main.css">
+  <fx:include source="menu-bar.fxml" />
 
-  <Label text="Добро пожаловать в  медицинский калькулятор!"/>
+  <VBox>
+    <padding>
+      <Insets left="20" right="20" top="20"/>
+    </padding>
+    <Label text="Добро пожаловать в  медицинский калькулятор!"/>
+  </VBox>
 </VBox>

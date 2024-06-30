@@ -7,14 +7,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class MedicalCalculator extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/main-page.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Медицинский калькулятор");
-        stage.setScene(scene);
-        stage.show();
+        PageLoader.stage = stage;
+        PageLoader pageLoader = new PageLoader();
+        pageLoader.loadMainPage();
     }
 
     public static void main(String[] args) {

@@ -4,12 +4,13 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 
-<MenuBar prefHeight="25.0" prefWidth="Infinity" xmlns="http://javafx.com/javafx/">
+<MenuBar prefHeight="25.0" prefWidth="Infinity" xmlns:fx="http://javafx.com/fxml"
+         fx:controller="com.dddryinside.PageLoader">
     <menus>
         <Menu text="Меню">
             <items>
-                <MenuItem text="Главная" />
-                <MenuItem text="Калькулятор нормы веса" />
+                <MenuItem text="Главная" onAction="#loadMainPage"/>
+                <MenuItem text="Калькулятор нормы веса" onAction="#loadWeightCalculatorPage"/>
                 <MenuItem text="Калькулятор потребления воды" />
             </items>
         </Menu>
