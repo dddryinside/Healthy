@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="added sqlite db, special class for working with it, also many, manu things">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AddNewPatientController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/add-new-patient.fxml" afterDir="false" />
+    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="now we can add new patients to db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/Healthy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/Healthy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/patients.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/patients.fxml" afterDir="false" />
@@ -112,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719837160840</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="now we can add new patients to db">
+      <created>1719863138514</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719863138514</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,7 +134,8 @@
     <MESSAGE value="weight calculation function added" />
     <MESSAGE value="added html page for information about test, also worked with main page and more..." />
     <MESSAGE value="added sqlite db, special class for working with it, also many, manu things" />
-    <option name="LAST_COMMIT_MESSAGE" value="added sqlite db, special class for working with it, also many, manu things" />
+    <MESSAGE value="now we can add new patients to db" />
+    <option name="LAST_COMMIT_MESSAGE" value="now we can add new patients to db" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

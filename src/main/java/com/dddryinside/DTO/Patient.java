@@ -1,6 +1,7 @@
 package com.dddryinside.DTO;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Patient {
     private String name;
@@ -35,7 +36,7 @@ public class Patient {
 
     @Override
     public String toString() {
-        return name + " " + secondName + " " + additionalName + " " + birthDate + " " + sex;
+        return secondName + "\n" + name + "\n" + additionalName + "\n" + birthDate + "\n" + sex;
     }
 
     public String getName() {
@@ -56,5 +57,22 @@ public class Patient {
 
     public String getSex() {
         return sex;
+    }
+
+    public String getStringSex() {
+        if (this.sex.equals("Male")) {
+            return "Мужчина";
+        } else {
+            return "Женщина";
+        }
+    }
+
+    public String getStringDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        return this.birthDate.format(formatter);
+    }
+
+    public String getFio() {
+        return secondName + " " + name + " " + additionalName + " ";
     }
 }

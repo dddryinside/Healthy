@@ -3,6 +3,9 @@ package com.dddryinside.service;
 import com.dddryinside.DTO.Patient;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataBaseAccess {
     private static final String DB_URL = "jdbc:sqlite:./database.db";
@@ -35,7 +38,7 @@ public class DataBaseAccess {
         }
     }
 
-    private static void checkPatientsTableExist() {
+    public static void checkPatientsTableExist() {
         try (Connection connection = DriverManager.getConnection(DB_URL);
              Statement statement = connection.createStatement()) {
 
@@ -58,5 +61,51 @@ public class DataBaseAccess {
         } catch (SQLException e) {
             System.err.println("Ошибка при работе с базой данных: " + e.getMessage());
         }
+    }
+
+    public static int getPatientsCount() {
+        checkPatientsTableExist();
+
+        int usersCount = 0;
+
+        try (Connection connection = DriverManager.getConnection(DB_URL);
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM users")) {
+
+            if (resultSet.next()) {
+                usersCount = resultSet.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Ошибка при работе с базой данных: " + e.getMessage());
+        }
+
+        return usersCount;
+    }
+
+    public static List<Patient> getAllPatients() {
+        List<Patient> patients = new ArrayList<>();
+
+        try (Connection connection = DriverManager.getConnection(DB_URL);
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT * FROM users")) {
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String secondName = resultSet.getString("second_name");
+                String additionalName = resultSet.getString("additional_name");
+                LocalDate dateOfBirth = resultSet.getObject("date_of_birth", LocalDate.class);
+                String gender = resultSet.getString("gender");
+
+                Patient patient = new Patient(name, secondName, additionalName, dateOfBirth, gender);
+                patients.add(patient);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Ошибка при работе с базой данных: " + e.getMessage());
+        }
+
+        return patients;
     }
 }

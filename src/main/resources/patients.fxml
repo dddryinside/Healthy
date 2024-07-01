@@ -9,11 +9,10 @@
       fx:controller="com.dddryinside.controllers.PatientsController" stylesheets="main.css">
     <fx:include source="menu-bar.fxml" />
 
-    <VBox spacing="20">
+    <VBox fx:id="mainBox" spacing="20">
         <padding>
             <Insets left="20" right="20" top="20" bottom="20"/>
         </padding>
-        <Label styleClass="notification-text" text="Ни одного пациента не найдено. Добавление пациентов в локальную базу данных приложения позволяет проходить исследования не анонимно, хранить результаты, собирать статистику"/>
         <Button text="Добавить пациента" onAction="#addNewPatientPage"/>
     </VBox>
 </VBox>
