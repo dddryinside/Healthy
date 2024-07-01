@@ -16,7 +16,6 @@ public class WeightCalculatorController {
     @FXML Label totalResultText;
     @FXML WebView description;
 
-    @FXML
     public void initialize() {
         String filePath = getClass().getResource("/html/weight-calculator-description.html").toExternalForm();
         description.getEngine().load(filePath);

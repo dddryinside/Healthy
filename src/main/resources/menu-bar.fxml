@@ -10,8 +10,7 @@
         <Menu text="Меню">
             <items>
                 <MenuItem text="Главная" onAction="#loadMainPage"/>
-                <MenuItem text="Калькулятор нормы веса" onAction="#loadWeightCalculatorPage"/>
-                <MenuItem text="Калькулятор потребления воды" />
+                <MenuItem text="Пациенты" onAction="#loadPatientsPage"/>
             </items>
         </Menu>
         <Menu text="Информация">

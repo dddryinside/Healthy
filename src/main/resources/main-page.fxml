@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.control.TreeView?>
-<?import javafx.scene.control.TreeItem?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.ListView?>
-<?import java.lang.String?>
+
+<?import javafx.scene.control.Hyperlink?>
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.dddryinside.controllers.MainPageController" stylesheets="main.css">
   <fx:include source="menu-bar.fxml" />
 
-  <VBox>
+  <VBox spacing="10">
     <padding>
       <Insets left="20" right="20" top="20"/>
     </padding>
-    <TitledPane text="Калькуляторы">
-      <ListView >
-
-      </ListView>
+    <TitledPane text="Калькуляторы" maxWidth="400" maxHeight="200">
+      <VBox>
+        <Hyperlink text="Калькулятор нормы веса" onAction="#loadWeightCalculatorPage" />
+        <Hyperlink text="Калькулятор нормы потребления воды" />
+      </VBox>
+    </TitledPane>
+    <TitledPane text="Тесты по психологии/психотерапии" maxWidth="400" maxHeight="200">
+      <VBox>
+        <Hyperlink text="Шкала депрессии, тревоги и стресса, DASS-21" />
+      </VBox>
     </TitledPane>
   </VBox>
 </VBox>

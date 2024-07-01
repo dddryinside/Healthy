@@ -1,3 +1,13 @@
 .bold-text {
     -fx-font-weight: bold;
 }
+
+.notification-text {
+    -fx-wrap-text: true;
+    -fx-max-width: Infinity;
+    /*-fx-font-weight: bold;*/
+    -fx-background-color: lightgray;
+    -fx-background-radius: 8px;
+    -fx-padding: 12px 12px;
+    /*-fx-text-fill: #ffffff;*/
+}

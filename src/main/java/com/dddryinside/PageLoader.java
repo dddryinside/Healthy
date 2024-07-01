@@ -11,13 +11,17 @@ public class PageLoader {
         loadPage("/main-page.fxml");
     }
 
+    public void loadPatientsPage() {
+        loadPage("/patients.fxml");
+    }
+
     public void loadWeightCalculatorPage() {
         loadPage("/weight-calculator.fxml");
     }
 
     private void loadPage(String FXMLFileName) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(MedicalCalculator.class.getResource(FXMLFileName));
+            FXMLLoader fxmlLoader = new FXMLLoader(Healthy.class.getResource(FXMLFileName));
             Scene scene = new Scene(fxmlLoader.load(), 900, 600);
             stage.setScene(scene);
             stage.show();

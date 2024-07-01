@@ -1,9 +1,10 @@
 module com.dddryinside.weightchecker {
     requires javafx.controls;
     requires javafx.fxml;
-    requires MaterialFX;
+    requires java.naming;
     requires javafx.web;
-
+    requires java.sql;
+    requires org.xerial.sqlitejdbc;
 
     opens com.dddryinside to javafx.fxml;
     exports com.dddryinside;

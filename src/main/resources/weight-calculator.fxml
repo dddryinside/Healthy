@@ -41,9 +41,11 @@
                 </HBox>
             </Tab>
             <Tab text="Справочная информация">
-                <WebView fx:id="description" prefWidth="Infinity">
-
-                </WebView>
+                <StackPane>
+                    <WebView fx:id="description" prefWidth="Infinity">
+                        <!-- Ваш код для WebView -->
+                    </WebView>
+                </StackPane>
             </Tab>
         </tabs>
     </TabPane>
