@@ -4,26 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="added html page for information about test, also worked with main page and more...">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/Patient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/patients.fxml" afterDir="false" />
+    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="added sqlite db, special class for working with it, also many, manu things">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AddNewPatientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/add-new-patient.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/MedicalCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/Healthy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/Healthy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/Healthy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/MainPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/WeightCalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/WeightCalculatorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main-page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/menu-bar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/menu-bar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/weight-calculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/weight-calculator.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/patients.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/patients.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -115,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719778523456</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added sqlite db, special class for working with it, also many, manu things">
+      <created>1719837160840</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719837160840</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,7 +130,8 @@
     <MESSAGE value="starting app" />
     <MESSAGE value="weight calculation function added" />
     <MESSAGE value="added html page for information about test, also worked with main page and more..." />
-    <option name="LAST_COMMIT_MESSAGE" value="added html page for information about test, also worked with main page and more..." />
+    <MESSAGE value="added sqlite db, special class for working with it, also many, manu things" />
+    <option name="LAST_COMMIT_MESSAGE" value="added sqlite db, special class for working with it, also many, manu things" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

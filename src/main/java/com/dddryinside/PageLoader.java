@@ -15,6 +15,10 @@ public class PageLoader {
         loadPage("/patients.fxml");
     }
 
+    public void loadAddNewPatientPage() {
+        loadPage("/add-new-patient.fxml");
+    }
+
     public void loadWeightCalculatorPage() {
         loadPage("/weight-calculator.fxml");
     }

@@ -17,12 +17,14 @@ public class DataBaseAccess {
             // Получение соединения с базой данных
             try (Connection conn = DriverManager.getConnection(DB_URL)) {
                 // Подготовка SQL-запроса
-                String sql = "INSERT INTO users (name, second_name, additional_name) VALUES (?, ?, ?)";
+                String sql = "INSERT INTO users (name, second_name, additional_name, date_of_birth, gender) VALUES (?, ?, ?, ?, ?)";
                 try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                     // Заполнение параметров запроса
                     stmt.setString(1, patient.getName());
                     stmt.setString(2, patient.getSecondName());
                     stmt.setString(3, patient.getAdditionalName());
+                    stmt.setString(4, String.valueOf(patient.getBirthDate()));
+                    stmt.setString(5, patient.getSex());
 
                     // Выполнение запроса
                     stmt.executeUpdate();
@@ -45,7 +47,9 @@ public class DataBaseAccess {
                         "id INTEGER PRIMARY KEY," +
                         "name TEXT," +
                         "second_name TEXT," +
-                        "additional_name TEXT)");
+                        "additional_name TEXT," +
+                        "date_of_birth DATE," +
+                        "gender TEXT)");
                 System.out.println("Таблица 'users' успешно создана.");
             } else {
                 System.out.println("Таблица 'users' уже существует.");
