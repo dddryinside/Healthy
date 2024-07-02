@@ -23,6 +23,10 @@ public class PageLoader {
         loadPage("/weight-calculator.fxml");
     }
 
+    public void loadDASS21TestPage() {
+        loadPage("/dass-21-test.fxml");
+    }
+
     private void loadPage(String FXMLFileName) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Healthy.class.getResource(FXMLFileName));

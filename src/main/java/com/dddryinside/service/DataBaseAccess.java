@@ -39,6 +39,7 @@ public class DataBaseAccess {
     }
 
     public static void checkPatientsTableExist() {
+
         try (Connection connection = DriverManager.getConnection(DB_URL);
              Statement statement = connection.createStatement()) {
 

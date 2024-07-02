@@ -21,7 +21,7 @@
     </TitledPane>
     <TitledPane text="Тесты по психологии/психотерапии" maxWidth="400" maxHeight="200">
       <VBox>
-        <Hyperlink text="Шкала депрессии, тревоги и стресса, DASS-21" />
+        <Hyperlink text="Шкала депрессии, тревоги и стресса, DASS-21" onAction="#loadDASS21TestPage" />
       </VBox>
     </TitledPane>
   </VBox>
