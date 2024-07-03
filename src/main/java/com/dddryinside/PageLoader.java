@@ -39,11 +39,19 @@ public class PageLoader {
         }
     }
 
-    private void errorNotification() {
+    protected void errorNotification() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Ошибка!");
         alert.setHeaderText(null);
         alert.setContentText("Ошибка загрузки страницы!");
+        alert.showAndWait();
+    }
+
+    protected void errorNotification(String errorMessage) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Ошибка!");
+        alert.setHeaderText(null);
+        alert.setContentText(errorMessage);
         alert.showAndWait();
     }
 }

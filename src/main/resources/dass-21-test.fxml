@@ -12,487 +12,487 @@
     <TabPane tabClosingPolicy="UNAVAILABLE">
         <tabs>
             <Tab text="Тест">
-                <VBox spacing="20">
+                <HBox spacing="20">
                     <padding>
                         <Insets left="20" right="20" top="20" bottom="20"/>
                     </padding>
 
-                    <ScrollPane maxHeight="Infinity" maxWidth="500">
-                        <VBox spacing="10">
-                            <padding>
-                                <Insets left="20" right="20" top="20" bottom="20"/>
-                            </padding>
-                            <Label styleClass="bold-text" text="Шкалы депрессии, тревоги и стресса (DASS-21)"/>
-                            <Label text="1. Мне было трудно успокоится"/>
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_1"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_1"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_1"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_1"/>
-                                </toggleGroup>
-                            </RadioButton>
+                    <VBox spacing="20" prefWidth="500">
+                        <ScrollPane maxHeight="Infinity" maxWidth="500">
+                            <VBox spacing="10">
+                                <padding>
+                                    <Insets left="20" right="20" top="20" bottom="20"/>
+                                </padding>
+                                <Label styleClass="bold-text" text="Шкалы депрессии, тревоги и стресса (DASS-21)"/>
+                                <Label text="1. Мне было трудно успокоится"/>
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_1"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_1"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_1"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_1"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label text="2. Я чувствовал(а) сухость во рту"/>
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_2"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_2"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_2"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_2"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label text="2. Я чувствовал(а) сухость во рту"/>
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_2"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_2"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_2"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_2"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label text="3. Мне кажется, что не испытывал(а) никаких позитивных чувств"/>
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_3"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_3"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_3"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_3"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label text="3. Мне кажется, что не испытывал(а) никаких позитивных чувств"/>
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_3"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_3"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_3"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_3"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="4. У меня были проблемы с дыханием (например, учащённое дыхание, одышка при отсутствии физической активности)" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_4"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_4"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_4"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_4"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="4. У меня были проблемы с дыханием (например, учащённое дыхание, одышка при отсутствии физической активности)" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_4"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_4"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_4"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_4"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="5. Мне было трудно проявить инициативу для того, что бы что-то сделать" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_5"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_5"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_5"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_5"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="5. Мне было трудно проявить инициативу для того, что бы что-то сделать" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_5"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_5"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_5"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_5"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="6. Я слишком остро реагировал(а) на некоторый ситуации" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_6"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_6"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_6"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_6"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="6. Я слишком остро реагировал(а) на некоторый ситуации" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_6"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_6"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_6"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_6"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="7. У меня была дрожь (например, в руках)" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_7"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_7"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_7"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_7"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="7. У меня была дрожь (например, в руках)" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_7"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_7"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_7"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_7"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="8. Я чувствовал(а), что трачу много нервов" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_8"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_8"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_8"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_8"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="8. Я чувствовал(а), что трачу много нервов" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_8"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_8"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_8"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_8"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="9. Меня тревожили ситуации, в которых я мог(ла) запаниковать и выглядеть глупо" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_9"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_9"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_9"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_9"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="9. Меня тревожили ситуации, в которых я мог(ла) запаниковать и выглядеть глупо" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_9"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_9"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_9"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_9"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="10. Я чувствовал(а), что мне на что надеяться" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_10"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_10"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_10"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_10"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="10. Я чувствовал(а), что мне на что надеяться" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_10"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_10"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_10"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_10"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="11. Я обнаруживал(а) себя взволнованным(ой)" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_11"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_11"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_11"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_11"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="11. Я обнаруживал(а) себя взволнованным(ой)" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_11"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_11"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_11"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_11"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="12. Мне было трудно расслабиться" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_12"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_12"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_12"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_12"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="12. Мне было трудно расслабиться" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_12"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_12"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_12"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_12"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="13. Я чувствовал(а) себя унылым(ой) и подавленным(ой)" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_13"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_13"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_13"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_13"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="13. Я чувствовал(а) себя унылым(ой) и подавленным(ой)" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_13"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_13"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_13"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_13"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="14. Я был(а) нетерпим(а) ко всему, что мешало мне в моих делах" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_14"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_14"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_14"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_14"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="14. Я был(а) нетерпим(а) ко всему, что мешало мне в моих делах" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_14"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_14"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_14"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_14"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="15. Я был(а) близок(ка) к панике" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_15"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_15"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_15"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_15"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="15. Я был(а) близок(ка) к панике" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_15"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_15"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_15"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_15"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="16. Я не мог(ла) ничем увлечься" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_16"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_16"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_16"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_16"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="16. Я не мог(ла) ничем увлечься" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_16"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_16"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_16"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_16"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="17. Мне казалось, что как человек я ничего не стою" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_17"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_17"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_17"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_17"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="17. Мне казалось, что как человек я ничего не стою" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_17"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_17"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_17"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_17"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="18. Я чувствовал(а), что был(а) довольно обидчив(а)" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_18"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_18"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_18"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_18"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="18. Я чувствовал(а), что был(а) довольно обидчив(а)" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_18"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_18"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_18"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_18"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="19. Я чувствовал(а) работу своего сердца при отсутствии физической активности (например, ощущение увеличения частоты сердечных сокращений, пропуска сердечных ударов)" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_19"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_19"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_19"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_19"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="19. Я чувствовал(а) работу своего сердца при отсутствии физической активности (например, ощущение увеличения частоты сердечных сокращений, пропуска сердечных ударов)" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_19"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_19"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_19"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_19"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="20.  Мне было страшно без всякой на то причины" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_20"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_20"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_20"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_20"/>
-                                </toggleGroup>
-                            </RadioButton>
+                                <Label wrapText="true" prefWidth="400" text="20.  Мне было страшно без всякой на то причины" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_20"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_20"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_20"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_20"/>
+                                    </toggleGroup>
+                                </RadioButton>
 
-                            <Label wrapText="true" prefWidth="400" text="21. Мне казалось, что жизнь бессмысленна" />
-                            <RadioButton text="Никогда" userData="0">
-                                <toggleGroup>
-                                    <ToggleGroup fx:id="question_21"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Редко" userData="1">
-                                <toggleGroup>
-                                    <fx:reference source="question_21"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Часто" userData="2">
-                                <toggleGroup>
-                                    <fx:reference source="question_21"/>
-                                </toggleGroup>
-                            </RadioButton>
-                            <RadioButton text="Почти всегда" userData="3">
-                                <toggleGroup>
-                                    <fx:reference source="question_21"/>
-                                </toggleGroup>
-                            </RadioButton>
-                        </VBox>
-                    </ScrollPane>
+                                <Label wrapText="true" prefWidth="400" text="21. Мне казалось, что жизнь бессмысленна" />
+                                <RadioButton text="Никогда" userData="0">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="question_21"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Редко" userData="1">
+                                    <toggleGroup>
+                                        <fx:reference source="question_21"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Часто" userData="2">
+                                    <toggleGroup>
+                                        <fx:reference source="question_21"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton text="Почти всегда" userData="3">
+                                    <toggleGroup>
+                                        <fx:reference source="question_21"/>
+                                    </toggleGroup>
+                                </RadioButton>
+                            </VBox>
+                        </ScrollPane>
 
-                    <Button text="Получить результаты" onAction="#submit"/>
-
-                    <VBox>
-
+                        <Button text="Получить результаты" onAction="#submit"/>
                     </VBox>
-                </VBox>
+
+                    <VBox fx:id="resultsBox" />
+                </HBox>
             </Tab>
             <Tab text="Справочная информация">
                 <StackPane>

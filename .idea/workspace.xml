@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="added view all added patients in patients page">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/DASS21TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dass-21-test.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/html/dass-21-test-description.html" afterDir="false" />
+    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="started working on dass-21-test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main-page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/DASS21TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/DASS21TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dass-21-test.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dass-21-test.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -125,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719867923045</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="started working on dass-21-test">
+      <created>1719952283843</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1719952283843</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,7 +150,8 @@
     <MESSAGE value="added sqlite db, special class for working with it, also many, manu things" />
     <MESSAGE value="now we can add new patients to db" />
     <MESSAGE value="added view all added patients in patients page" />
-    <option name="LAST_COMMIT_MESSAGE" value="added view all added patients in patients page" />
+    <MESSAGE value="started working on dass-21-test" />
+    <option name="LAST_COMMIT_MESSAGE" value="started working on dass-21-test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
