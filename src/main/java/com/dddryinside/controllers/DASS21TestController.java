@@ -1,12 +1,19 @@
 package com.dddryinside.controllers;
 
+import com.dddryinside.DTO.Patient;
 import com.dddryinside.PageLoader;
+import com.dddryinside.service.DataBaseAccess;
+import com.dddryinside.service.TestResultsDataBaseAccess;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.geometry.Insets;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
+
+import java.util.List;
 
 public class DASS21TestController extends PageLoader {
     @FXML  ToggleGroup question_1;
@@ -33,13 +40,15 @@ public class DASS21TestController extends PageLoader {
     @FXML  WebView description;
     @FXML  VBox resultsBox;
 
+    private boolean isSubmitted = false;
+
     public void initialize() {
         String filePath = getClass().getResource("/html/dass-21-test-description.html").toExternalForm();
         description.getEngine().load(filePath);
     }
 
-    public void submit() {
-        RadioButton[] selectedRadios = new RadioButton[]{
+    private RadioButton[] getAllRadios() {
+        RadioButton[] allRadios = new RadioButton[]{
                 (RadioButton) question_1.getSelectedToggle(),
                 (RadioButton) question_2.getSelectedToggle(),
                 (RadioButton) question_3.getSelectedToggle(),
@@ -63,35 +72,70 @@ public class DASS21TestController extends PageLoader {
                 (RadioButton) question_21.getSelectedToggle(),
         };
 
-        int depression = 0;
-        int anxiety = 0;
-        int stress = 0;
-        boolean checkDone = true;
+        return allRadios;
+    }
 
-        for (int i = 0; i < selectedRadios.length; i++) {
-            if (selectedRadios[i] != null) {
-                String answer = (String) selectedRadios[i].getUserData();
+    public void submit() {
+        if (!isSubmitted) {
+            int depression = 0;
+            int anxiety = 0;
+            int stress = 0;
+            boolean checkDone = true;
 
-                int checkValue = i + 1;
-                if (checkValue == 3 || checkValue == 5 || checkValue == 10 || checkValue == 13
-                     || checkValue == 16 || checkValue == 17 || checkValue == 21) {
-                    depression += Integer.parseInt(answer);
-                } else if (checkValue == 2 || checkValue == 4 || checkValue == 7 || checkValue == 9
-                     || checkValue == 15 || checkValue == 19 || checkValue == 20) {
-                    anxiety += Integer.parseInt(answer);
+            RadioButton[] allRadios = getAllRadios();
+            for (int i = 0; i < allRadios.length; i++) {
+                if (allRadios[i] != null) {
+                    String answer = (String) allRadios[i].getUserData();
+
+                    int checkValue = i + 1;
+                    if (checkValue == 3 || checkValue == 5 || checkValue == 10 || checkValue == 13
+                            || checkValue == 16 || checkValue == 17 || checkValue == 21) {
+                        depression += Integer.parseInt(answer);
+                    } else if (checkValue == 2 || checkValue == 4 || checkValue == 7 || checkValue == 9
+                            || checkValue == 15 || checkValue == 19 || checkValue == 20) {
+                        anxiety += Integer.parseInt(answer);
+                    } else {
+                        stress += Integer.parseInt(answer);
+                    }
                 } else {
-                    stress += Integer.parseInt(answer);
+                    errorNotification("Вы не ответили на " + (i + 1) + " вопрос");
+                    checkDone = false;
+                    break;
                 }
-            } else {
-                errorNotification("Вы не ответили на " + (i + 1) + " вопрос");
-                checkDone = false;
-                break;
+            }
+
+            if (checkDone) {
+                isSubmitted = true;
+                loadResults(depression, anxiety, stress);
             }
         }
+    }
 
-        if (checkDone) {
-            loadResults(depression, anxiety, stress);
-        }
+    public void clean() {
+        question_1.selectToggle(null);
+        question_2.selectToggle(null);
+        question_3.selectToggle(null);
+        question_4.selectToggle(null);
+        question_5.selectToggle(null);
+        question_6.selectToggle(null);
+        question_7.selectToggle(null);
+        question_8.selectToggle(null);
+        question_9.selectToggle(null);
+        question_10.selectToggle(null);
+        question_11.selectToggle(null);
+        question_12.selectToggle(null);
+        question_13.selectToggle(null);
+        question_14.selectToggle(null);
+        question_15.selectToggle(null);
+        question_16.selectToggle(null);
+        question_17.selectToggle(null);
+        question_18.selectToggle(null);
+        question_19.selectToggle(null);
+        question_20.selectToggle(null);
+        question_21.selectToggle(null);
+
+        resultsBox.getChildren().clear();
+        isSubmitted = false;
     }
 
     private void loadResults(Integer depression, Integer anxiety, Integer stress) {
@@ -172,5 +216,39 @@ public class DASS21TestController extends PageLoader {
         Label stressDescriptionLabel = new Label();
         stressDescriptionLabel.setText("Значение стресса: " + stress);
         resultsBox.getChildren().add(stressDescriptionLabel);
+
+        HBox buttons = new HBox();
+        buttons.setPadding(new Insets(10, 0, 0, 0));
+        buttons.setSpacing(10);
+
+
+        ComboBox<Patient> patientListView = new ComboBox<>();
+        patientListView.setMaxWidth(200);
+
+        // Получаем список пациентов из БД
+        List<Patient> patientList = DataBaseAccess.getAllPatients();
+
+        // Преобразуем ArrayList в ObservableList
+        ObservableList<Patient> patients = FXCollections.observableArrayList(patientList);
+
+        // Устанавливаем список пациентов в ListView
+        patientListView.setItems(patients);
+
+        Button saveButton = new Button("Сохранить");
+        saveButton.setOnAction(event -> {
+            Patient patient = patientListView.getSelectionModel().getSelectedItem();
+            if (patient != null) {
+                try {
+                    TestResultsDataBaseAccess.saveDASS21Result(patient.getId(), depression, anxiety, stress);
+                    clean();
+                } catch (Error e) {
+                    errorNotification("Ошибка записи!");
+                }
+            }
+        });
+
+        buttons.getChildren().add(saveButton);
+        buttons.getChildren().add(patientListView);
+        resultsBox.getChildren().add(buttons);
     }
 }

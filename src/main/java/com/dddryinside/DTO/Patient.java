@@ -4,11 +4,21 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Patient {
+    private int id;
     private String name;
     private String secondName;
     private String additionalName;
     private LocalDate birthDate;
     private String sex;
+
+    public Patient(int id, String name, String secondName, String additionalName, LocalDate birthDate, String sex) {
+        this.id = id;
+        this.name = name;
+        this.secondName = secondName;
+        this.additionalName = additionalName;
+        this.birthDate = birthDate;
+        this.sex = sex;
+    }
 
     public Patient(String name, String secondName, String additionalName, LocalDate birthDate, String sex) {
         this.name = name;
@@ -36,7 +46,11 @@ public class Patient {
 
     @Override
     public String toString() {
-        return secondName + "\n" + name + "\n" + additionalName + "\n" + birthDate + "\n" + sex;
+        return secondName + " " + name + " " + additionalName + ", " + getStringBirthDate() + ", " + getStringSex();
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -67,7 +81,7 @@ public class Patient {
         }
     }
 
-    public String getStringDate() {
+    public String getStringBirthDate() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         return this.birthDate.format(formatter);
     }

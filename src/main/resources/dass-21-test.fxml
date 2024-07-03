@@ -17,8 +17,8 @@
                         <Insets left="20" right="20" top="20" bottom="20"/>
                     </padding>
 
-                    <VBox spacing="20" prefWidth="500">
-                        <ScrollPane maxHeight="Infinity" maxWidth="500">
+                    <VBox spacing="20" prefWidth="460">
+                        <ScrollPane maxHeight="Infinity" maxWidth="460">
                             <VBox spacing="10">
                                 <padding>
                                     <Insets left="20" right="20" top="20" bottom="20"/>
@@ -488,10 +488,13 @@
                             </VBox>
                         </ScrollPane>
 
-                        <Button text="Получить результаты" onAction="#submit"/>
+                        <HBox spacing="10">
+                            <Button text="Получить результаты" onAction="#submit"/>
+                            <Button text="Очистить всё" onAction="#clean"/>
+                        </HBox>
                     </VBox>
 
-                    <VBox fx:id="resultsBox" />
+                    <VBox fx:id="resultsBox"/>
                 </HBox>
             </Tab>
             <Tab text="Справочная информация">

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataBaseAccess {
-    private static final String DB_URL = "jdbc:sqlite:./database.db";
+    protected static final String DB_URL = "jdbc:sqlite:./database.db";
 
     public static void savePatient(Patient patient) {
         checkPatientsTableExist();
@@ -99,7 +99,7 @@ public class DataBaseAccess {
                 LocalDate dateOfBirth = resultSet.getObject("date_of_birth", LocalDate.class);
                 String gender = resultSet.getString("gender");
 
-                Patient patient = new Patient(name, secondName, additionalName, dateOfBirth, gender);
+                Patient patient = new Patient(id, name, secondName, additionalName, dateOfBirth, gender);
                 patients.add(patient);
             }
 

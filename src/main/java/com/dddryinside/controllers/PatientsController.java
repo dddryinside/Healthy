@@ -4,11 +4,8 @@ import com.dddryinside.DTO.Patient;
 import com.dddryinside.PageLoader;
 import com.dddryinside.service.DataBaseAccess;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
-import javafx.scene.control.skin.VirtualContainerBase;
-import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
@@ -39,7 +36,7 @@ public class PatientsController extends PageLoader {
 
                 VBox info = new VBox();
                 info.getChildren().add(new Label(patient.getFio()));
-                info.getChildren().add(new Label(patient.getStringDate()));
+                info.getChildren().add(new Label(patient.getStringBirthDate()));
                 info.getChildren().add(new Label(patient.getStringSex()));
 
                 patientPane.setContent(info);
