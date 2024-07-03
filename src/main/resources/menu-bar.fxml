@@ -15,7 +15,7 @@
         </Menu>
         <Menu text="Информация">
             <items>
-                <MenuItem text="О приложении" />
+                <MenuItem text="О приложении"  onAction="#loadAboutPage"/>
             </items>
         </Menu>
     </menus>

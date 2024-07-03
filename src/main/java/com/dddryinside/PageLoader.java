@@ -27,6 +27,10 @@ public class PageLoader {
         loadPage("/dass-21-test.fxml");
     }
 
+    public void loadAboutPage() {
+        loadPage("/about.fxml");
+    }
+
     private void loadPage(String FXMLFileName) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Healthy.class.getResource(FXMLFileName));

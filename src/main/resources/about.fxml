@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.dddryinside.controllers.AboutController" stylesheets="main.css">
+    <fx:include source="menu-bar.fxml" />
+
+    <VBox spacing="10">
+        <padding>
+            <Insets left="20" right="20" top="20" bottom="20"/>
+        </padding>
+        <Label styleClass="bold-text" text="Разработчик: Черников Илья Григорьевич"/>
+        <Label styleClass="bold-text" text="Версия приложения: 1.0"/>
+
+        <VBox>
+            <Label wrapText="true" prefWidth="600" text="   Healthy - это инструмент как для большого числа врачей широкого круга направленности, так и для простых людей. Содержит в себе медицинские тесты и калькуляторы. Позволяет отслеживать и хранить информацию о пациентах, изучать течение болезней."/>
+            <Label wrapText="true" prefWidth="600" text="   Данная версия является тестовой и содержит в себе лишь малую толику того, что можно было бы реализовать. Однако, оно уже представляет собой готовый фундамент или скелет, готовый быстро обрасти тканями."/>
+        </VBox>
+    </VBox>
+</VBox>
