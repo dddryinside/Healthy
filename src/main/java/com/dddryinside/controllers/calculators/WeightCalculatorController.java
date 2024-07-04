@@ -1,4 +1,4 @@
-package com.dddryinside.controllers;
+package com.dddryinside.controllers.calculators;
 
 
 import javafx.fxml.FXML;

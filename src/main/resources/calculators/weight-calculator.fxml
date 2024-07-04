@@ -7,8 +7,8 @@
 <?import javafx.scene.web.WebView?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.dddryinside.controllers.WeightCalculatorController" stylesheets="main.css">
-    <fx:include source="menu-bar.fxml" />
+      fx:controller="com.dddryinside.controllers.calculators.WeightCalculatorController" stylesheets="../main.css">
+    <fx:include source="../menu-bar.fxml" />
 
     <TabPane tabClosingPolicy="UNAVAILABLE">
         <tabs>

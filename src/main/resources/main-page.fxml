@@ -5,9 +5,9 @@
 <?import javafx.scene.control.TitledPane?>
 
 <?import javafx.scene.control.Hyperlink?>
-<VBox xmlns:fx="http://javafx.com/fxml"
+<VBox xmlns:fx="http://javafx.com/fxml" prefWidth="900" prefHeight="600"
       fx:controller="com.dddryinside.controllers.MainPageController" stylesheets="main.css">
-  <fx:include source="menu-bar.fxml" />
+  <fx:include source="menu-bar.fxml"/>
 
   <VBox spacing="10">
     <padding>

@@ -1,4 +1,4 @@
-package com.dddryinside.controllers;
+package com.dddryinside.controllers.tests;
 
 import com.dddryinside.DTO.Patient;
 import com.dddryinside.PageLoader;
@@ -15,7 +15,7 @@ import javafx.scene.web.WebView;
 
 import java.util.List;
 
-public class DASS21TestController extends PageLoader {
+public class DASS21Controller extends PageLoader {
     @FXML  ToggleGroup question_1;
     @FXML  ToggleGroup question_2;
     @FXML  ToggleGroup question_3;

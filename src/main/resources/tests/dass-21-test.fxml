@@ -6,8 +6,8 @@
 <?import javafx.scene.web.WebView?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.dddryinside.controllers.DASS21TestController" stylesheets="main.css">
-    <fx:include source="menu-bar.fxml" />
+      fx:controller="com.dddryinside.controllers.tests.DASS21Controller" stylesheets="../main.css">
+    <fx:include source="../menu-bar.fxml" />
 
     <TabPane tabClosingPolicy="UNAVAILABLE">
         <tabs>

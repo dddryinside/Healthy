@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="still working on dass-21-test">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AboutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/about.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icon.png" afterDir="false" />
+    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="added icon and &quot;about&quot; page">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/patient.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/Healthy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/Healthy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/menu-bar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/menu-bar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/DASS21TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/tests/DASS21Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/WeightCalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/calculators/WeightCalculatorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dass-21-test.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tests/dass-21-test.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main-page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/weight-calculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/calculators/weight-calculator.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +65,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Msolutions Projects\Healthy\src\main\resources\calculators" />
+      <recent name="C:\Msolutions Projects\Healthy\src\main\resources\tests" />
       <recent name="C:\Msolutions Projects\WeightChecker\src\main\resources\html" />
       <recent name="C:\Msolutions Projects\WeightChecker\src\main\resources" />
     </key>
@@ -138,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719984647567</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added icon and &quot;about&quot; page">
+      <created>1720017548333</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1720017548333</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,7 +176,8 @@
     <MESSAGE value="started working on dass-21-test" />
     <MESSAGE value="still working on dass-21-test" />
     <MESSAGE value="saving dass-21 test results to DB is working now" />
-    <option name="LAST_COMMIT_MESSAGE" value="still working on dass-21-test" />
+    <MESSAGE value="added icon and &quot;about&quot; page" />
+    <option name="LAST_COMMIT_MESSAGE" value="added icon and &quot;about&quot; page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

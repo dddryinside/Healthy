@@ -1,5 +1,9 @@
 package com.dddryinside;
 
+import com.dddryinside.DTO.Patient;
+import com.dddryinside.controllers.PatientPageController;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -7,6 +11,7 @@ import javafx.stage.Stage;
 
 public class PageLoader {
     public static Stage stage;
+
     public void loadMainPage() {
         loadPage("/main-page.fxml");
     }
@@ -20,11 +25,11 @@ public class PageLoader {
     }
 
     public void loadWeightCalculatorPage() {
-        loadPage("/weight-calculator.fxml");
+        loadPage("/calculators/weight-calculator.fxml");
     }
 
     public void loadDASS21TestPage() {
-        loadPage("/dass-21-test.fxml");
+        loadPage("/tests/dass-21-test.fxml");
     }
 
     public void loadAboutPage() {
@@ -33,10 +38,82 @@ public class PageLoader {
 
     private void loadPage(String FXMLFileName) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Healthy.class.getResource(FXMLFileName));
-            Scene scene = new Scene(fxmlLoader.load(), 900, 600);
+            // Сохранение текущих размеров и позиции окна
+            double currentWidth = stage.getWidth();
+            double currentHeight = stage.getHeight();
+            double currentX = stage.getX();
+            double currentY = stage.getY();
+            boolean isMaximized = stage.isMaximized();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(FXMLFileName));
+            Scene scene = new Scene(fxmlLoader.load());
+
             stage.setScene(scene);
+
+            // Восстановление размеров и позиции окна
+            if (!isMaximized) {
+                stage.setWidth(currentWidth);
+                stage.setHeight(currentHeight);
+                stage.setX(currentX);
+                stage.setY(currentY);
+            } else {
+                stage.setMaximized(true);
+            }
+
             stage.show();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            errorNotification();
+        }
+    }
+
+    public void loadPatientPage(Patient patient) {
+        try {
+            // Сохранение текущих размеров и позиции окна
+            double currentWidth = stage.getWidth();
+            double currentHeight = stage.getHeight();
+            double currentX = stage.getX();
+            double currentY = stage.getY();
+            boolean isMaximized = stage.isMaximized();
+
+            // Создаем Task для загрузки страницы
+            Task<Scene> loadPageTask = new Task<>() {
+                @Override
+                protected Scene call() throws Exception {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/patient.fxml"));
+                    Scene scene = new Scene(fxmlLoader.load());
+
+                    PatientPageController controller = fxmlLoader.getController();
+                    controller.setPatient(patient);
+
+                    return scene;
+                }
+            };
+
+            // Запускаем Task и ждем его завершения
+            loadPageTask.setOnSucceeded(event -> {
+                Scene scene = loadPageTask.getValue();
+                stage.setScene(scene);
+
+                // Восстановление размеров и позиции окна
+                if (!isMaximized) {
+                    stage.setWidth(currentWidth);
+                    stage.setHeight(currentHeight);
+                    stage.setX(currentX);
+                    stage.setY(currentY);
+                } else {
+                    stage.setMaximized(true);
+                }
+
+                stage.show();
+            });
+
+            loadPageTask.setOnFailed(event -> {
+                System.out.println(loadPageTask.getException().getMessage());
+                errorNotification();
+            });
+
+            new Thread(loadPageTask).start();
         } catch (Exception e) {
             System.out.println(e.getMessage());
             errorNotification();

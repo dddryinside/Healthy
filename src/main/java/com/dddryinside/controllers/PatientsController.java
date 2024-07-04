@@ -4,8 +4,10 @@ import com.dddryinside.DTO.Patient;
 import com.dddryinside.PageLoader;
 import com.dddryinside.service.DataBaseAccess;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
@@ -39,6 +41,13 @@ public class PatientsController extends PageLoader {
                 info.getChildren().add(new Label(patient.getStringBirthDate()));
                 info.getChildren().add(new Label(patient.getStringSex()));
 
+                Button moreButton = new Button("Подробнее");
+                moreButton.setOnAction(event -> {
+                    loadPatientPage(patient);
+                });
+                info.getChildren().add(moreButton);
+
+                info.setSpacing(2);
                 patientPane.setContent(info);
                 mainPatientsContainer.getChildren().add(patientPane);
             }
