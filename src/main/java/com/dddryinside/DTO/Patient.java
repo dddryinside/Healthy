@@ -75,9 +75,9 @@ public class Patient {
 
     public String getStringSex() {
         if (this.sex.equals("Male")) {
-            return "Мужчина";
+            return "мужской";
         } else {
-            return "Женщина";
+            return "женский";
         }
     }
 

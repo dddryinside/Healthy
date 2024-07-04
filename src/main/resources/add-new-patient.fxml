@@ -12,7 +12,7 @@
       fx:controller="com.dddryinside.controllers.AddNewPatientController" stylesheets="main.css">
     <fx:include source="menu-bar.fxml" />
 
-    <VBox spacing="10" maxWidth="220">
+    <VBox spacing="5" maxWidth="220">
         <padding>
             <Insets left="20" right="20" top="20"/>
         </padding>

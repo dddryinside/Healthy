@@ -23,7 +23,7 @@
                                 <padding>
                                     <Insets left="20" right="20" top="20" bottom="20"/>
                                 </padding>
-                                <Label styleClass="bold-text" text="Шкалы депрессии, тревоги и стресса (DASS-21)"/>
+                                <Label styleClass="bold-text" text="Шкала депрессии, тревоги и стресса (DASS-21)"/>
                                 <Label text="1. Мне было трудно успокоится"/>
                                 <RadioButton text="Никогда" userData="0">
                                     <toggleGroup>

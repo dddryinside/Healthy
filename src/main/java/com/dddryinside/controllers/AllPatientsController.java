@@ -7,12 +7,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
 
-public class PatientsController extends PageLoader {
+public class AllPatientsController extends PageLoader {
     @FXML VBox mainBox;
 
     List<Patient> patientsList;
@@ -37,9 +36,8 @@ public class PatientsController extends PageLoader {
                 patientPane.setText(patient.getFio());
 
                 VBox info = new VBox();
-                info.getChildren().add(new Label(patient.getFio()));
-                info.getChildren().add(new Label(patient.getStringBirthDate()));
-                info.getChildren().add(new Label(patient.getStringSex()));
+                info.getChildren().add(new Label("Дата рождения: " + patient.getStringBirthDate()));
+                info.getChildren().add(new Label("Пол: " + patient.getStringSex()));
 
                 Button moreButton = new Button("Подробнее");
                 moreButton.setOnAction(event -> {

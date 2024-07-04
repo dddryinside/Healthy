@@ -15,7 +15,11 @@
         <Label fx:id="fio" styleClass="bold-text" />
         <Label fx:id="birthDate" />
         <Label fx:id="sex" />
-        <Button text="Редактировать профиль" />
+        <HBox spacing="5">
+            <Button text="Редактировать профиль" />
+            <Button text="Удалить профиль" styleClass="delete-button" />
+        </HBox>
+
         <VBox fx:id="allResearches">
 
         </VBox>

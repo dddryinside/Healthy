@@ -109,4 +109,41 @@ public class DataBaseAccess {
 
         return patients;
     }
+
+     public static List<TestsEnum> getAllTestsOfPatient(Patient patient) {
+        List<TestsEnum> tests = new ArrayList<>();
+
+        for (TestsEnum currentTest : TestsEnum.values()) {
+            if (hasThePatientBeenTested(currentTest.getDbName(), patient.getId())) {
+                tests.add(currentTest);
+            }
+        }
+
+        return tests;
+     }
+
+    private static boolean hasThePatientBeenTested(String tableName, int patientId) {
+        try {
+            // Загрузка драйвера SQLite
+            Class.forName("org.sqlite.JDBC");
+
+            // Получение соединения с базой данных
+            try (Connection conn = DriverManager.getConnection(DB_URL)) {
+                // Подготовка SQL-запроса
+                String sql = "SELECT COUNT(*) FROM " + tableName + " WHERE patient_id = ?";
+                try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                    // Заполнение параметра запроса
+                    stmt.setInt(1, patientId);
+
+                    // Выполнение запроса
+                    ResultSet rs = stmt.executeQuery();
+                    int count = rs.getInt(1);
+                    return count > 0;
+                }
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

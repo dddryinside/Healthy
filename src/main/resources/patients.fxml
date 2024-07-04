@@ -6,7 +6,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.dddryinside.controllers.PatientsController" stylesheets="main.css">
+      fx:controller="com.dddryinside.controllers.AllPatientsController" stylesheets="main.css">
     <fx:include source="menu-bar.fxml" />
 
     <VBox fx:id="mainBox" spacing="20">
