@@ -1,8 +1,16 @@
 package com.dddryinside.DTO;
 
+import com.dddryinside.service.DataBaseAccess;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Patient {
     private int id;
     private String name;
@@ -10,6 +18,7 @@ public class Patient {
     private String additionalName;
     private LocalDate birthDate;
     private String sex;
+    private String password;
 
     public Patient(int id, String name, String secondName, String additionalName, LocalDate birthDate, String sex) {
         this.id = id;
@@ -20,12 +29,13 @@ public class Patient {
         this.sex = sex;
     }
 
-    public Patient(String name, String secondName, String additionalName, LocalDate birthDate, String sex) {
+    public Patient(String name, String secondName, String additionalName, LocalDate birthDate, String sex, String password) {
         this.name = name;
         this.secondName = secondName;
         this.additionalName = additionalName;
         this.birthDate = birthDate;
         this.sex = sex;
+        this.password = password;
     }
 
     public boolean isCorrect() throws IllegalArgumentException{
@@ -39,6 +49,12 @@ public class Patient {
             throw new IllegalArgumentException("Дата рождения вверена неверно!");
         } else if (this.sex == null) {
             throw new IllegalArgumentException("Пол не выбран!");
+        } else if (this.password == null || this.password.trim().isEmpty() || this.password.length() < 5 || DataBaseAccess.checkPasswordExist(password)) {
+            if (this.password == null || this.password.trim().isEmpty() || this.password.length() < 8) {
+                throw new IllegalArgumentException("Пароль слишком короткий! Должно быть не меньше 5 символов!");
+            } else {
+                throw new IllegalArgumentException("Пароль недоступен. Попробуйте другой");
+            }
         } else {
             return true;
         }
@@ -47,30 +63,6 @@ public class Patient {
     @Override
     public String toString() {
         return secondName + " " + name + " " + additionalName + ", " + getStringBirthDate() + ", " + getStringSex();
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public String getAdditionalName() {
-        return additionalName;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public String getSex() {
-        return sex;
     }
 
     public String getStringSex() {

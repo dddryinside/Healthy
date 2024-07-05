@@ -8,20 +8,34 @@
       fx:controller="com.dddryinside.controllers.PatientPageController" stylesheets="main.css">
     <fx:include source="menu-bar.fxml" />
 
-    <VBox spacing="2">
+    <HBox spacing="20">
         <padding>
             <Insets left="20" right="20" top="20" bottom="20"/>
         </padding>
-        <Label fx:id="fio" styleClass="bold-text" />
-        <Label fx:id="birthDate" />
-        <Label fx:id="sex" />
-        <HBox spacing="5">
-            <Button text="Редактировать профиль" />
-            <Button text="Удалить профиль" styleClass="delete-button" />
-        </HBox>
+
+        <VBox spacing="5">
+            <Label fx:id="fio" styleClass="bold-text" />
+            <Label fx:id="birthDate" />
+            <Label fx:id="sex" />
+            <HBox spacing="5">
+                <Button text="Редактировать профиль" />
+                <Button text="Выйти" />
+                <!--<Button text="Удалить профиль" styleClass="delete-button" />-->
+            </HBox>
+
+            <Label text="Личный дневник" styleClass="special-text"/>
+
+            <Label wrapText="true" prefWidth="500" text="Вы можете спокойно писать сюда всё что угодно. Эта информация сохраниться на вашем компьютере в зашифрованном виде и только вы сможете её прочесть"/>
+            <TextArea maxWidth="500" maxHeight="300" promptText="Жизнь прекрасна!"/>
+            <HBox spacing="5">
+                <Button text="Сохранить" />
+                <Button text="Очистить" styleClass="delete-button" />
+            </HBox>
+        </VBox>
 
         <VBox fx:id="allResearches">
+            <Label text="Ваши исследования" styleClass="special-text"/>
 
         </VBox>
-    </VBox>
+    </HBox>
 </VBox>

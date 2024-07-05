@@ -1,5 +1,10 @@
 .bold-text {
     -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+.special-text {
+    -fx-font-size: 16px;
 }
 
 .delete-button {

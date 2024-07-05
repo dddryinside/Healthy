@@ -8,15 +8,11 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
-<VBox xmlns:fx="http://javafx.com/fxml"
+<?import javafx.scene.layout.HBox?>
+<VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.dddryinside.controllers.AddNewPatientController" stylesheets="main.css">
-    <fx:include source="menu-bar.fxml" />
 
-    <VBox spacing="5" maxWidth="220">
-        <padding>
-            <Insets left="20" right="20" top="20"/>
-        </padding>
-
+    <VBox spacing="10" maxWidth="300">
         <Label text="Фамилия"/>
         <TextField fx:id="secondName"/>
         <Label text="Имя"/>
@@ -24,7 +20,8 @@
         <Label text="Отчество"/>
         <TextField fx:id="thirdName"/>
         <Label text="Дата рождения"/>
-        <DatePicker fx:id="birthDate" prefWidth="220" />
+        <DatePicker fx:id="birthDate" prefWidth="300"/>
+        <Label text="Пол"/>
         <RadioButton fx:id="male" text="Мужчина">
             <toggleGroup>
                 <ToggleGroup fx:id="sexToggleGroup"/>
@@ -36,7 +33,17 @@
             </toggleGroup>
         </RadioButton>
 
-        <Button text="Добавить пациента" onAction="#saveNewPatient"/>
+        <Label text="Пароль"/>
+        <TextField fx:id="password"/>
+
+        <HBox spacing="10">
+            <Button text="Назад" onAction="#loadSecurityPage"/>
+            <Button text="Сохранить профиль" onAction="#saveNewPatient"/>
+        </HBox>
+
+        <padding>
+            <Insets bottom="30"/>
+        </padding>
     </VBox>
 </VBox>
 

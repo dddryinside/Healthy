@@ -2,6 +2,7 @@ package com.dddryinside.service;
 
 import com.dddryinside.DTO.Patient;
 import com.dddryinside.DTO.Tests;
+import org.sqlite.SQLiteException;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataBaseAccess {
-    protected static final String DB_URL = "jdbc:sqlite:./database.db";
+    public static final String DB_URL = "jdbc:sqlite:./database.db";
 
     public static void savePatient(Patient patient) {
         checkPatientsTableExist();
@@ -21,7 +22,7 @@ public class DataBaseAccess {
             // Получение соединения с базой данных
             try (Connection conn = DriverManager.getConnection(DB_URL)) {
                 // Подготовка SQL-запроса
-                String sql = "INSERT INTO users (name, second_name, additional_name, date_of_birth, gender) VALUES (?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO users (name, second_name, additional_name, date_of_birth, gender, password) VALUES (?, ?, ?, ?, ?, ?)";
                 try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                     // Заполнение параметров запроса
                     stmt.setString(1, patient.getName());
@@ -29,6 +30,7 @@ public class DataBaseAccess {
                     stmt.setString(3, patient.getAdditionalName());
                     stmt.setString(4, String.valueOf(patient.getBirthDate()));
                     stmt.setString(5, patient.getSex());
+                    stmt.setString(6, patient.getPassword());
 
                     // Выполнение запроса
                     stmt.executeUpdate();
@@ -54,7 +56,8 @@ public class DataBaseAccess {
                         "second_name TEXT," +
                         "additional_name TEXT," +
                         "date_of_birth DATE," +
-                        "gender TEXT)");
+                        "gender TEXT," +
+                        "password TEXT)");
                 System.out.println("Таблица 'users' успешно создана.");
             } else {
                 System.out.println("Таблица 'users' уже существует.");
@@ -65,27 +68,8 @@ public class DataBaseAccess {
         }
     }
 
-    public static int getPatientsCount() {
-        checkPatientsTableExist();
-
-        int usersCount = 0;
-
-        try (Connection connection = DriverManager.getConnection(DB_URL);
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM users")) {
-
-            if (resultSet.next()) {
-                usersCount = resultSet.getInt(1);
-            }
-
-        } catch (SQLException e) {
-            System.err.println("Ошибка при работе с базой данных: " + e.getMessage());
-        }
-
-        return usersCount;
-    }
-
     public static List<Patient> getAllPatients() {
+        checkPatientsTableExist();
         List<Patient> patients = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(DB_URL);
@@ -145,6 +129,61 @@ public class DataBaseAccess {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public static boolean checkPasswordExist(String password) {
+
+        try {
+            // Загрузка драйвера SQLite
+            Class.forName("org.sqlite.JDBC");
+
+            // Получение соединения с базой данных
+            try (Connection conn = DriverManager.getConnection(DB_URL)) {
+                // Подготовка SQL-запроса
+                String sql = "SELECT COUNT(*) FROM users WHERE password = ?";
+                try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                    // Заполнение параметра запроса
+                    stmt.setString(1, password);
+
+                    // Выполнение запроса
+                    ResultSet rs = stmt.executeQuery();
+                    int count = rs.getInt(1);
+                    return count > 0;
+                }
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static int findUserByPassword(String password) {
+        try {
+            // Загрузка драйвера SQLite
+            Class.forName("org.sqlite.JDBC");
+
+            // Получение соединения с базой данных
+            try (Connection conn = DriverManager.getConnection(DB_URL)) {
+                // Подготовка SQL-запроса
+                String sql = "SELECT id FROM users WHERE password = ?";
+                try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                    // Заполнение параметра запроса
+                    stmt.setString(1, password);
+
+                    // Выполнение запроса
+                    try (ResultSet rs = stmt.executeQuery()) {
+                        if (rs.next()) {
+                            return rs.getInt("id");
+                        } else {
+                            return -1; // Пароль не найден
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
         }
     }
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestsDataBaseAccess extends DataBaseAccess{
-    private static void checkDASS21TableExist() {
+    /*private static void checkDASS21TableExist() {
 
         try (Connection connection = DriverManager.getConnection(DB_URL);
              Statement statement = connection.createStatement()) {
@@ -32,9 +32,9 @@ public class TestsDataBaseAccess extends DataBaseAccess{
         } catch (SQLException e) {
             System.err.println("Ошибка при работе с базой данных: " + e.getMessage());
         }
-    }
+    }*/
 
-    public static void saveDASS21Result(int patient_id, int depression, int anxiety, int stress) {
+   /* public static void saveDASS21Result(int patient_id, int depression, int anxiety, int stress) {
         checkDASS21TableExist();
 
         try {
@@ -60,11 +60,11 @@ public class TestsDataBaseAccess extends DataBaseAccess{
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
-    public static List<DASS21> getDASS21Results(Patient patient) {
+/*    public static List<DASS21.DTO> getDASS21Results(Patient patient) {
         checkDASS21TableExist();
-        List<DASS21> dass21List = new ArrayList<>();
+        List<DASS21.DTO> testResultsList = new ArrayList<>();
 
         try {
             Class.forName("org.sqlite.JDBC");
@@ -80,8 +80,8 @@ public class TestsDataBaseAccess extends DataBaseAccess{
                     int anxiety = resultSet.getInt("anxiety");
                     int stress = resultSet.getInt("stress");
 
-                    DASS21 dass21 = new DASS21(date, depression, anxiety, stress);
-                    dass21List.add(dass21);
+                    DASS21.DTO result = new DASS21.DTO(date, depression, anxiety, stress);
+                    testResultsList.add(result);
                 }
             }
         } catch (ClassNotFoundException | SQLException e) {
@@ -89,6 +89,6 @@ public class TestsDataBaseAccess extends DataBaseAccess{
             e.printStackTrace();
         }
 
-        return dass21List;
-    }
+        return testResultsList;
+    }*/
 }

@@ -15,6 +15,10 @@ import javafx.stage.Stage;
 public class PageLoader {
     public static Stage stage;
 
+    public void loadSecurityPage() {
+        loadPage("/security-page.fxml");
+    }
+
     public void loadMainPage() {
         loadPage("/main-page.fxml");
     }
@@ -25,10 +29,6 @@ public class PageLoader {
 
     public void loadAddNewPatientPage() {
         loadPage("/add-new-patient.fxml");
-    }
-
-    public void loadWeightCalculatorPage() {
-        loadPage("/calculators/normal-weight/weight-calculator.fxml");
     }
 
     public void loadDASS21TestPage() {

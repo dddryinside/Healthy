@@ -1,6 +1,7 @@
 package com.dddryinside;
 
 import com.dddryinside.DTO.Patient;
+import com.dddryinside.service.DataBaseAccess;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -17,7 +18,9 @@ public class Healthy extends Application {
         stage.setHeight(600);
         PageLoader.stage = stage;
         PageLoader pageLoader = new PageLoader();
-        pageLoader.loadMainPage();
+
+        DataBaseAccess.checkPatientsTableExist();
+        pageLoader.loadSecurityPage();
     }
 
     public static void main(String[] args) {

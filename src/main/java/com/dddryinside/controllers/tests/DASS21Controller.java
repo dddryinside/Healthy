@@ -1,5 +1,6 @@
 package com.dddryinside.controllers.tests;
 
+import com.dddryinside.DTO.DASS21;
 import com.dddryinside.DTO.Patient;
 import com.dddryinside.PageLoader;
 import com.dddryinside.service.DataBaseAccess;
@@ -239,7 +240,7 @@ public class DASS21Controller extends PageLoader {
             Patient patient = patientListView.getSelectionModel().getSelectedItem();
             if (patient != null) {
                 try {
-                    TestsDataBaseAccess.saveDASS21Result(patient.getId(), depression, anxiety, stress);
+                    DASS21.saveTestResult(patient.getId(), depression, anxiety, stress);
                     clean();
                 } catch (Error e) {
                     errorNotification("Ошибка записи!");
