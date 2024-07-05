@@ -4,18 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="now personal page for patients exist, also updated page loader, now it works more correct">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/TestsEnum.java" afterDir="false" />
+    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="passed tests are displayed on users’ personal pages">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/DASS21.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/tests/TestResultsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tests/dass21/dass21-results.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AllPatientsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/calculators/WeightCalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/calculators/WeightCalculatorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/tests/DASS21Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/tests/DASS21Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/add-new-patient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/add-new-patient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/patient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/patient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/patients.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/patients.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tests/dass-21-test.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tests/dass-21-test.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/TestResultsDataBaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/TestsDataBaseAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/TestsEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/calculators/weight-calculator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/calculators/normal-weight/weight-calculator.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/dass-21-test-description.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tests/dass21/dass21-description.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/html/weight-calculator-description.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/calculators/normal-weight/weight-calculator-description.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main-page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tests/dass-21-test.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tests/dass21/dass21-test.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +33,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
+        <option value="Enum" />
         <option value="FxmlFile" />
         <option value="Class" />
-        <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -65,10 +73,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Msolutions Projects\Healthy\src\main\resources\tests\dass-21" />
+      <recent name="C:\Msolutions Projects\Healthy\src\main\resources\calculators\weight-calculator" />
       <recent name="C:\Msolutions Projects\Healthy\src\main\resources\calculators" />
       <recent name="C:\Msolutions Projects\Healthy\src\main\resources\tests" />
       <recent name="C:\Msolutions Projects\WeightChecker\src\main\resources\html" />
-      <recent name="C:\Msolutions Projects\WeightChecker\src\main\resources" />
     </key>
   </component>
   <component name="RunManager">
@@ -159,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720085480343</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="passed tests are displayed on users’ personal pages">
+      <created>1720105203121</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1720105203121</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,7 +201,8 @@
     <MESSAGE value="saving dass-21 test results to DB is working now" />
     <MESSAGE value="added icon and &quot;about&quot; page" />
     <MESSAGE value="now personal page for patients exist, also updated page loader, now it works more correct" />
-    <option name="LAST_COMMIT_MESSAGE" value="now personal page for patients exist, also updated page loader, now it works more correct" />
+    <MESSAGE value="passed tests are displayed on users’ personal pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="passed tests are displayed on users’ personal pages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

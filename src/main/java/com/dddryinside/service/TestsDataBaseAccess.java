@@ -1,9 +1,14 @@
 package com.dddryinside.service;
 
+import com.dddryinside.DTO.DASS21;
+import com.dddryinside.DTO.Patient;
+
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-public class TestResultsDataBaseAccess extends DataBaseAccess{
+public class TestsDataBaseAccess extends DataBaseAccess{
     private static void checkDASS21TableExist() {
 
         try (Connection connection = DriverManager.getConnection(DB_URL);
@@ -55,5 +60,35 @@ public class TestResultsDataBaseAccess extends DataBaseAccess{
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static List<DASS21> getDASS21Results(Patient patient) {
+        checkDASS21TableExist();
+        List<DASS21> dass21List = new ArrayList<>();
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+
+            try (Connection conn = DriverManager.getConnection(DB_URL);
+                 PreparedStatement stmt = conn.prepareStatement("SELECT * FROM dass21 WHERE patient_id = ?")) {
+                stmt.setInt(1, patient.getId());
+                ResultSet resultSet = stmt.executeQuery();
+
+                while (resultSet.next()) {
+                    LocalDate date = resultSet.getObject("test_date", LocalDate.class);
+                    int depression = resultSet.getInt("depression");
+                    int anxiety = resultSet.getInt("anxiety");
+                    int stress = resultSet.getInt("stress");
+
+                    DASS21 dass21 = new DASS21(date, depression, anxiety, stress);
+                    dass21List.add(dass21);
+                }
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            // Более подробная обработка ошибок
+            e.printStackTrace();
+        }
+
+        return dass21List;
     }
 }

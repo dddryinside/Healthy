@@ -1,6 +1,7 @@
 package com.dddryinside.service;
 
 import com.dddryinside.DTO.Patient;
+import com.dddryinside.DTO.Tests;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -110,11 +111,11 @@ public class DataBaseAccess {
         return patients;
     }
 
-     public static List<TestsEnum> getAllTestsOfPatient(Patient patient) {
-        List<TestsEnum> tests = new ArrayList<>();
+     public static List<Tests> getAllTestsOfPatient(Patient patient) {
+        List<Tests> tests = new ArrayList<>();
 
-        for (TestsEnum currentTest : TestsEnum.values()) {
-            if (hasThePatientBeenTested(currentTest.getDbName(), patient.getId())) {
+        for (Tests currentTest : Tests.values()) {
+            if (hasThePatientBeenTested(currentTest.getName(), patient.getId())) {
                 tests.add(currentTest);
             }
         }

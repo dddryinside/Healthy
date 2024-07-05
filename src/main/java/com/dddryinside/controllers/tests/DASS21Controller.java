@@ -3,7 +3,7 @@ package com.dddryinside.controllers.tests;
 import com.dddryinside.DTO.Patient;
 import com.dddryinside.PageLoader;
 import com.dddryinside.service.DataBaseAccess;
-import com.dddryinside.service.TestResultsDataBaseAccess;
+import com.dddryinside.service.TestsDataBaseAccess;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -43,7 +43,7 @@ public class DASS21Controller extends PageLoader {
     private boolean isSubmitted = false;
 
     public void initialize() {
-        String filePath = getClass().getResource("/html/dass-21-test-description.html").toExternalForm();
+        String filePath = getClass().getResource("/tests/dass21/dass21-description.html").toExternalForm();
         description.getEngine().load(filePath);
     }
 
@@ -239,7 +239,7 @@ public class DASS21Controller extends PageLoader {
             Patient patient = patientListView.getSelectionModel().getSelectedItem();
             if (patient != null) {
                 try {
-                    TestResultsDataBaseAccess.saveDASS21Result(patient.getId(), depression, anxiety, stress);
+                    TestsDataBaseAccess.saveDASS21Result(patient.getId(), depression, anxiety, stress);
                     clean();
                 } catch (Error e) {
                     errorNotification("Ошибка записи!");
