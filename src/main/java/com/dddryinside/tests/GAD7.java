@@ -1,11 +1,11 @@
-package com.dddryinside.DTO;
+package com.dddryinside.tests;
 
+import com.dddryinside.service.Patient;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.List;

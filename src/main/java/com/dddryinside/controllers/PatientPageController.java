@@ -1,9 +1,9 @@
 package com.dddryinside.controllers;
 
-import com.dddryinside.DTO.Patient;
+import com.dddryinside.service.Patient;
 import com.dddryinside.PageLoader;
 import com.dddryinside.service.DataBaseAccess;
-import com.dddryinside.DTO.Tests;
+import com.dddryinside.service.AllTests;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -31,8 +31,8 @@ public class PatientPageController extends PageLoader {
             birthDate.setText("Дата рождения: " + patient.getStringBirthDate());
             sex.setText("Пол: " + patient.getStringSex());
 
-            List<Tests> tests = DataBaseAccess.getAllTestsOfPatient(patient);
-            for (Tests test : tests) {
+            List<AllTests> tests = DataBaseAccess.getAllTestsOfPatient(patient);
+            for (AllTests test : tests) {
                 Hyperlink hyperlink = new Hyperlink(test.getFullName());
                 hyperlink.setOnAction(event -> {
                     loadTestResultsPage(test, patient);

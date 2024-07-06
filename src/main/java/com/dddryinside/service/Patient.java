@@ -1,4 +1,4 @@
-package com.dddryinside.DTO;
+package com.dddryinside.service;
 
 import com.dddryinside.service.DataBaseAccess;
 import lombok.AllArgsConstructor;

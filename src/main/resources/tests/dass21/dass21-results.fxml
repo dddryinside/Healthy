@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.dddryinside.controllers.tests.TestResultsController" stylesheets="../../main.css">
+      fx:controller="com.dddryinside.controllers.TestResultsController" stylesheets="../../main.css">
     <fx:include source="../../menu-bar.fxml" />
 
     <VBox fx:id="chart">

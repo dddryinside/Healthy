@@ -1,11 +1,12 @@
-package com.dddryinside.DTO;
+package com.dddryinside.tests;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.dddryinside.service.TestsDataBaseAccess;
+import com.dddryinside.service.AllTests;
+import com.dddryinside.service.Patient;
 import javafx.scene.Parent;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
@@ -39,7 +40,7 @@ public class DASS21 implements Test {
         // Создание LineChart
         final LineChart<String, Number> lineChart = new LineChart<>(xAxis, yAxis);
         lineChart.setCreateSymbols(false);
-        lineChart.setTitle(Tests.DASS21.getFullName());
+        lineChart.setTitle(AllTests.DASS21.getFullName());
 
         // Настройка осей
         yAxis.setLabel("Значения");

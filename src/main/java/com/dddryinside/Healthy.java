@@ -1,12 +1,9 @@
 package com.dddryinside;
 
-import com.dddryinside.DTO.Patient;
 import com.dddryinside.service.DataBaseAccess;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.fxml.FXMLLoader;
 
 public class Healthy extends Application {
     @Override
@@ -16,6 +13,8 @@ public class Healthy extends Application {
         stage.getIcons().add(icon);
         stage.setWidth(900);
         stage.setHeight(600);
+        stage.setMinWidth(900);
+        stage.setMinHeight(600);
         PageLoader.stage = stage;
         PageLoader pageLoader = new PageLoader();
 

@@ -1,7 +1,7 @@
 package com.dddryinside.controllers;
 
-import com.dddryinside.DTO.Test;
-import com.dddryinside.DTO.Tests;
+import com.dddryinside.tests.Test;
+import com.dddryinside.service.AllTests;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
@@ -11,7 +11,7 @@ import java.io.IOException;
 public class TestController {
     private VBox root;
 
-    public void initializeUI(Tests testEnum) {
+    public void initializeUI(AllTests testEnum) {
         root = new VBox();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/menu-bar.fxml"));

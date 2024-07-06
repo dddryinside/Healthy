@@ -1,13 +1,12 @@
 package com.dddryinside;
 
-import com.dddryinside.DTO.DASS21;
-import com.dddryinside.DTO.Patient;
-import com.dddryinside.DTO.Test;
+import com.dddryinside.service.Patient;
+import com.dddryinside.controllers.MainPageController;
 import com.dddryinside.controllers.PatientPageController;
 import com.dddryinside.controllers.TestController;
 import com.dddryinside.controllers.UserPageController;
-import com.dddryinside.controllers.tests.TestResultsController;
-import com.dddryinside.DTO.Tests;
+import com.dddryinside.controllers.TestResultsController;
+import com.dddryinside.service.AllTests;
 import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -22,7 +21,14 @@ public class PageLoader {
     }
 
     public void loadMainPage() {
-        loadPage("/main-page.fxml");
+        //loadPage("/main-page.fxml");
+
+        MainPageController mainPageController = new MainPageController();
+        mainPageController.initializeUI();
+        Scene scene = new Scene(mainPageController.getRoot());
+
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void loadPatientsPage() {
@@ -41,9 +47,9 @@ public class PageLoader {
         loadPage("/about.fxml");
     }
 
-    public void loadTestPage() {
+    public void loadTestPage(AllTests test) {
         TestController testController = new TestController();
-        testController.initializeUI(Tests.PSQI);
+        testController.initializeUI(test);
         Scene scene = new Scene(testController.getRoot());
 
         stage.setScene(scene);
@@ -143,7 +149,7 @@ public class PageLoader {
         }
     }
 
-    public void loadTestResultsPage(Tests test, Patient patient) {
+    public void loadTestResultsPage(AllTests test, Patient patient) {
         try {
             // Сохранение текущих размеров и позиции окна
             double currentWidth = stage.getWidth();

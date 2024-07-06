@@ -1,6 +1,6 @@
 package com.dddryinside.controllers;
 
-import com.dddryinside.DTO.Patient;
+import com.dddryinside.service.Patient;
 import com.dddryinside.PageLoader;
 import com.dddryinside.service.DataBaseAccess;
 import javafx.fxml.FXML;

@@ -37,8 +37,8 @@ public class UserPageController implements Controller {
         // Add labels for user information
         Label fioLabel = new Label(DataBaseAccess.patient.getFio());
         fioLabel.getStyleClass().add("bold-text");
-        Label birthDateLabel = new Label(DataBaseAccess.patient.getStringBirthDate());
-        Label sexLabel = new Label(DataBaseAccess.patient.getStringSex());
+        Label birthDateLabel = new Label("Дата рождения: " + DataBaseAccess.patient.getStringBirthDate());
+        Label sexLabel = new Label("Пол: " + DataBaseAccess.patient.getStringSex());
 
         // Add buttons for profile actions
         HBox profileButtonsBox = new HBox(10);

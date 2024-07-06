@@ -1,13 +1,5 @@
 package com.dddryinside.service;
 
-import com.dddryinside.DTO.DASS21;
-import com.dddryinside.DTO.Patient;
-
-import java.sql.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
 public class TestsDataBaseAccess extends DataBaseAccess{
     /*private static void checkDASS21TableExist() {
 

@@ -12,7 +12,5 @@ module com.dddryinside.weightchecker {
     exports com.dddryinside.controllers;
     opens com.dddryinside.controllers to javafx.fxml;
     opens com.dddryinside.controllers.tests to javafx.fxml;
-    exports com.dddryinside.controllers.calculators;
-    opens com.dddryinside.controllers.calculators to javafx.fxml;
     exports com.dddryinside.controllers.tests;
 }

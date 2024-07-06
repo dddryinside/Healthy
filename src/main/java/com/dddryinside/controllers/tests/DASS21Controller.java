@@ -1,10 +1,9 @@
 package com.dddryinside.controllers.tests;
 
-import com.dddryinside.DTO.DASS21;
-import com.dddryinside.DTO.Patient;
+import com.dddryinside.tests.DASS21;
+import com.dddryinside.service.Patient;
 import com.dddryinside.PageLoader;
 import com.dddryinside.service.DataBaseAccess;
-import com.dddryinside.service.TestsDataBaseAccess;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

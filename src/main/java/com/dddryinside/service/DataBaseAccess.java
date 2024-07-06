@@ -1,9 +1,5 @@
 package com.dddryinside.service;
 
-import com.dddryinside.DTO.Patient;
-import com.dddryinside.DTO.Tests;
-import org.sqlite.SQLiteException;
-
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -133,10 +129,10 @@ public class DataBaseAccess {
         return patients;
     }
 
-     public static List<Tests> getAllTestsOfPatient(Patient patient) {
-        List<Tests> tests = new ArrayList<>();
+     public static List<AllTests> getAllTestsOfPatient(Patient patient) {
+        List<AllTests> tests = new ArrayList<>();
 
-        for (Tests currentTest : Tests.values()) {
+        for (AllTests currentTest : AllTests.values()) {
             if (hasThePatientBeenTested(currentTest.getName(), patient.getId())) {
                 tests.add(currentTest);
             }

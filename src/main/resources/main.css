@@ -11,12 +11,19 @@
     -fx-focus-color: red;
 }
 
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical {
+    -fx-pref-height: 20px;
+}
+
 .notification-text {
     -fx-wrap-text: true;
     -fx-max-width: Infinity;
-    /*-fx-font-weight: bold;*/
     -fx-background-color: lightgray;
     -fx-background-radius: 8px;
     -fx-padding: 12px 12px;
-    /*-fx-text-fill: #ffffff;*/
 }
