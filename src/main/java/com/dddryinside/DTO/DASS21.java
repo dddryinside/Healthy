@@ -6,10 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dddryinside.service.TestsDataBaseAccess;
+import javafx.scene.Parent;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.layout.VBox;
 import javafx.util.StringConverter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,7 +31,7 @@ public class DASS21 implements Test {
     }
 
     @Override
-    public LineChart<String, Number> showResults(Patient patient) {
+    public LineChart<String, Number> showStatistics(Patient patient) {
         // Создание осей
         final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis = new NumberAxis();
@@ -74,6 +76,11 @@ public class DASS21 implements Test {
         lineChart.getData().addAll(series1, series2, series3);
 
         return lineChart;
+    }
+
+    @Override
+    public Parent initializeUI() {
+        return new VBox();
     }
 
     private static void checkTestTableExist() {

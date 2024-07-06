@@ -4,6 +4,7 @@ import com.dddryinside.DTO.DASS21;
 import com.dddryinside.DTO.Patient;
 import com.dddryinside.DTO.Test;
 import com.dddryinside.controllers.PatientPageController;
+import com.dddryinside.controllers.TestController;
 import com.dddryinside.controllers.UserPageController;
 import com.dddryinside.controllers.tests.TestResultsController;
 import com.dddryinside.DTO.Tests;
@@ -38,6 +39,15 @@ public class PageLoader {
 
     public void loadAboutPage() {
         loadPage("/about.fxml");
+    }
+
+    public void loadTestPage() {
+        TestController testController = new TestController();
+        testController.initializeUI(Tests.PSQI);
+        Scene scene = new Scene(testController.getRoot());
+
+        stage.setScene(scene);
+        stage.show();
     }
 
     private void loadPage(String FXMLFileName) {

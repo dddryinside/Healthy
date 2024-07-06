@@ -10,6 +10,6 @@ public class TestResultsController extends PageLoader {
     @FXML VBox chart;
 
     public void setInfo(Test test, Patient patient) {
-        chart.getChildren().add(test.showResults(patient));
+        chart.getChildren().add(test.showStatistics(patient));
     }
 }

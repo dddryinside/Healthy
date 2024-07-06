@@ -22,11 +22,11 @@
         <Button text="Пройти" onAction="#loadDASS21TestPage" />
       </VBox>
     </TitledPane>
-    <TitledPane text="Питтсбургский опросник на определение индекса качества сна, PSQI" maxWidth="450" maxHeight="200" expanded="false">
+    <TitledPane text="Тест на тревожность, GAD-7" maxWidth="450" maxHeight="200" expanded="false">
       <VBox spacing="5">
-        <Label wrapText="true" text="PSQI (Pittsburgh Sleep Quality Index) - анализирует качество сна" />
-        <Label text="Количество вопросов: 11" />
-        <Button text="Пройти" onAction="#loadDASS21TestPage" />
+        <Label wrapText="true" text="GAD-7 - шкала оценки уровня тревожности и выявления симптомов тревожных расстройств, в частности генерализированного тревожного расстройства" />
+        <Label text="Количество вопросов: 7" />
+        <Button text="Пройти" onAction="#loadTestPage" />
       </VBox>
     </TitledPane>
   </VBox>
