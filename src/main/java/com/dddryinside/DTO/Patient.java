@@ -38,6 +38,14 @@ public class Patient {
         this.password = password;
     }
 
+    public Patient(String name, String secondName, String additionalName, LocalDate birthDate, String sex) {
+        this.name = name;
+        this.secondName = secondName;
+        this.additionalName = additionalName;
+        this.birthDate = birthDate;
+        this.sex = sex;
+    }
+
     public boolean isCorrect() throws IllegalArgumentException{
         if (this.secondName.isEmpty() || this.secondName.trim().isEmpty()) {
             throw new IllegalArgumentException("Фамилия введена не верно!");

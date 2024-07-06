@@ -15,14 +15,14 @@
       <Insets left="20" right="20" top="20"/>
     </padding>
     <Label wrapText="true" prefWidth="800" text="Вы можете проходить любые тесты по желанию. После прохождения теста вам будет предложено сохранить результаты. Если вы решите их сохранить, то автоматически начнёте исследование по выбранному тесту, все текущие исследования отображаются на главной странице. Так вы сможете наблюдать за своим самочувствием на протяжении длительного времени и видеть изменения"/>
-    <TitledPane text="Шкала депрессии, тревоги и стресса, DASS-21" maxWidth="450" maxHeight="200">
+    <TitledPane text="Шкала депрессии, тревоги и стресса, DASS-21" maxWidth="450" maxHeight="200" expanded="false">
       <VBox spacing="5">
         <Label wrapText="true" text="(Depression, Anxiety and Stress Scales) — это психологический инструмент для измерения уровня депрессии, тревоги и стресса у человека" />
         <Label text="Количество вопросов: 21" />
         <Button text="Пройти" onAction="#loadDASS21TestPage" />
       </VBox>
     </TitledPane>
-    <TitledPane text="Питтсбургский опросник на определение индекса качества сна, PSQI" maxWidth="450" maxHeight="200">
+    <TitledPane text="Питтсбургский опросник на определение индекса качества сна, PSQI" maxWidth="450" maxHeight="200" expanded="false">
       <VBox spacing="5">
         <Label wrapText="true" text="PSQI (Pittsburgh Sleep Quality Index) - анализирует качество сна" />
         <Label text="Количество вопросов: 11" />

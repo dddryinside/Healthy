@@ -4,6 +4,7 @@ import com.dddryinside.DTO.DASS21;
 import com.dddryinside.DTO.Patient;
 import com.dddryinside.DTO.Test;
 import com.dddryinside.controllers.PatientPageController;
+import com.dddryinside.controllers.UserPageController;
 import com.dddryinside.controllers.tests.TestResultsController;
 import com.dddryinside.DTO.Tests;
 import javafx.concurrent.Task;
@@ -68,6 +69,15 @@ public class PageLoader {
             System.out.println(e.getMessage());
             errorNotification();
         }
+    }
+
+    public void loadUserPage() {
+        UserPageController userPageController = new UserPageController();
+        userPageController.initializeUI();
+        Scene scene = new Scene(userPageController.getView());
+
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void loadPatientPage(Patient patient) {

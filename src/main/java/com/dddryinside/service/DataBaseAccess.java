@@ -11,6 +11,7 @@ import java.util.List;
 
 public class DataBaseAccess {
     public static final String DB_URL = "jdbc:sqlite:./database.db";
+    public static Patient patient;
 
     public static void savePatient(Patient patient) {
         checkPatientsTableExist();
@@ -38,6 +39,43 @@ public class DataBaseAccess {
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static Patient getPatientById(int id) {
+
+        try {
+            // Загрузка драйвера SQLite
+            Class.forName("org.sqlite.JDBC");
+
+            // Получение соединения с базой данных
+            try (Connection conn = DriverManager.getConnection(DB_URL)) {
+                // Подготовка SQL-запроса
+                String sql = "SELECT name, second_name, additional_name, date_of_birth, gender FROM users WHERE id =?";
+                try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                    // Заполнение параметров запроса
+                    stmt.setInt(1, id);
+
+                    // Выполнение запроса
+                    try (ResultSet rs = stmt.executeQuery()) {
+                        if (rs.next()) {
+                            String name = rs.getString("name");
+                            String secondName = rs.getString("second_name");
+                            String thirdName = rs.getString("additional_name");
+                            LocalDate dateOfBirth = LocalDate.parse(rs.getString("date_of_birth"));
+                            String sex = rs.getString("gender");
+
+                            patient = new Patient(name, secondName, thirdName, dateOfBirth, sex);
+                            return patient;
+                        } else {
+                            return null;
+                        }
+                    }
+                }
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
@@ -174,7 +212,9 @@ public class DataBaseAccess {
                     // Выполнение запроса
                     try (ResultSet rs = stmt.executeQuery()) {
                         if (rs.next()) {
-                            return rs.getInt("id");
+                            int id = rs.getInt("id");
+                            getPatientById(id);
+                            return id;
                         } else {
                             return -1; // Пароль не найден
                         }

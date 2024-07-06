@@ -14,7 +14,7 @@
     <VBox alignment="CENTER" spacing="10">
         <Label text="Healthy" styleClass="bold-text" />
         <HBox alignment="CENTER" spacing="10">
-            <PasswordField minWidth="300" fx:id="passwordField"/>
+            <PasswordField minWidth="300" fx:id="passwordField" onKeyPressed="#handleKeyPressed"/>
             <Button onAction="#enter" text="Войти" />
         </HBox>
         <Hyperlink text="Создать профиль" onAction="#loadAddNewPatientPage"/>

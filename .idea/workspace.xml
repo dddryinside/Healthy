@@ -4,24 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="program becomes more polymorphic, and now we can see patient's research results">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/SecurityController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/security-page.fxml" afterDir="false" />
+    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="added authentication page">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/UserPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/DASS21.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/DASS21.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/Healthy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/Healthy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AddNewPatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AddNewPatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/tests/DASS21Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/tests/DASS21Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/tests/TestResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/tests/TestResultsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/SecurityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/SecurityController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/TestsDataBaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/TestsDataBaseAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/about.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/about.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/add-new-patient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/add-new-patient.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/main-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main-page.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/patient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/patient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/menu-bar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/menu-bar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/security-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/security-page.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +26,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -180,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720167391913</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added authentication page">
+      <created>1720213706134</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1720213706134</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,7 +209,8 @@
     <MESSAGE value="now personal page for patients exist, also updated page loader, now it works more correct" />
     <MESSAGE value="passed tests are displayed on users’ personal pages" />
     <MESSAGE value="program becomes more polymorphic, and now we can see patient's research results" />
-    <option name="LAST_COMMIT_MESSAGE" value="program becomes more polymorphic, and now we can see patient's research results" />
+    <MESSAGE value="added authentication page" />
+    <option name="LAST_COMMIT_MESSAGE" value="added authentication page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

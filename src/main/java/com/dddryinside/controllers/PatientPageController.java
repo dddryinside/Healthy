@@ -26,6 +26,7 @@ public class PatientPageController extends PageLoader {
 
     private void updateUI() {
         if (patient != null) {
+
             fio.setText(patient.getFio());
             birthDate.setText("Дата рождения: " + patient.getStringBirthDate());
             sex.setText("Пол: " + patient.getStringSex());
