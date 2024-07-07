@@ -9,8 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainPageController extends PageLoader implements Controller {
     private VBox root;
@@ -43,6 +41,7 @@ public class MainPageController extends PageLoader implements Controller {
         panesVBox.setPrefWidth(860);
         for (AllTests test : AllTests.values()) {
             TitledPane titledPane = new TitledPane();
+            titledPane.setExpanded(false);
             titledPane.setText(test.getFullName());
 
             VBox vBox = new VBox();
@@ -65,6 +64,7 @@ public class MainPageController extends PageLoader implements Controller {
         ScrollPane scrollPane = new ScrollPane(panesVBox);
         scrollPane.getStyleClass().add("scroll-pane");
         scrollPane.setFitToWidth(true);
+        scrollPane.setFitToHeight(true);
 
         mainVBox.getChildren().add(scrollPane);
         mainVBox.getStylesheets().add("main.css");

@@ -1,6 +1,6 @@
 package com.dddryinside.controllers;
 
-import com.dddryinside.service.Patient;
+import com.dddryinside.service.PatientDTO;
 import com.dddryinside.PageLoader;
 import com.dddryinside.service.DataBaseAccess;
 import javafx.fxml.FXML;
@@ -17,17 +17,18 @@ public class AddNewPatientController extends PageLoader {
     @FXML TextField password;
 
     public void saveNewPatient() {
-        String sex;
         if (male.isSelected()) {
-            sex = "Male";
+            saveToDB(true);
         } else if (female.isSelected()) {
-            sex = "Female";
+            saveToDB(false);
         } else {
-            sex = null;
+            errorNotification("Пол не выбран!");
         }
+    }
 
+    private void saveToDB(boolean sex) {
         try {
-            Patient patient = new Patient(name.getText(), secondName.getText(), thirdName.getText(), birthDate.getValue(), sex, password.getText());
+            PatientDTO patient = new PatientDTO(name.getText(), secondName.getText(), thirdName.getText(), birthDate.getValue(), sex, password.getText());
             if (patient.isCorrect()) {
                 try {
                     DataBaseAccess.savePatient(patient);

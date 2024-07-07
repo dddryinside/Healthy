@@ -1,6 +1,6 @@
 package com.dddryinside.tests;
 
-import com.dddryinside.service.Patient;
+import com.dddryinside.service.PatientDTO;
 import javafx.scene.Parent;
 import javafx.scene.chart.LineChart;
 
@@ -11,7 +11,7 @@ public class YBOCS implements Test {
     }
 
     @Override
-    public LineChart<String, Number> showStatistics(Patient patient) {
+    public LineChart<String, Number> showStatistics(PatientDTO patient) {
         return null;
     }
 }

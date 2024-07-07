@@ -4,33 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="working on gad-7 test">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/AllTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/CustomScrollPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/BDI2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/YBOCS.java" afterDir="false" />
+    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="added new tests, made a lot of code refactoring">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/EditProfileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/DASS21.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/DASS21.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/GAD7.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/GAD7.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/Tests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/Healthy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/Healthy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AddNewPatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AddNewPatientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AllPatientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AllPatientsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/MainPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/TestResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/TestResultsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/UserPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/UserPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/calculators/WeightCalculatorController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/tests/DASS21Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/tests/DASS21Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/tests/TestResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/TestResultsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/TestsDataBaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/TestsDataBaseAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tests/dass21/dass21-results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tests/dass21/dass21-results.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/PatientDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/TestsDataBaseAccess.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/BDI2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/BDI2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/DASS21.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/DASS21.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/GAD7.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/GAD7.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/YBOCS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/YBOCS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +35,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -75,7 +69,7 @@
     &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -210,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720283313355</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="added new tests, made a lot of code refactoring">
+      <created>1720298380617</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1720298380617</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,7 +242,8 @@
     <MESSAGE value="added authentication page" />
     <MESSAGE value="now personal user page working without fxml-file, also had made some changes in db access level" />
     <MESSAGE value="working on gad-7 test" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on gad-7 test" />
+    <MESSAGE value="added new tests, made a lot of code refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new tests, made a lot of code refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

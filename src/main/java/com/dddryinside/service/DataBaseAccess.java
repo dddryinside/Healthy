@@ -7,9 +7,9 @@ import java.util.List;
 
 public class DataBaseAccess {
     public static final String DB_URL = "jdbc:sqlite:./database.db";
-    public static Patient patient;
+    public static PatientDTO patient;
 
-    public static void savePatient(Patient patient) {
+    public static void savePatient(PatientDTO patient) {
         checkPatientsTableExist();
 
         try {
@@ -26,7 +26,7 @@ public class DataBaseAccess {
                     stmt.setString(2, patient.getSecondName());
                     stmt.setString(3, patient.getAdditionalName());
                     stmt.setString(4, String.valueOf(patient.getBirthDate()));
-                    stmt.setString(5, patient.getSex());
+                    stmt.setInt(5, patient.getSex() ? 1 : 0);;
                     stmt.setString(6, patient.getPassword());
 
                     // Выполнение запроса
@@ -38,8 +38,43 @@ public class DataBaseAccess {
         }
     }
 
-    public static Patient getPatientById(int id) {
+    public static void updateUser(PatientDTO patientDTO) {
+        try {
+            // Загрузка драйвера SQLite
+            Class.forName("org.sqlite.JDBC");
 
+            System.out.println(patientDTO.toString());
+
+            // Получение соединения с базой данных
+            try (Connection conn = DriverManager.getConnection(DB_URL)) {
+                // Подготовка SQL-запроса
+                String sql = "UPDATE users SET name = ?, second_name = ?, additional_name = ?, date_of_birth = ?, gender = ? WHERE id = ?";
+                try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                    // Заполнение параметров запроса
+                    stmt.setString(1, patientDTO.getName());
+                    stmt.setString(2, patientDTO.getSecondName());
+                    stmt.setString(3, patientDTO.getAdditionalName());
+                    stmt.setString(4, String.valueOf(patientDTO.getBirthDate()));
+                    stmt.setInt(5, patientDTO.getSex() ? 1 : 0); // 1 - мужской, 0 - женский
+                    stmt.setInt(6, patientDTO.getId());
+
+                    // Выполнение запроса
+                    int rowsAffected = stmt.executeUpdate();
+                    if (rowsAffected == 1) {
+                        System.out.println("Пользователь успешно обновлен.");
+
+                        patient = patientDTO;
+                    } else {
+                        System.out.println("Ошибка при обновлении пользователя.");
+                    }
+                }
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void getPatientById(int id) {
         try {
             // Загрузка драйвера SQLite
             Class.forName("org.sqlite.JDBC");
@@ -59,24 +94,23 @@ public class DataBaseAccess {
                             String secondName = rs.getString("second_name");
                             String thirdName = rs.getString("additional_name");
                             LocalDate dateOfBirth = LocalDate.parse(rs.getString("date_of_birth"));
-                            String sex = rs.getString("gender");
+                            boolean sex = rs.getBoolean("gender");
 
-                            patient = new Patient(name, secondName, thirdName, dateOfBirth, sex);
-                            return patient;
-                        } else {
+                            patient = new PatientDTO(id, name, secondName, thirdName, dateOfBirth, sex);
+                            //return patient;
+                        } /*else {
                             return null;
-                        }
+                        }*/
                     }
                 }
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-            return null;
+            //return null;
         }
     }
 
     public static void checkPatientsTableExist() {
-
         try (Connection connection = DriverManager.getConnection(DB_URL);
              Statement statement = connection.createStatement()) {
 
@@ -90,7 +124,7 @@ public class DataBaseAccess {
                         "second_name TEXT," +
                         "additional_name TEXT," +
                         "date_of_birth DATE," +
-                        "gender TEXT," +
+                        "gender INT," +
                         "password TEXT)");
                 System.out.println("Таблица 'users' успешно создана.");
             } else {
@@ -102,9 +136,8 @@ public class DataBaseAccess {
         }
     }
 
-    public static List<Patient> getAllPatients() {
-        checkPatientsTableExist();
-        List<Patient> patients = new ArrayList<>();
+    public static List<PatientDTO> getAllPatients() {
+        List<PatientDTO> patients = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(DB_URL);
              Statement statement = connection.createStatement();
@@ -116,9 +149,9 @@ public class DataBaseAccess {
                 String secondName = resultSet.getString("second_name");
                 String additionalName = resultSet.getString("additional_name");
                 LocalDate dateOfBirth = resultSet.getObject("date_of_birth", LocalDate.class);
-                String gender = resultSet.getString("gender");
+                boolean gender = resultSet.getBoolean("gender");
 
-                Patient patient = new Patient(id, name, secondName, additionalName, dateOfBirth, gender);
+                PatientDTO patient = new PatientDTO(id, name, secondName, additionalName, dateOfBirth, gender);
                 patients.add(patient);
             }
 
@@ -129,7 +162,7 @@ public class DataBaseAccess {
         return patients;
     }
 
-     public static List<AllTests> getAllTestsOfPatient(Patient patient) {
+     public static List<AllTests> getAllTestsOfPatient(PatientDTO patient) {
         List<AllTests> tests = new ArrayList<>();
 
         for (AllTests currentTest : AllTests.values()) {
@@ -167,7 +200,6 @@ public class DataBaseAccess {
     }
 
     public static boolean checkPasswordExist(String password) {
-
         try {
             // Загрузка драйвера SQLite
             Class.forName("org.sqlite.JDBC");
@@ -209,6 +241,7 @@ public class DataBaseAccess {
                     try (ResultSet rs = stmt.executeQuery()) {
                         if (rs.next()) {
                             int id = rs.getInt("id");
+                            // Устанавливает user в статическое поле DataBaseAccess
                             getPatientById(id);
                             return id;
                         } else {

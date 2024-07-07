@@ -1,6 +1,5 @@
 package com.dddryinside.service;
 
-import com.dddryinside.service.DataBaseAccess;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,16 +10,16 @@ import java.time.format.DateTimeFormatter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Patient {
+public class PatientDTO {
     private int id;
     private String name;
     private String secondName;
     private String additionalName;
     private LocalDate birthDate;
-    private String sex;
+    private boolean sex;
     private String password;
 
-    public Patient(int id, String name, String secondName, String additionalName, LocalDate birthDate, String sex) {
+    public PatientDTO(int id, String name, String secondName, String additionalName, LocalDate birthDate, boolean sex) {
         this.id = id;
         this.name = name;
         this.secondName = secondName;
@@ -29,7 +28,7 @@ public class Patient {
         this.sex = sex;
     }
 
-    public Patient(String name, String secondName, String additionalName, LocalDate birthDate, String sex, String password) {
+    public PatientDTO(String name, String secondName, String additionalName, LocalDate birthDate, boolean sex, String password) {
         this.name = name;
         this.secondName = secondName;
         this.additionalName = additionalName;
@@ -38,7 +37,7 @@ public class Patient {
         this.password = password;
     }
 
-    public Patient(String name, String secondName, String additionalName, LocalDate birthDate, String sex) {
+    public PatientDTO(String name, String secondName, String additionalName, LocalDate birthDate, boolean sex) {
         this.name = name;
         this.secondName = secondName;
         this.additionalName = additionalName;
@@ -55,10 +54,8 @@ public class Patient {
             throw new IllegalArgumentException("Отчество введено неверно!");
         } else if (this.birthDate == null) {
             throw new IllegalArgumentException("Дата рождения вверена неверно!");
-        } else if (this.sex == null) {
-            throw new IllegalArgumentException("Пол не выбран!");
         } else if (this.password == null || this.password.trim().isEmpty() || this.password.length() < 5 || DataBaseAccess.checkPasswordExist(password)) {
-            if (this.password == null || this.password.trim().isEmpty() || this.password.length() < 8) {
+            if (this.password == null || this.password.trim().isEmpty() || this.password.length() < 5) {
                 throw new IllegalArgumentException("Пароль слишком короткий! Должно быть не меньше 5 символов!");
             } else {
                 throw new IllegalArgumentException("Пароль недоступен. Попробуйте другой");
@@ -70,11 +67,15 @@ public class Patient {
 
     @Override
     public String toString() {
-        return secondName + " " + name + " " + additionalName + ", " + getStringBirthDate() + ", " + getStringSex();
+        return id + " " + secondName + " " + name + " " + additionalName + ", " + getStringBirthDate() + ", " + getStringSex();
+    }
+
+    public boolean getSex() {
+        return this.sex;
     }
 
     public String getStringSex() {
-        if (this.sex.equals("Male")) {
+        if (this.sex) {
             return "мужской";
         } else {
             return "женский";

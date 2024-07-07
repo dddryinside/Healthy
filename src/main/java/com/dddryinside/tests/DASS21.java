@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dddryinside.service.AllTests;
-import com.dddryinside.service.Patient;
+import com.dddryinside.service.PatientDTO;
 import javafx.scene.Parent;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
@@ -32,7 +32,7 @@ public class DASS21 implements Test {
     }
 
     @Override
-    public LineChart<String, Number> showStatistics(Patient patient) {
+    public LineChart<String, Number> showStatistics(PatientDTO patient) {
         // Создание осей
         final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis = new NumberAxis();
@@ -137,7 +137,7 @@ public class DASS21 implements Test {
         }
     }
 
-    private List<DTO> getTestResults(Patient patient) {
+    private List<DTO> getTestResults(PatientDTO patient) {
         checkTestTableExist();
         List<DTO> testResultsList = new ArrayList<>();
 

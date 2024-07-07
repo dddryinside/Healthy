@@ -1,6 +1,6 @@
 package com.dddryinside.controllers;
 
-import com.dddryinside.service.Patient;
+import com.dddryinside.service.PatientDTO;
 import com.dddryinside.PageLoader;
 import com.dddryinside.service.DataBaseAccess;
 import com.dddryinside.service.AllTests;
@@ -17,9 +17,9 @@ public class PatientPageController extends PageLoader {
     @FXML Label sex;
     @FXML VBox allResearches;
 
-    private Patient patient;
+    private PatientDTO patient;
 
-    public void setPatient(Patient patient) {
+    public void setPatient(PatientDTO patient) {
         this.patient = patient;
         updateUI();
     }

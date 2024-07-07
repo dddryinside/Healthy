@@ -3,6 +3,7 @@ package com.dddryinside.controllers;
 import com.dddryinside.tests.Test;
 import com.dddryinside.service.AllTests;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 

@@ -1,19 +1,22 @@
 package com.dddryinside.controllers;
 
+import com.dddryinside.PageLoader;
 import com.dddryinside.service.DataBaseAccess;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+
 import java.io.IOException;
 
-public class UserPageController implements Controller {
+public class UserPageController extends PageLoader implements Controller {
     private VBox root;
     public void initializeUI() {
         root = new VBox();
@@ -43,7 +46,14 @@ public class UserPageController implements Controller {
         // Add buttons for profile actions
         HBox profileButtonsBox = new HBox(10);
         Button editProfileButton = new Button("Редактировать профиль");
+        editProfileButton.setOnAction(event -> {
+            loadEditProfilePage();
+        });
         Button logoutButton = new Button("Выйти");
+        logoutButton.setOnAction(event -> {
+            DataBaseAccess.patient = null;
+            loadSecurityPage();
+        });
         profileButtonsBox.getChildren().addAll(editProfileButton, logoutButton);
 
         // Add personal diary section
@@ -61,6 +71,13 @@ public class UserPageController implements Controller {
         HBox diaryButtonsBox = new HBox(10);
         Button saveButton = new Button("Сохранить");
         Button clearButton = new Button("Очистить");
+
+/*        ImageView imageView = new ImageView(new Image("brush.png"));
+        clearButton.setGraphic(imageView);
+
+        imageView.setFitHeight(30); // Установите желаемую высоту
+        imageView.setPreserveRatio(true); // Сохраните пропорции картинки*/
+
         diaryButtonsBox.getChildren().addAll(saveButton, clearButton);
 
         leftVBox.getChildren().addAll(fioLabel, birthDateLabel, sexLabel, profileButtonsBox,
@@ -81,7 +98,7 @@ public class UserPageController implements Controller {
         mainVBox.getStylesheets().add("main.css");
     }
 
-    public Parent getView() {
+    public Parent getRoot() {
         return root;
     }
 }

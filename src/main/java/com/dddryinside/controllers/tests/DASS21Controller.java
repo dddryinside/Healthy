@@ -1,7 +1,7 @@
 package com.dddryinside.controllers.tests;
 
 import com.dddryinside.tests.DASS21;
-import com.dddryinside.service.Patient;
+import com.dddryinside.service.PatientDTO;
 import com.dddryinside.PageLoader;
 import com.dddryinside.service.DataBaseAccess;
 import javafx.collections.FXCollections;
@@ -222,21 +222,21 @@ public class DASS21Controller extends PageLoader {
         buttons.setSpacing(10);
 
 
-        ComboBox<Patient> patientListView = new ComboBox<>();
+        ComboBox<PatientDTO> patientListView = new ComboBox<>();
         patientListView.setMaxWidth(200);
 
         // Получаем список пациентов из БД
-        List<Patient> patientList = DataBaseAccess.getAllPatients();
+        List<PatientDTO> patientList = DataBaseAccess.getAllPatients();
 
         // Преобразуем ArrayList в ObservableList
-        ObservableList<Patient> patients = FXCollections.observableArrayList(patientList);
+        ObservableList<PatientDTO> patients = FXCollections.observableArrayList(patientList);
 
         // Устанавливаем список пациентов в ListView
         patientListView.setItems(patients);
 
         Button saveButton = new Button("Сохранить");
         saveButton.setOnAction(event -> {
-            Patient patient = patientListView.getSelectionModel().getSelectedItem();
+            PatientDTO patient = patientListView.getSelectionModel().getSelectedItem();
             if (patient != null) {
                 try {
                     DASS21.saveTestResult(patient.getId(), depression, anxiety, stress);

@@ -1,6 +1,6 @@
 package com.dddryinside.controllers;
 
-import com.dddryinside.service.Patient;
+import com.dddryinside.service.PatientDTO;
 import com.dddryinside.PageLoader;
 import com.dddryinside.service.DataBaseAccess;
 import javafx.fxml.FXML;
@@ -14,7 +14,7 @@ import java.util.List;
 public class AllPatientsController extends PageLoader {
     @FXML VBox mainBox;
 
-    List<Patient> patientsList;
+    List<PatientDTO> patientsList;
 
     public void initialize() {
         patientsList = DataBaseAccess.getAllPatients();
@@ -30,7 +30,7 @@ public class AllPatientsController extends PageLoader {
             VBox mainPatientsContainer = new VBox();
             mainPatientsContainer.setSpacing(10);
 
-            for (Patient patient : patientsList) {
+            for (PatientDTO patient : patientsList) {
                 TitledPane patientPane = new TitledPane();
                 patientPane.setMaxWidth(400);
                 patientPane.setText(patient.getFio());
