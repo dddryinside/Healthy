@@ -68,6 +68,11 @@
           <version>1.18.30</version>
           <scope>compile</scope>
       </dependency>
+      <dependency>
+          <groupId>org.apache.commons</groupId>
+          <artifactId>commons-lang3</artifactId>
+          <version>3.13.0</version>
+      </dependency>
   </dependencies>
   <build>
     <plugins>

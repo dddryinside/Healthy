@@ -16,8 +16,8 @@
     -fx-border-color: transparent;
 }
 
-.scroll-pane .scroll-bar:vertical {
-    -fx-pref-height: 20px;
+.test-background {
+    -fx-background-color: red;
 }
 
 .notification-text {

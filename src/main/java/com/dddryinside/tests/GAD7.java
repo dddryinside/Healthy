@@ -1,32 +1,36 @@
 package com.dddryinside.tests;
 
+import com.dddryinside.PageLoader;
 import com.dddryinside.service.PatientDTO;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+
 import javafx.scene.Parent;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static javafx.scene.control.TabPane.TabClosingPolicy.UNAVAILABLE;
+public class GAD7 extends PageLoader implements Test {
 
-public class GAD7 implements Test {
-    private VBox root;
     public Parent initializeUI() {
-        root = new VBox();
+        VBox root = new VBox();
 
         TabPane tabPane = new TabPane();
-        tabPane.setTabClosingPolicy(UNAVAILABLE);
+        tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
         Tab testTab = new Tab("Тест");
 
         ScrollPane scrollPane = new ScrollPane();
-        scrollPane.setMaxWidth(460);
         scrollPane.setPadding(new Insets(20, 20, 20, 20));
 
         VBox vBox = new VBox();
         vBox.setSpacing(10);
+        vBox.getStylesheets().add("main.css");
 
         Label testName = new Label("Тест для оценки уровня генерализированного тревожного расстройства, GAD-7");
         testName.setWrapText(true);
@@ -59,14 +63,11 @@ public class GAD7 implements Test {
         }
 
         Button submitButton = new Button("Получить результаты");
-        submitButton.setOnAction(event -> {
-            submit(allQuestions);
-        });
-
+        submitButton.setOnAction(event -> submit(allQuestions));
         vBox.getChildren().add(submitButton);
 
-        // Общая загрузка в корень
         scrollPane.setContent(vBox);
+
         testTab.setContent(scrollPane);
         tabPane.getTabs().add(testTab);
         root.getChildren().add(tabPane);

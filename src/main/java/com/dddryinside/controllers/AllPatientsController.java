@@ -41,7 +41,7 @@ public class AllPatientsController extends PageLoader {
 
                 Button moreButton = new Button("Подробнее");
                 moreButton.setOnAction(event -> {
-                    loadPatientPage(patient);
+                    //loadPatientPage(patient);
                 });
                 info.getChildren().add(moreButton);
 

@@ -2,6 +2,7 @@ package com.dddryinside.service;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -194,7 +195,7 @@ public class DataBaseAccess {
                 }
             }
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             return false;
         }
     }
@@ -255,4 +256,97 @@ public class DataBaseAccess {
             return -1;
         }
     }
+
+    public static void saveDiaryNote(String text, PatientDTO user) throws Exception {
+        final String TABLE_NAME = "diary";
+
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            // Проверяем наличие таблицы diary
+            if (!isTableExists(connection, TABLE_NAME)) {
+                String createTableQuery = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" +
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "user_id INTEGER NOT NULL," +
+                        "text TEXT NOT NULL," +
+                        "date_time DATETIME NOT NULL)";
+                try (Statement statement = connection.createStatement()) {
+                    statement.executeUpdate(createTableQuery);
+                }
+            }
+
+            String insertQuery = "INSERT INTO " + TABLE_NAME + " (user_id, text, date_time) VALUES (?, ?, ?)";
+            try (PreparedStatement statement = connection.prepareStatement(insertQuery)) {
+                statement.setInt(1, user.getId());
+                statement.setString(2, text);
+                statement.setTimestamp(3, java.sql.Timestamp.valueOf(LocalDateTime.now()));
+                statement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new Exception("Не удалось сохранить запись!");
+        }
+    }
+
+    public static void deleteDiaryNote(DiaryNoteDTO note) throws Exception {
+        final String TABLE_NAME = "diary";
+
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            // Проверяем наличие таблицы diary
+            if (!isTableExists(connection, TABLE_NAME)) {
+                throw new Exception("Ошибка базы данных");
+            }
+
+            String selectQuery = "DELETE FROM " + TABLE_NAME + " WHERE id = ?";
+            PreparedStatement statement = connection.prepareStatement(selectQuery);
+            statement.setInt(1, note.getId());
+            int rowsDeleted = statement.executeUpdate();
+
+            if (rowsDeleted > 0) {
+                System.out.println("Запись удалена успешно.");
+            } else {
+                throw new Exception("Не удалось удалить запись");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static List<DiaryNoteDTO> loadDiaryNotes(PatientDTO user) {
+        List<DiaryNoteDTO> diaryNotes = new ArrayList<>();
+        final String TABLE_NAME = "diary";
+        int userId = user.getId();
+
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            // Проверяем наличие таблицы diary
+            if (!isTableExists(connection, TABLE_NAME)) {
+                return diaryNotes; // Если таблица не существует, возвращаем пустой список
+            }
+
+            // Загружаем записи из таблицы
+            String selectQuery = "SELECT id, text, date_time FROM " + TABLE_NAME + " WHERE user_id = ?";
+            try (PreparedStatement statement = connection.prepareStatement(selectQuery)) {
+                statement.setInt(1, userId);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    while (resultSet.next()) {
+                        int id = resultSet.getInt("id");
+                        String text = resultSet.getString("text");
+                        LocalDateTime dateTime = resultSet.getTimestamp("date_time").toLocalDateTime();
+
+                        DiaryNoteDTO diaryNote = new DiaryNoteDTO(id, text, dateTime);
+                        diaryNotes.add(diaryNote);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return diaryNotes;
+    }
+
+    private static boolean isTableExists(Connection connection, String tableName) throws SQLException {
+        DatabaseMetaData metadata = connection.getMetaData();
+        ResultSet resultSet = metadata.getTables(null, null, tableName, null);
+        return resultSet.next();
+    }
+
 }

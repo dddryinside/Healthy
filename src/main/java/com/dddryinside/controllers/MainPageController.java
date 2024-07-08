@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 public class MainPageController extends PageLoader implements Controller {
-    private VBox root;
+    VBox root;
     @Override
     public void initializeUI() {
         root = new VBox();
