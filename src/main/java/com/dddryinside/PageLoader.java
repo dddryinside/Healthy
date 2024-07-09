@@ -8,10 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class PageLoader {
     public static Stage stage;
@@ -51,9 +53,9 @@ public class PageLoader {
     public void loadMainPage() {
         //loadPage("/main-page.fxml");
 
-        MainPageController mainPageController = new MainPageController();
-        mainPageController.initializeUI();
-        Scene scene = new Scene(mainPageController.getRoot());
+        AllTestsPageController allTestsPageController = new AllTestsPageController();
+        allTestsPageController.initializeUI();
+        Scene scene = new Scene(allTestsPageController.getRoot());
 
         stage.setScene(scene);
         stage.show();
@@ -191,5 +193,15 @@ public class PageLoader {
         alert.setHeaderText(null);
         alert.setContentText(errorMessage);
         alert.showAndWait();
+    }
+
+    protected boolean confirmation(String message, String description) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Внимание!");
+        alert.setHeaderText(message);
+        alert.setContentText(description);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        return result.isPresent() && result.get() == ButtonType.OK;
     }
 }

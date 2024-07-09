@@ -4,23 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="now editing user profile is working">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/DiaryNoteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DiaryNoteDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/ExtendedBorderPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/ResizableTextArea.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/Service.java" afterDir="false" />
+    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="working on diary functions">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AllDiaryNotesController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AllPatientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AllPatientsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/MainPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/PatientPageController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/DiaryNoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/DiaryNoteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AllTestsPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/UserPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/UserPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/GAD7.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/GAD7.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/ExtendedBorderPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/RootPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/ResizableTextArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/ResizableTextArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main-page.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720348821223</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="working on diary functions">
+      <created>1720435156278</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1720435156278</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -247,7 +247,8 @@
     <MESSAGE value="working on gad-7 test" />
     <MESSAGE value="added new tests, made a lot of code refactoring" />
     <MESSAGE value="now editing user profile is working" />
-    <option name="LAST_COMMIT_MESSAGE" value="now editing user profile is working" />
+    <MESSAGE value="working on diary functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on diary functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

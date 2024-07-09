@@ -1,30 +1,33 @@
 package com.dddryinside.service;
 
-import javafx.scene.Cursor;
 import javafx.scene.control.TextArea;
 
 public class ResizableTextArea extends TextArea {
-    private double minHeight = 50;
-    private double maxHeight = 300;
-    private double resizeIncrement = 20;
+    private static final int standardHeight = 300;
+    private static final int standardWidth = 450;
+    private double scale;
 
     public ResizableTextArea() {
-        setMinHeight(minHeight);
-        setMaxHeight(maxHeight);
-
-        setOnMouseEntered(event -> setCursor(Cursor.S_RESIZE));
-        setOnMouseExited(event -> setCursor(Cursor.DEFAULT));
-        setOnMouseDragged(event -> resizeTextArea(event.getY()));
+        this.scale = 1.0;
+        updateSize();
     }
 
-    private void resizeTextArea(double newHeight) {
-        double currentHeight = getHeight();
-        double targetHeight = currentHeight + (newHeight - getPrefHeight());
-
-        if (targetHeight >= minHeight && targetHeight <= maxHeight) {
-            setMinHeight(targetHeight);
-            setMaxHeight(targetHeight);
-            setPrefHeight(targetHeight);
+    public void makeBigger() {
+        if (scale < 2.0) {
+            this.scale += 0.25;
+            updateSize();
         }
+    }
+
+    public void makeSmaller() {
+        if (scale > 1.0) {
+            this.scale -= 0.25;
+            updateSize();
+        }
+    }
+
+    private void updateSize() {
+        this.setPrefHeight(scale * standardHeight);
+        this.setMaxWidth(scale * standardWidth);
     }
 }
