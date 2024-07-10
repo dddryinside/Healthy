@@ -3,22 +3,17 @@ package com.dddryinside.tests;
 import com.dddryinside.PageLoader;
 import com.dddryinside.service.PatientDTO;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 
 import javafx.scene.Parent;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GAD7 extends PageLoader implements Test {
-
-    public Parent initializeUI() {
+    public void initializeUI() {
         VBox root = new VBox();
 
         TabPane tabPane = new TabPane();
@@ -71,8 +66,6 @@ public class GAD7 extends PageLoader implements Test {
         testTab.setContent(scrollPane);
         tabPane.getTabs().add(testTab);
         root.getChildren().add(tabPane);
-
-        return root;
     }
 
     private void createQuestion(List<ToggleGroup> allQuestions, VBox vBox, String questionName) {
@@ -113,16 +106,13 @@ public class GAD7 extends PageLoader implements Test {
         }
     }
 
-    protected void errorNotification(String errorMessage) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Ошибка!");
-        alert.setHeaderText(null);
-        alert.setContentText(errorMessage);
-        alert.showAndWait();
+    @Override
+    public LineChart<String, Number> showStatistics(PatientDTO patient) {
+        return null;
     }
 
     @Override
-    public LineChart<String, Number> showStatistics(PatientDTO patient) {
+    public Parent getRoot() {
         return null;
     }
 }

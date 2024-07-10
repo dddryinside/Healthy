@@ -6,5 +6,6 @@ import javafx.scene.chart.LineChart;
 
 public interface Test {
     LineChart<String, Number> showStatistics(PatientDTO patient);
-    Parent initializeUI();
+    void initializeUI();
+    Parent getRoot();
 }

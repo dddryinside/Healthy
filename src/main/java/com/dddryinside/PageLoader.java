@@ -3,6 +3,7 @@ package com.dddryinside;
 import com.dddryinside.controllers.*;
 import com.dddryinside.service.PatientDTO;
 import com.dddryinside.service.AllTests;
+import com.dddryinside.tests.Test;
 import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -41,6 +42,13 @@ public class PageLoader {
         stage.show();
     }
 
+    public void loadTestPage(Test test) {
+        test.initializeUI();
+        Scene scene = new Scene(test.getRoot());
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void loadEditProfilePage() {
         Controller controller = new EditProfileController();
         controller.initializeUI();
@@ -50,7 +58,7 @@ public class PageLoader {
         stage.show();
     }
 
-    public void loadMainPage() {
+    public void loadAllTestsPage() {
         //loadPage("/main-page.fxml");
 
         AllTestsPageController allTestsPageController = new AllTestsPageController();
@@ -77,14 +85,14 @@ public class PageLoader {
         loadFXMLPage("/about.fxml");
     }
 
-    public void loadTestPage(AllTests test) {
+/*    public void loadTestPage(AllTests test) {
         TestController testController = new TestController();
         testController.initializeUI(test);
         Scene scene = new Scene(testController.getRoot());
 
         stage.setScene(scene);
         stage.show();
-    }
+    }*/
 
     private void loadFXMLPage(String FXMLFileName) {
         try {

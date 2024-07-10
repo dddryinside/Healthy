@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-public class TestController {
+/*public class TestController {
     private VBox root;
 
     public void initializeUI(AllTests testEnum) {
@@ -30,4 +30,4 @@ public class TestController {
     public Parent getRoot() {
         return root;
     }
-}
+}*/

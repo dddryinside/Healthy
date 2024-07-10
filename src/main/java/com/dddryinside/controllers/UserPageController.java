@@ -3,6 +3,7 @@ package com.dddryinside.controllers;
 import com.dddryinside.PageLoader;
 import com.dddryinside.service.*;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
@@ -20,22 +21,6 @@ public class UserPageController extends PageLoader implements Controller {
 
     public void initializeUI() {
         root = new RootPane();
-
-/*        // Include the menu bar
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/menu-bar.fxml"));
-        try {
-            Parent menuBarRoot = fxmlLoader.load();
-            root.getChildren().add(menuBarRoot);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }*/
-
-        root.setMenuBar("/menu-bar.fxml");
-
-/*        VBox mainVBox = new VBox();
-        mainVBox.setPadding(new Insets(20));
-        mainVBox.setAlignment(Pos.CENTER);*/
-        //root.setCenter(mainVBox);
 
         // LEFT PART --------------------------------------------------
 
@@ -128,17 +113,79 @@ public class UserPageController extends PageLoader implements Controller {
 
         // TOGETHER -------------------------------------------------------------------------------------
 
-        HBox contentBox = new HBox();
+        HBox hBox = new HBox();
         leftVBox.setMinWidth(350);
-        contentBox.getChildren().addAll(leftVBox, rightVBox);
-        contentBox.setAlignment(Pos.CENTER);
-        contentBox.setPadding(new Insets(20));
-        root.setCenter(contentBox);
-        //mainVBox.getChildren().add(contentBox);
+        hBox.setAlignment(Pos.CENTER);
+        hBox.setPadding(new Insets(20));
+        hBox.getChildren().addAll(leftVBox, rightVBox);
 
+        Separator separator = new Separator();
+        separator.setOrientation(Orientation.HORIZONTAL);
+        separator.setMaxWidth(830);
 
-        // Set the stylesheet
-        root.getStylesheets().add("main.css");
+        // MOOD SELECTION BLOCK -------------------------------------------------------------
+
+        VBox moodSelection = new VBox(5);
+        Label moodSelectionTitle = new Label("Оцените настроение за сегодняшний день:");
+        moodSelectionTitle.getStyleClass().add("special-text");
+
+        Slider horizontalSlider = new Slider();
+        horizontalSlider.setMin(1);
+        horizontalSlider.setMax(10);
+        horizontalSlider.setValue(5);
+        horizontalSlider.setShowTickLabels(true);
+        horizontalSlider.setShowTickMarks(true);
+        horizontalSlider.setMajorTickUnit(1);
+        horizontalSlider.setMinorTickCount(0);
+        horizontalSlider.setBlockIncrement(1);
+        horizontalSlider.setSnapToTicks(true);
+        horizontalSlider.setMaxWidth(400);
+
+        moodSelection.getChildren().addAll(moodSelectionTitle, horizontalSlider);
+
+        // WAKE-UP TIME SELECTION BLOCK -------------------------------------------------------------
+
+        VBox wakeUpTimeSelection = new VBox(5);
+        Label wakeUpTimeSelectionTitle = new Label("Во сколько вы сегодня встали?");
+        wakeUpTimeSelectionTitle.getStyleClass().add("special-text");
+
+        ComboBox<String> wakeUpTime = new ComboBox<>();
+        wakeUpTime.setPrefWidth(150);
+        for (int hour = 0; hour < 24; hour++) {
+            for (int minute = 0; minute < 60; minute += 15) {
+                String timeString = String.format("%02d:%02d", hour, minute);
+                wakeUpTime.getItems().add(timeString);
+            }
+        }
+
+        wakeUpTimeSelection.getChildren().addAll(wakeUpTimeSelectionTitle, wakeUpTime);
+
+        // GO-TO BED TIME SELECTION BLOCK -------------------------------------------------------------
+
+        VBox goToBedTimeSelection = new VBox(5);
+        Label goToBedTimeSelectionTitle = new Label("Во сколько вы вчера легли?");
+        goToBedTimeSelectionTitle.getStyleClass().add("special-text");
+
+        ComboBox<String> goToBedTime = new ComboBox<>();
+        goToBedTime.setPrefWidth(150);
+        for (int hour = 0; hour < 24; hour++) {
+            for (int minute = 0; minute < 60; minute += 15) {
+                String timeString = String.format("%02d:%02d", hour, minute);
+                goToBedTime.getItems().add(timeString);
+            }
+        }
+
+        goToBedTimeSelection.getChildren().addAll(goToBedTimeSelectionTitle, goToBedTime);
+
+        HBox bottomPane = new HBox(moodSelection, wakeUpTimeSelection, goToBedTimeSelection);
+        bottomPane.setSpacing(35);
+        bottomPane.setAlignment(Pos.CENTER);
+
+        VBox container = new VBox();
+        container.getChildren().addAll(hBox, separator, bottomPane);
+        container.setAlignment(Pos.TOP_CENTER);
+
+        root.setCenter(container);
     }
 
     private void refreshNotesView() {

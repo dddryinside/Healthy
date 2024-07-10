@@ -32,6 +32,11 @@ public class DASS21 implements Test {
     }
 
     @Override
+    public Parent getRoot() {
+        return null;
+    }
+
+    @Override
     public LineChart<String, Number> showStatistics(PatientDTO patient) {
         // Создание осей
         final CategoryAxis xAxis = new CategoryAxis();
@@ -80,8 +85,8 @@ public class DASS21 implements Test {
     }
 
     @Override
-    public Parent initializeUI() {
-        return new VBox();
+    public void  initializeUI() {
+
     }
 
     private static void checkTestTableExist() {

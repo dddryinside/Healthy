@@ -36,7 +36,7 @@ public class RootPane extends BorderPane {
         HBox container = new HBox();
         container.getChildren().add(scrollPane);
         container.setAlignment(Pos.CENTER);
-        container.setPadding(new Insets(20, 0, 20, 0));
+        container.setPadding(new Insets(0, 0, 20, 0));
 
         this.setCenter(container);
     }

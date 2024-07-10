@@ -6,12 +6,17 @@ import javafx.scene.chart.LineChart;
 
 public class BDI2 implements Test {
     @Override
-    public Parent initializeUI() {
-        return null;
+    public void initializeUI() {
+
     }
 
     @Override
     public LineChart<String, Number> showStatistics(PatientDTO patient) {
+        return null;
+    }
+
+    @Override
+    public Parent getRoot() {
         return null;
     }
 }

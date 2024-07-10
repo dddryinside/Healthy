@@ -10,7 +10,7 @@
         <Menu text="Меню">
             <items>
                 <MenuItem text="Главная" onAction="#loadUserPage"/>
-                <MenuItem text="Тесты" onAction="#loadMainPage"/>
+                <MenuItem text="Тесты" onAction="#loadAllTestsPage"/>
                 <MenuItem text="Пациенты" onAction="#loadPatientsPage"/>
             </items>
         </Menu>

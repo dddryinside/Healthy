@@ -4,16 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="working on diary functions">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AllDiaryNotesController.java" afterDir="false" />
+    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="the diary is fully working">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/Colors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tests/ybocs/ybocs-description.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/PageLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/DiaryNoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/DiaryNoteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AllTestsPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AllTestsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/AllTestsPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/TestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/UserPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/controllers/UserPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/ExtendedBorderPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/RootPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/ResizableTextArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/ResizableTextArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main-page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/RootPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/RootPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/BDI2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/BDI2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/DASS21.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/DASS21.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/GAD7.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/GAD7.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/YBOCS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/tests/YBOCS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/calculators/normal-weight/weight-calculator-description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/calculators/normal-weight/weight-calculator.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/menu-bar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/menu-bar.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,14 +30,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -214,15 +226,59 @@
       <option name="project" value="LOCAL" />
       <updated>1720435156278</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="the diary is fully working">
+      <created>1720517723882</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1720517723882</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="refactoring" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="refactoring" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -248,7 +304,8 @@
     <MESSAGE value="added new tests, made a lot of code refactoring" />
     <MESSAGE value="now editing user profile is working" />
     <MESSAGE value="working on diary functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on diary functions" />
+    <MESSAGE value="the diary is fully working" />
+    <option name="LAST_COMMIT_MESSAGE" value="the diary is fully working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

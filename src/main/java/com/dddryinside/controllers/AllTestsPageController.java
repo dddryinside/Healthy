@@ -46,7 +46,8 @@ public class AllTestsPageController extends PageLoader implements Controller {
             Label questionsAmount = new Label();
             Button runTest = new Button("Пройти");
             runTest.setOnAction(event -> {
-                loadTestPage(test);
+                //loadTestPage(test);
+                loadTestPage(test.getTest());
             });
             vBox.getChildren().addAll(description, questionsAmount, runTest);
 
