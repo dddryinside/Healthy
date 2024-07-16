@@ -4,21 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="doing new structure">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Profile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Root.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/SuperLabel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/NewAccountPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/UserPage.java" afterDir="false" />
+    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="doing widgets">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Clock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Diary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/DiaryNotes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/models/Note.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/SVGStorage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/Mental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/Mental.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/contracts/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/contracts/Page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/page/SecurityPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/SecurityPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/PageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/PageManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/SecurityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/SecurityManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Root.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Root.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/UserPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1721123747719</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="doing widgets">
+      <created>1721144568450</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1721144568450</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,12 +264,17 @@
             <list>
               <RecentGroup>
                 <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
                   <option value="refactoring" />
                 </option>
               </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
-                  <option value="master" />
+                  <option value="master/master" />
                 </option>
               </RecentGroup>
               <RecentGroup>
@@ -288,7 +297,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="refactoring" />
+                        <option value="master/master" />
                       </list>
                     </value>
                   </entry>
@@ -323,7 +332,8 @@
     <MESSAGE value="the diary is fully working" />
     <MESSAGE value="starting refactoring" />
     <MESSAGE value="doing new structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="doing new structure" />
+    <MESSAGE value="doing widgets" />
+    <option name="LAST_COMMIT_MESSAGE" value="doing widgets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

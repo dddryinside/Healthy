@@ -35,12 +35,12 @@ public class Root extends BorderPane {
 
         container.setMaxWidth(900);
         container.setMinWidth(900);
-        container.setPadding(new Insets(50, 0, 0, 0));
+        container.setPadding(new Insets(40, 0, 0, 0));
 
         container.getChildren().addAll(children);
 
-        Background DEFAULT_BACKGROUND = new Background(new BackgroundFill(Color.LIGHTGREEN, null, null));
-        container.setBackground(DEFAULT_BACKGROUND);
+/*        Background DEFAULT_BACKGROUND = new Background(new BackgroundFill(Color.LIGHTGREEN, null, null));
+        container.setBackground(DEFAULT_BACKGROUND);*/
 
         super.setCenter(container);
     }

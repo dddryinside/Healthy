@@ -30,6 +30,8 @@ public class Profile extends VBox {
         this.getChildren().addAll(fioLabel, birthDateLabel, genderLabel, buttonsBox);
         this.setSpacing(5);
         this.setMaxWidth(350);
+        this.setMinWidth(350);
+        this.setWidth(350);
 
         Background DEFAULT_BACKGROUND = new Background(new BackgroundFill(Color.LIGHTGRAY, null, null));
         this.setBackground(DEFAULT_BACKGROUND);
