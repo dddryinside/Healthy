@@ -7,26 +7,33 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class PageManager {
-    private static Stage stage;
+    public static Stage stage;
 
     public static void setStage(Stage stage) {
         PageManager.stage = stage;
     }
 
     public static void loadPage(Page page) {
-        Scene scene = new Scene(page);
+        Scene scene = page.getInterface();
+        scene.getStylesheets().add("main.css");
         stage.setScene(scene);
         stage.show();
     }
 
-    public static void errorNotification(String errorMessage) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Ошибка!");
-        alert.setHeaderText(null);
-        alert.setContentText(errorMessage);
-        alert.showAndWait();
+    public static void setWindowSize(int height, int width) {
+        stage.setMinHeight(height);
+        stage.setMinWidth(width);
+        stage.setHeight(height);
+        stage.setWidth(width);
+    }
 
-        //Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("icon.png"));
+    public static void showNotification(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Сообщение");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();
+        alertStage.getIcons().add(new Image("icon.png"));
+        alert.showAndWait();
     }
 }

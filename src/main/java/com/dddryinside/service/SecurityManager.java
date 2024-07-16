@@ -1,6 +1,7 @@
 package com.dddryinside.service;
 
 import com.dddryinside.models.User;
+import com.dddryinside.pages.SecurityPage;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -28,7 +29,7 @@ public class SecurityManager {
                 logIn(user.getUsername(), user.getPassword());
             }
         } catch (SQLException e) {
-            PageManager.errorNotification("Ошибка базы данных!");
+            PageManager.showNotification("Ошибка базы данных!");
         }
     }
 
@@ -53,7 +54,7 @@ public class SecurityManager {
                 }
             }
         } catch (SQLException e) {
-            PageManager.errorNotification("Ошибка базы данных!");
+            PageManager.showNotification("Ошибка базы данных!");
         }
     }
 
@@ -76,12 +77,34 @@ public class SecurityManager {
 
                         SecurityManager.user = new User(id, name, secondName, additionalName, birthDate, gender, username, password);
                     } else {
-                        PageManager.errorNotification("Пользователь не найден!");
+                        PageManager.showNotification("Пользователь не найден!");
                     }
                 }
             }
         } catch (SQLException e) {
-            PageManager.errorNotification("Ошибка базы данных!");
+            PageManager.showNotification("Ошибка базы данных!");
+        }
+    }
+
+    public static void logOut() {
+        user = null;
+        PageManager.loadPage(new SecurityPage());
+    }
+
+    public static boolean isUsernameAvailable(String username) {
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            isUserTableExists();
+
+            String insertQuery = "SELECT id FROM user WHERE username = ?";
+            try (PreparedStatement statement = connection.prepareStatement(insertQuery)) {
+                statement.setString(1, username);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    return !resultSet.next();
+                }
+            }
+        } catch (SQLException e) {
+            PageManager.showNotification("Ошибка базы данных!");
+            return false;
         }
     }
 
@@ -112,7 +135,7 @@ public class SecurityManager {
         return resultSet.next();
     }
 
-    User getUser() {
+    public static User getUser() {
         return SecurityManager.user;
     }
 }

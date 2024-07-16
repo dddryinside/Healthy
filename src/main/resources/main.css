@@ -7,23 +7,6 @@
     -fx-font-size: 16px;
 }
 
-.delete-button {
-    -fx-focus-color: red;
-}
-
-.scroll-pane {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-}
-
-.test-background {
-    -fx-background-color: red;
-}
-
-.notification-text {
-    -fx-wrap-text: true;
-    -fx-max-width: Infinity;
-    -fx-background-color: lightgray;
-    -fx-background-radius: 8px;
-    -fx-padding: 12px 12px;
+.background {
+    -fx-background-color: #F0F0F0;
 }
