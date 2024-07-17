@@ -16,6 +16,7 @@ public class Profile extends VBox {
         fioLabel.setWrapText(true);
         fioLabel.makeBold();
 
+        Label usernameLabel = new Label("Имя пользователя: " + user.getUsername());
         Label birthDateLabel = new Label("Дата рождения: " + user.getStringBirthDate());
         Label genderLabel = new Label("Пол: " + user.getStringGender());
 
@@ -27,13 +28,13 @@ public class Profile extends VBox {
         HBox buttonsBox = new HBox(editProfileButton, logOutButton);
         buttonsBox.setSpacing(10);
 
-        this.getChildren().addAll(fioLabel, birthDateLabel, genderLabel, buttonsBox);
+        this.getChildren().addAll(fioLabel, usernameLabel, birthDateLabel, genderLabel, buttonsBox);
         this.setSpacing(5);
         this.setMaxWidth(350);
         this.setMinWidth(350);
         this.setWidth(350);
 
-        Background DEFAULT_BACKGROUND = new Background(new BackgroundFill(Color.LIGHTGRAY, null, null));
-        this.setBackground(DEFAULT_BACKGROUND);
+/*        Background DEFAULT_BACKGROUND = new Background(new BackgroundFill(Color.LIGHTGRAY, null, null));
+        this.setBackground(DEFAULT_BACKGROUND);*/
     }
 }

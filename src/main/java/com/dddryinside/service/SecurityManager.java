@@ -10,6 +10,8 @@ public class SecurityManager {
     private static final String DB_URL = "jdbc:sqlite:./mental.db";
     private static User user;
 
+    //private static User user = new User("Иванов", "Иван", "Иванович", LocalDate.now(), 1, "test", "123456789");
+
     public static void saveUser(User user) {
         try (Connection connection = DriverManager.getConnection(DB_URL)) {
             isUserTableExists();

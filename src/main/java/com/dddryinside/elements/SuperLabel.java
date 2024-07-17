@@ -19,6 +19,10 @@ public class SuperLabel extends Label {
         this.getStyleClass().add("bold-text");
     }
 
+    public void makeBig() {
+        this.getStyleClass().add("big-text");
+    }
+
     public void makeGreen() {
         this.setStyle("-fx-text-fill: green;");
     }

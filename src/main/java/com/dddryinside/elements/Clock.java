@@ -21,34 +21,30 @@ import java.util.Locale;
 public class Clock extends HBox {
     public Clock() {
         SVGPath icon;
-/*        if (isDaytime()) {
+        if (isDaytime()) {
             icon = SVGStorage.getDayIcon();
         } else {
             icon = SVGStorage.getNightIcon();
-        }*/
-
-        icon = SVGStorage.getNightIcon();
+        }
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
 
-        Label timeLabel = new Label();
-        timeLabel.setFont(Font.font("Arial", FontWeight.LIGHT, 28));
-        timeLabel.setPadding(new Insets(-10, 0, 0, 0));
+        SuperLabel timeLabel = new SuperLabel();
+        timeLabel.makeBold();
+        VBox.setMargin(timeLabel, new Insets(-10, 0, 0, 0));
         timeLabel.setText(LocalTime.now().format(formatter));
 
         SuperLabel weekDayLabel = new SuperLabel();
+        //weekDayLabel.setFont(Font.font("Arial", FontWeight.LIGHT, 20));
         weekDayLabel.makeSpecial();
         weekDayLabel.setText(capitalizeFirstLetter(LocalDate.now().getDayOfWeek().
                 getDisplayName(TextStyle.FULL, new Locale("ru"))));
+        VBox.setMargin(weekDayLabel, new Insets(-5, 0, 0, 0));
 
-        this.setPadding(new Insets(10, 0, 5, 5));
-
+        this.setPadding(new Insets(10, 0, 0, 0));
         this.setSpacing(10);
-        this.setMinWidth(550);
+        this.setMinWidth(330);
         this.getChildren().addAll(icon, new VBox(timeLabel, weekDayLabel));
-
-        Background DEFAULT_BACKGROUND = new Background(new BackgroundFill(Color.LIGHTPINK, null, null));
-        this.setBackground(DEFAULT_BACKGROUND);
     }
 
     private static boolean isDaytime() {

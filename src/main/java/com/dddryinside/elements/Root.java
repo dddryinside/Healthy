@@ -1,5 +1,6 @@
 package com.dddryinside.elements;
 
+import com.dddryinside.pages.About;
 import com.dddryinside.pages.UserPage;
 import com.dddryinside.service.PageManager;
 import javafx.geometry.Insets;
@@ -35,7 +36,7 @@ public class Root extends BorderPane {
 
         container.setMaxWidth(900);
         container.setMinWidth(900);
-        container.setPadding(new Insets(40, 0, 0, 0));
+        container.setPadding(new Insets(10, 0, 0, 0));
 
         container.getChildren().addAll(children);
 
@@ -55,6 +56,7 @@ public class Root extends BorderPane {
 
         Menu information = new Menu("Информация");
         MenuItem about = new MenuItem("О приложении");
+        about.setOnAction(event -> PageManager.loadPage(new About()));
         information.getItems().add(about);
 
         MenuBar menuBar = new MenuBar(menu, information);

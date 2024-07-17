@@ -11,8 +11,8 @@ import javafx.stage.Stage;
 import java.util.Locale;
 
 public class Mental extends Application {
-    private final static int WINDOW_HEIGHT = 700;
-    private final static int WINDOW_WIDTH = 1000;
+    private final static int WINDOW_HEIGHT = 660;
+    private final static int WINDOW_WIDTH = 960;
 
     @Override
     public void start(Stage stage) {

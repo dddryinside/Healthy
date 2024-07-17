@@ -19,6 +19,12 @@ public class Note {
         this.date = date;
     }
 
+    public Note(User user, String content, LocalDate date) {
+        this.user_id = user.getId();
+        this.content = content;
+        this.date = date;
+    }
+
     public String getShortTitle() {
         return StringUtils.abbreviate(this.content, 50);
     }

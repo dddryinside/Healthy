@@ -13,19 +13,21 @@ import java.time.LocalDate;
 public class UserPage implements Page {
     private final User user = SecurityManager.getUser();
 
-    //private final User user = new User("Иванов", "Иван", "Иванович", LocalDate.now(), 1, "test", "123456789");
     @Override
     public Scene getInterface() {
         Profile profile = new Profile(user);
-        DiaryNotes diaryNotes = new DiaryNotes();
-        Diary diary = new Diary();
+        Diary diary = new Diary(user);
         Clock clock = new Clock();
+        Mood mood = new Mood(user);
+        Researches researches = new Researches();
 
-        VBox leftContainer = new VBox(profile, diaryNotes);
-        VBox rightContainer = new VBox(diary, clock);
+        VBox leftContainer = new VBox(profile, diary);
+        leftContainer.setSpacing(20);
+        VBox rightContainer = new VBox(mood, researches, clock);
         rightContainer.setSpacing(20);
 
         HBox container = new HBox(leftContainer, rightContainer);
+        container.setSpacing(20);
 
         Root root = new Root();
         root.setToTopCenter(container);

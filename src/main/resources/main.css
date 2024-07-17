@@ -3,6 +3,10 @@
     -fx-font-size: 20px;
 }
 
+.big-text {
+    -fx-font-size: 40px;
+}
+
 .special-text {
     -fx-font-size: 16px;
 }
