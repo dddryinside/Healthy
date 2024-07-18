@@ -2,12 +2,10 @@ package com.dddryinside.service;
 
 import com.dddryinside.models.Note;
 import com.dddryinside.models.Tests;
-import com.dddryinside.models.User;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class DataBaseAccess {
@@ -15,7 +13,7 @@ public class DataBaseAccess {
 
     public static List<Note> getNotes(int amount) {
         try (Connection connection = DriverManager.getConnection(DB_URL)) {
-            isDiaryTableExists();
+            createDiaryTableIfNotExists();
 
             String insertQuery = "SELECT id, content, date FROM diary WHERE user_id = ? ORDER BY id DESC LIMIT ?";
             PreparedStatement statement = connection.prepareStatement(insertQuery);
@@ -40,7 +38,7 @@ public class DataBaseAccess {
 
     public static void saveNote(Note note) {
         try (Connection connection = DriverManager.getConnection(DB_URL)) {
-            isDiaryTableExists();
+            createDiaryTableIfNotExists();
 
             String insertQuery = "INSERT INTO diary (user_id, content, date) " +
                     "VALUES (?, ?, ?)";
@@ -55,7 +53,66 @@ public class DataBaseAccess {
         }
     }
 
+    public static boolean isDailySurveyCompleted() {
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            createDailySurveyTableIfNotExists();
+
+            String insertQuery = "SELECT id FROM daily_survey WHERE user_id = ? AND date = ?";
+            try (PreparedStatement statement = connection.prepareStatement(insertQuery)) {
+                statement.setInt(1, SecurityManager.getUser().getId());
+                statement.setString(2, String.valueOf(LocalDate.now()));
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    return resultSet.next();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            PageManager.showNotification("Ошибка базы данных!");
+        }
+        return false;
+    }
+
+    public static void saveDailySurvey(int mood) {
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            createDailySurveyTableIfNotExists();
+
+            String insertQuery = "INSERT INTO daily_survey (user_id, mood, date) " +
+                    "VALUES (?, ?, ?)";
+            try (PreparedStatement statement = connection.prepareStatement(insertQuery)) {
+                statement.setInt(1, SecurityManager.getUser().getId());
+                statement.setInt(2, mood);
+                statement.setString(3, String.valueOf(LocalDate.now()));
+                statement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            PageManager.showNotification("Ошибка базы данных!");
+        }
+    }
+
     public static double getAverageMood() {
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            createDailySurveyTableIfNotExists();
+
+            String selectQuery = "SELECT AVG(mood) AS mood_avg FROM daily_survey WHERE user_id = ?";
+            try (PreparedStatement statement = connection.prepareStatement(selectQuery)) {
+                statement.setInt(1, SecurityManager.getUser().getId());
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        return resultSet.getDouble("mood_avg");
+                    } else {
+                        return 0.0;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            PageManager.showNotification("Ошибка базы данных!");
+        }
+        return 0.0;
+    }
+
+    public static double getAverageMood(int days) {
         return 8.0;
     }
 
@@ -65,9 +122,26 @@ public class DataBaseAccess {
         return tests;
     }
 
-    private static void isDiaryTableExists() {
+    private static void createDailySurveyTableIfNotExists() {
         try (Connection connection = DriverManager.getConnection(DB_URL)) {
-            if (!tableExists(connection)) {
+            if (isTableNotExists(connection, "daily_survey")) {
+                String createTableQuery = "CREATE TABLE IF NOT EXISTS daily_survey (" +
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "user_id INTEGER," +
+                        "mood INTEGER," +
+                        "date DATE)";
+                try (Statement statement = connection.createStatement()) {
+                    statement.executeUpdate(createTableQuery);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void createDiaryTableIfNotExists() {
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            if (isTableNotExists(connection, "diary")) {
                 String createTableQuery = "CREATE TABLE IF NOT EXISTS diary (" +
                         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                         "user_id INTEGER," +
@@ -82,11 +156,9 @@ public class DataBaseAccess {
         }
     }
 
-    private static boolean tableExists(Connection connection) throws SQLException {
+    private static boolean isTableNotExists(Connection connection, String name) throws SQLException {
         DatabaseMetaData metadata = connection.getMetaData();
-        ResultSet resultSet = metadata.getTables(null, null, "diary", null);
-        return resultSet.next();
+        ResultSet resultSet = metadata.getTables(null, null, name, null);
+        return !resultSet.next();
     }
-
-
 }

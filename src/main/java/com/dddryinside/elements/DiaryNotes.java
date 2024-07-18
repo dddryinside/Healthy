@@ -15,7 +15,7 @@ public class DiaryNotes extends VBox {
         List<Note> notes = DataBaseAccess.getNotes(2);
 
         SuperLabel title = new SuperLabel("Записи дневника");
-        title.makeSpecial();
+        title.makeTitle();
         this.getChildren().add(title);
 
         for (Note note : notes) {

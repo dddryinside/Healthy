@@ -1,8 +1,6 @@
 package com.dddryinside.elements;
 
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 
 public class SuperLabel extends Label {
     public SuperLabel(String value) {
@@ -11,9 +9,11 @@ public class SuperLabel extends Label {
 
     public SuperLabel() {}
 
-    public void makeSpecial() {
-        this.getStyleClass().add("special-text");
+    public void makeTitle() {
+        this.getStyleClass().add("title-text");
     }
+
+    public void makeInterfaceText() { this.getStyleClass().add("interface-text"); }
 
     public void makeBold() {
         this.getStyleClass().add("bold-text");
@@ -34,4 +34,8 @@ public class SuperLabel extends Label {
     public void makeRed() {
         this.setStyle("-fx-text-fill: red;");
     }
+
+    public void makeBlue() { this.setStyle("-fx-text-fill:#0095C8"); }
+
+    public void makePurple() {this.setStyle("-fx-text-fill:#935CB5");}
 }

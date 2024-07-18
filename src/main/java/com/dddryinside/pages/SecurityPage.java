@@ -8,6 +8,7 @@ import com.dddryinside.service.SecurityManager;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
@@ -24,10 +25,10 @@ public class SecurityPage implements Page {
         passwordInput.setPromptText("Пароль:");
 
         HBox buttonsBlock = new HBox();
-        Button createNewProfileButton = new Button("Создать новый профиль");
+        Hyperlink createNewProfileButton = new Hyperlink("Создать новый профиль");
         createNewProfileButton.setOnAction(event -> PageManager.loadPage(new NewAccountPage()));
 
-        Button enterButton = new Button("Войти");
+        Hyperlink enterButton = new Hyperlink("Войти");
         enterButton.setOnAction(event -> {
             if (usernameInput.getText().isEmpty()) {
                 PageManager.showNotification("Кажется, вы забыли ввести имя пользователя!");

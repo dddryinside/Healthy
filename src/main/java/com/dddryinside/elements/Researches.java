@@ -12,7 +12,7 @@ import java.util.List;
 public class Researches extends VBox {
     public Researches() {
         SuperLabel title = new SuperLabel("Текущие исследования");
-        title.makeSpecial();
+        title.makeTitle();
         this.getChildren().add(title);
 
         List<Tests> currentResearches = DataBaseAccess.getCurrentResearches();

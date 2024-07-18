@@ -4,22 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="still doing widgets">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Mood.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Researches.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/models/Tests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/About.java" afterDir="false" />
+    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="same">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/contracts/Widget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Panel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/TimeObserver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/Mental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/Mental.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/contracts/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/contracts/Page.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Clock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Diary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Diary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/DiaryNotes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/DiaryNotes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Mood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Mood.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Root.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Root.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Researches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Researches.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/SuperLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/SuperLabel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/models/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/models/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/About.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/About.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/SecurityPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/SecurityPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/UserPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/SecurityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/SecurityManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,9 +32,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -265,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1721150653435</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="same">
+      <created>1721208586385</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1721208586386</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -346,7 +354,8 @@
     <MESSAGE value="doing new structure" />
     <MESSAGE value="doing widgets" />
     <MESSAGE value="still doing widgets" />
-    <option name="LAST_COMMIT_MESSAGE" value="still doing widgets" />
+    <MESSAGE value="same" />
+    <option name="LAST_COMMIT_MESSAGE" value="same" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

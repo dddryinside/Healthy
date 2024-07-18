@@ -15,7 +15,7 @@ public class About implements Page {
         Image icon = new Image("icon.png");
         ImageView imageView = new ImageView(icon);
         SuperLabel title = new SuperLabel("Mental 1.0.2024");
-        title.makeSpecial();
+        title.makeTitle();
 
         VBox container = new VBox(imageView, title);
         container.setAlignment(Pos.CENTER);
