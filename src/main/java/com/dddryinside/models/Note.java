@@ -4,6 +4,7 @@ import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Data
 public class Note {
@@ -27,5 +28,10 @@ public class Note {
 
     public String getShortTitle() {
         return StringUtils.abbreviate(this.content, 50);
+    }
+
+    public String getStringDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        return this.date.format(formatter);
     }
 }

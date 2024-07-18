@@ -3,16 +3,12 @@
     -fx-font-size: 20px;
 }
 
-.big-text {
-    -fx-font-size: 40px;
-}
-
 .title-text {
     -fx-font-size: 16px;
 }
 
-.interface-text {
-    -fx-font-size: 14px;
+.small-text {
+    -fx-font-size: 12px;
 }
 
 .background {
@@ -27,12 +23,21 @@
 }
 
 .hyperlink {
-    -fx-text-fill: #B38ACA;
+    -fx-text-fill: #935CB5;
     -fx-font-size: 14px;
     -fx-padding: 0;
 }
 
+.label {
+    -fx-padding: 0;
+}
+
 .text-field {
+    -fx-font-size: 14px;
+    -fx-focus-color: #B38ACA;
+}
+
+.text-area {
     -fx-font-size: 14px;
     -fx-focus-color: #B38ACA;
 }

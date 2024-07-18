@@ -1,12 +1,15 @@
 package com.dddryinside.service;
 
+import com.dddryinside.DTO.MoodDTO;
 import com.dddryinside.models.Note;
 import com.dddryinside.models.Tests;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DataBaseAccess {
     private static final String DB_URL = "jdbc:sqlite:./mental.db";
@@ -53,7 +56,7 @@ public class DataBaseAccess {
         }
     }
 
-    public static boolean isDailySurveyCompleted() {
+    public static boolean isCurrentMoodExist() {
         try (Connection connection = DriverManager.getConnection(DB_URL)) {
             createDailySurveyTableIfNotExists();
 
@@ -72,7 +75,7 @@ public class DataBaseAccess {
         return false;
     }
 
-    public static void saveDailySurvey(int mood) {
+    public static void saveMood(int mood) {
         try (Connection connection = DriverManager.getConnection(DB_URL)) {
             createDailySurveyTableIfNotExists();
 
@@ -114,6 +117,57 @@ public class DataBaseAccess {
 
     public static double getAverageMood(int days) {
         return 8.0;
+    }
+
+    public static List<MoodDTO> getMoodHistory() {
+        List<MoodDTO> moodHistory = new ArrayList<>();
+
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            createDailySurveyTableIfNotExists();
+
+            String selectQuery = "SELECT mood, date FROM daily_survey WHERE user_id = ?";
+            PreparedStatement statement = connection.prepareStatement(selectQuery);
+                statement.setInt(1, SecurityManager.getUser().getId());
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    int mood = resultSet.getInt("mood");
+                    String date = resultSet.getString("date");
+
+                    moodHistory.add(new MoodDTO(mood, date));
+                }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            PageManager.showNotification("Ошибка базы данных!");
+        }
+
+        return moodHistory;
+    }
+
+    public static List<MoodDTO> getMoodHistory(int days) {
+        List<MoodDTO> moodHistory = new ArrayList<>();
+
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            createDailySurveyTableIfNotExists();
+
+            String selectQuery = "SELECT mood, date FROM daily_survey WHERE user_id = ? ORDER BY id DESC LIMIT ?";
+            PreparedStatement statement = connection.prepareStatement(selectQuery);
+            statement.setInt(1, SecurityManager.getUser().getId());
+            statement.setInt(2, days);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int mood = resultSet.getInt("mood");
+                String date = resultSet.getString("date");
+
+                moodHistory.add(new MoodDTO(mood, date));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            PageManager.showNotification("Ошибка базы данных!");
+        }
+
+        return moodHistory;
     }
 
     public static List<Tests> getCurrentResearches() {

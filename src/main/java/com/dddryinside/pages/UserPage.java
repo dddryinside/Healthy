@@ -5,9 +5,13 @@ import com.dddryinside.elements.*;
 import com.dddryinside.models.User;
 import com.dddryinside.service.SecurityManager;
 import com.dddryinside.service.TimeObserver;
+import eu.hansolo.tilesfx.*;
+import eu.hansolo.tilesfx.skins.ClockTileSkin;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import eu.hansolo.toolbox.time.*;
 
 public class UserPage implements Page {
     private final User user = SecurityManager.getUser();
@@ -17,7 +21,7 @@ public class UserPage implements Page {
         Profile profile = new Profile(user);
         Diary diary = new Diary();
 
-        Clock clock = new Clock();
+        //Clock clock = new Clock();
         Researches researches = new Researches();
 
         Mood mood = new Mood();
@@ -25,10 +29,12 @@ public class UserPage implements Page {
         timeObserver.addWidget(mood);
         timeObserver.startTimerTask();
 
+        MoodChart moodChart = new MoodChart();
+
         VBox leftContainer = new VBox(profile, diary);
         leftContainer.setSpacing(20);
 
-        VBox rightContainer = new VBox(clock, researches, mood);
+        VBox rightContainer = new VBox(researches, mood, moodChart);
         rightContainer.setSpacing(20);
 
         HBox container = new HBox(leftContainer, rightContainer);

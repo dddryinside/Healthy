@@ -1,8 +1,6 @@
 package com.dddryinside;
 
-import com.dddryinside.models.User;
 import com.dddryinside.pages.SecurityPage;
-import com.dddryinside.pages.UserPage;
 import com.dddryinside.service.PageManager;
 import javafx.application.Application;
 import javafx.scene.image.Image;

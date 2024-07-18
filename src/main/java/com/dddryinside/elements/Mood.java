@@ -9,11 +9,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 
 import java.time.LocalTime;
 
-public class Mood extends Panel implements Widget {
+public class Mood extends Box implements Widget {
     private final VBox surveyBox;
 
     public Mood() {
@@ -40,7 +39,7 @@ public class Mood extends Panel implements Widget {
     }
 
     private void fillTheSurveyBox() {
-        if (!DataBaseAccess.isDailySurveyCompleted() && surveyBox.getChildren().isEmpty() && isEveningTime()) {
+        if (!DataBaseAccess.isCurrentMoodExist() && surveyBox.getChildren().isEmpty() && isEveningTime()) {
             Label moodInputLabel = new Label("Оцените ваше среднее настроение за день");
 
             Spinner<Integer> moodInput = new Spinner<>();
@@ -61,7 +60,7 @@ public class Mood extends Panel implements Widget {
         if (value == null || value < 0 || value > 10) {
             PageManager.showNotification("Оцените настроение от 0 до 10!");
         } else {
-            DataBaseAccess.saveDailySurvey(value);
+            DataBaseAccess.saveMood(value);
         }
     }
 
