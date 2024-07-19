@@ -1,7 +1,7 @@
 package com.dddryinside.service;
 
 import com.dddryinside.models.User;
-import com.dddryinside.pages.SecurityPage;
+import com.dddryinside.pages.LogInPage;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -90,7 +90,7 @@ public class SecurityManager {
 
     public static void logOut() {
         user = null;
-        PageManager.loadPage(new SecurityPage());
+        PageManager.loadPage(new LogInPage());
     }
 
     public static boolean isUsernameAvailable(String username) {

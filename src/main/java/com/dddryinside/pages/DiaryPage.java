@@ -32,11 +32,11 @@ public class DiaryPage implements Page {
         for (Note note : notes) {
             Box box = new Box();
             box.setSpacing(5);
-            box.setPadding(new Insets(10));
+            //box.setPadding(new Insets(10));
 
             SuperLabel date = new SuperLabel(note.getStringDate());
             date.makeGrey();
-            SuperLabel title = new SuperLabel(note.getShortTitle());
+            SuperLabel title = new SuperLabel(note.getContent());
             Hyperlink watch = new Hyperlink("Смотреть");
             box.getChildren().addAll(date, title, watch);
 

@@ -1,6 +1,6 @@
 package com.dddryinside;
 
-import com.dddryinside.pages.SecurityPage;
+import com.dddryinside.pages.LogInPage;
 import com.dddryinside.service.PageManager;
 import javafx.application.Application;
 import javafx.scene.image.Image;
@@ -21,7 +21,7 @@ public class Mental extends Application {
 
         PageManager.setStage(stage);
         PageManager.setWindowSize(WINDOW_HEIGHT, WINDOW_WIDTH);
-        PageManager.loadPage(new SecurityPage());
+        PageManager.loadPage(new LogInPage());
     }
 
     public static void main(String[] args) {

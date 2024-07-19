@@ -7,7 +7,7 @@ import javafx.scene.text.Font;
 public class SuperLabel extends Label {
     public SuperLabel(String value) {
         super(value);
-        this.setFont(Font.font("Arial", 14));
+        this.setFont(Font.font("Roboto", 14));
         this.setPadding(Insets.EMPTY);
     }
 

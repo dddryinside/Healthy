@@ -53,6 +53,8 @@ public class Diary extends VBox {
     private void updateNotesBox() {
         List<Note> notes = DataBaseAccess.getNotes(3);
         notesBox.getChildren().clear();
+        VBox.setMargin(notesBox, new Insets(10, 0, 0, 0));
+        notesBox.setSpacing(10);
 
         for (int i = 0; i < notes.size(); i++) {
             if (i == 2) {
@@ -64,13 +66,12 @@ public class Diary extends VBox {
                 Note currentNote = notes.get(i);
 
                 GridPane gridPane = new GridPane();
-                gridPane.setHgap(5);
+                gridPane.setHgap(10);
 
                 SuperLabel date = new SuperLabel(currentNote.getStringDate());
-                date.makeSmall();
                 date.makeGrey();
 
-                Label title = new Label(currentNote.getShortTitle());
+                SuperLabel title = new SuperLabel(currentNote.getShortTitle());
                 title.setPrefWidth(350);
                 Hyperlink watch = new Hyperlink("Смотреть");
 
@@ -79,7 +80,7 @@ public class Diary extends VBox {
                 gridPane.add(watch , 2, 0);
 
                 Box box = new Box(gridPane);
-                box.setPadding(new Insets(5));
+                //box.setPadding(new Insets(5));
                 notesBox.getChildren().add(box);
             }
         }

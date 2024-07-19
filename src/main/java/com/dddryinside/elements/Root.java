@@ -22,9 +22,6 @@ public class Root extends BorderPane {
 
         container.getChildren().addAll(children);
 
-/*        Background DEFAULT_BACKGROUND = new Background(new BackgroundFill(Color.LIGHTGRAY, null, null));
-        container.setBackground(DEFAULT_BACKGROUND);*/
-
         super.setCenter(container);
     }
 
@@ -37,6 +34,7 @@ public class Root extends BorderPane {
         VBox.setVgrow(container, Priority.ALWAYS);
 
         container.getChildren().addAll(children);
+
 /*        Background DEFAULT_BACKGROUND = new Background(new BackgroundFill(Color.LIGHTGREEN, null, null));
         container.setBackground(DEFAULT_BACKGROUND);*/
 

@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 
 import java.time.LocalDate;
 
-public class NewAccountPage implements Page {
+public class RegistrationPage implements Page {
     @Override
     public Scene getInterface() {
         Label secondNameLabel = new Label("Фамилия:");
@@ -52,7 +52,7 @@ public class NewAccountPage implements Page {
                 usernameInput.getText(), passwordInput.getText()));
 
         Button exitButton = new Button("Выйти");
-        exitButton.setOnAction(event -> PageManager.loadPage(new SecurityPage()));
+        exitButton.setOnAction(event -> PageManager.loadPage(new LogInPage()));
 
         HBox buttonsBox = new HBox(saveButton, exitButton);
         buttonsBox.setSpacing(10);

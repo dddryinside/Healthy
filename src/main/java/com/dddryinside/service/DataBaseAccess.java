@@ -153,7 +153,7 @@ public class DataBaseAccess {
                 statement.setInt(1, SecurityManager.getUser().getId());
                 try (ResultSet resultSet = statement.executeQuery()) {
                     if (resultSet.next()) {
-                        return resultSet.getDouble("mood_avg");
+                        return Math.ceil(resultSet.getDouble("mood_avg") * 10.0) / 10.0;
                     } else {
                         return 0.0;
                     }
