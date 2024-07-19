@@ -1,0 +1,12 @@
+.bold-text {
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+.title-text {
+    -fx-font-size: 16px;
+}
+
+.small-text {
+    -fx-font-size: 12px;
+}

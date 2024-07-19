@@ -26,7 +26,7 @@ public class LogInPage implements Page {
 
         HBox buttonsBlock = new HBox();
         Hyperlink createNewProfileButton = new Hyperlink("Создать новый профиль");
-        createNewProfileButton.setOnAction(event -> PageManager.loadPage(new RegistrationPage()));
+        createNewProfileButton.setOnAction(event -> PageManager.loadPage(new RegPage()));
 
         Hyperlink enterButton = new Hyperlink("Войти");
         enterButton.setOnAction(event -> {

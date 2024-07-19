@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 
 import java.time.LocalDate;
 
-public class RegistrationPage implements Page {
+public class RegPage implements Page {
     @Override
     public Scene getInterface() {
         Label secondNameLabel = new Label("Фамилия:");

@@ -1,15 +1,13 @@
 package com.dddryinside.service;
 
-import com.dddryinside.DTO.MoodDTO;
+import com.dddryinside.models.Mood;
 import com.dddryinside.models.Note;
 import com.dddryinside.models.Tests;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class DataBaseAccess {
     private static final String DB_URL = "jdbc:sqlite:./mental.db";
@@ -170,8 +168,8 @@ public class DataBaseAccess {
         return 8.0;
     }
 
-    public static List<MoodDTO> getMoodHistory() {
-        List<MoodDTO> moodHistory = new ArrayList<>();
+    public static List<Mood> getMoodHistory() {
+        List<Mood> moodHistory = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(DB_URL)) {
             createDailySurveyTableIfNotExists();
@@ -185,7 +183,7 @@ public class DataBaseAccess {
                     int mood = resultSet.getInt("mood");
                     String date = resultSet.getString("date");
 
-                    moodHistory.add(new MoodDTO(mood, date));
+                    moodHistory.add(new Mood(mood, date));
                 }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -195,8 +193,8 @@ public class DataBaseAccess {
         return moodHistory;
     }
 
-    public static List<MoodDTO> getMoodHistory(int days) {
-        List<MoodDTO> moodHistory = new ArrayList<>();
+    public static List<Mood> getMoodHistory(int days) {
+        List<Mood> moodHistory = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(DB_URL)) {
             createDailySurveyTableIfNotExists();
@@ -211,7 +209,7 @@ public class DataBaseAccess {
                 int mood = resultSet.getInt("mood");
                 String date = resultSet.getString("date");
 
-                moodHistory.add(new MoodDTO(mood, date));
+                moodHistory.add(new Mood(mood, date));
             }
         } catch (SQLException e) {
             e.printStackTrace();

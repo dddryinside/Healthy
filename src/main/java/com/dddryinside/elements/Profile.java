@@ -11,7 +11,11 @@ public class Profile extends VBox {
         fioLabel.setWrapText(true);
         fioLabel.makeBold();
 
-        GridPane gridPane = new GridPane();
+        SuperLabel username = new SuperLabel("@" + user.getUsername());
+        username.makeTitle();
+        username.makeGrey();
+
+/*        GridPane gridPane = new GridPane();
         gridPane.setHgap(10);
         gridPane.setVgap(5);
 
@@ -29,10 +33,10 @@ public class Profile extends VBox {
         SuperLabel genderTitle = new SuperLabel("Пол:");
         SuperLabel genderValue = new SuperLabel(user.getStringGender());
         gridPane.add(genderTitle, 0, 2);
-        gridPane.add(genderValue , 1, 2);
+        gridPane.add(genderValue , 1, 2);*/
 
 
-        Hyperlink editProfileButton = new Hyperlink("Редактировать профиль");
+        Hyperlink editProfileButton = new Hyperlink("Редактировать");
         //editProfileButton.setOnAction(event -> PageManager.loadPage(new UpdateUserPage()));
         Hyperlink logOutButton = new Hyperlink("Выйти");
         logOutButton.setOnAction(event -> SecurityManager.logOut());
@@ -40,8 +44,7 @@ public class Profile extends VBox {
         HBox buttonsBox = new HBox(editProfileButton, logOutButton);
         buttonsBox.setSpacing(10);
 
-        this.getChildren().addAll(fioLabel, gridPane, buttonsBox);
-        this.setSpacing(10);
+        this.getChildren().addAll(fioLabel, username, buttonsBox);
         this.setMaxWidth(350);
         this.setMinWidth(350);
         this.setWidth(350);

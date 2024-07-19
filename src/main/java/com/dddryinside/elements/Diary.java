@@ -7,16 +7,15 @@ import com.dddryinside.service.PageManager;
 import com.dddryinside.service.SecurityManager;
 import javafx.geometry.Insets;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public class Diary extends VBox {
-    private final VBox notesBox = new VBox(5);
+    private final VBox notesContainer = new VBox(5);
 
     public Diary() {
         SuperLabel title = new SuperLabel("Дневник");
@@ -40,49 +39,56 @@ public class Diary extends VBox {
         HBox buttonsBox = new HBox(10);
         buttonsBox.getChildren().addAll(saveButton, clearButton);
 
+        VBox.setMargin(notesContainer, new Insets(10, 0, 0, 0));
         updateNotesBox();
 
         this.setSpacing(5);
         this.setMaxWidth(500);
-        this.getChildren().addAll(title, diaryTextArea, buttonsBox, notesBox);
+        this.getChildren().addAll(title, diaryTextArea, buttonsBox, notesContainer);
 
 /*        Background DEFAULT_BACKGROUND = new Background(new BackgroundFill(Color.LIGHTBLUE, null, null));
         this.setBackground(DEFAULT_BACKGROUND);*/
     }
 
     private void updateNotesBox() {
-        List<Note> notes = DataBaseAccess.getNotes(3);
-        notesBox.getChildren().clear();
-        VBox.setMargin(notesBox, new Insets(10, 0, 0, 0));
-        notesBox.setSpacing(10);
+        List<Note> notes = DataBaseAccess.getNotes(2);
+        notesContainer.getChildren().clear();
 
-        for (int i = 0; i < notes.size(); i++) {
-            if (i == 2) {
+
+/*        for (Note note : notes) {
+            Box box = new Box();
+            box.setSpacing(5);
+
+            SuperLabel date = new SuperLabel(note.getStringDate());
+            date.makeGrey();
+            SuperLabel title = new SuperLabel(note.getContent());
+            Hyperlink watch = new Hyperlink("Смотреть");
+            box.getChildren().addAll(date, title, watch);
+
+            notesContainer.getChildren().add(box);
+        }*/
+
+        for (int i = 0; i < 1; i++) {
+            Box box = new Box();
+            box.setSpacing(5);
+
+            SuperLabel date = new SuperLabel(notes.get(i).getStringDate());
+            date.makeGrey();
+            SuperLabel title = new SuperLabel(notes.get(i).getContent());
+
+            HBox buttons = new HBox(10);
+            Hyperlink watch = new Hyperlink("Смотреть");
+            buttons.getChildren().add(watch);
+
+            if (notes.size() > 1) {
                 Hyperlink seeMoreButton = new Hyperlink("Смотреть все записи");
                 seeMoreButton.setOnAction(event -> PageManager.loadPage(new DiaryPage(1)));
-                notesBox.getChildren().add(seeMoreButton);
-                break;
-            } else {
-                Note currentNote = notes.get(i);
-
-                GridPane gridPane = new GridPane();
-                gridPane.setHgap(10);
-
-                SuperLabel date = new SuperLabel(currentNote.getStringDate());
-                date.makeGrey();
-
-                SuperLabel title = new SuperLabel(currentNote.getShortTitle());
-                title.setPrefWidth(350);
-                Hyperlink watch = new Hyperlink("Смотреть");
-
-                gridPane.add(date, 0, 0);
-                gridPane.add(title , 1, 0);
-                gridPane.add(watch , 2, 0);
-
-                Box box = new Box(gridPane);
-                //box.setPadding(new Insets(5));
-                notesBox.getChildren().add(box);
+                buttons.getChildren().add(seeMoreButton);
             }
+
+            box.getChildren().addAll(date, title, buttons);
+
+            notesContainer.getChildren().add(box);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.dddryinside.elements;
 
-import com.dddryinside.DTO.MoodDTO;
 import com.dddryinside.contracts.Widget;
+import com.dddryinside.pages.MoodStatPage;
 import com.dddryinside.service.DataBaseAccess;
 import com.dddryinside.service.PageManager;
 import javafx.geometry.Insets;
@@ -48,7 +48,7 @@ public class Mood extends VBox implements Widget {
         getMoodChart();
 
         this.getChildren().addAll(avgValuesBox, moodChart, assessmentBox);
-        VBox.setMargin(this, new Insets(3, 0, 0, 0));
+        //VBox.setMargin(this, new Insets(3, 0, 0, 0));
         this.setSpacing(20);
         this.setMinWidth(330);
     }
@@ -71,20 +71,27 @@ public class Mood extends VBox implements Widget {
 
         GridPane moodTable = new GridPane();
         moodTable.setHgap(10);
-        moodTable.add(new Label("За всё время:"), 0, 0);
+
+        SuperLabel allTime = new SuperLabel("За всё время:");
+        allTime.makeGrey();
+        moodTable.add(allTime, 0, 0);
         moodTable.add(avgMoodLabel , 1, 0);
-        moodTable.add(new Label("За месяц:") , 0, 1);
+
+        SuperLabel month = new SuperLabel("За месяц:");
+        month.makeGrey();
+        moodTable.add(month, 0, 1);
         moodTable.add(avgMonthMoodLabel , 1, 1);
 
         Hyperlink detailsButton = new Hyperlink("Подробнее");
-        VBox.setMargin(detailsButton, new Insets(10, 0, 0, 0));
+        detailsButton.setOnAction(event -> PageManager.loadPage(new MoodStatPage()));
+        VBox.setMargin(detailsButton, new Insets(5, 0, 0, 0));
 
         avgValuesBox.getChildren().addAll(title, moodTable, detailsButton);
     }
 
     public void getMoodChart() {
         moodChart.getChildren().clear();
-        List<MoodDTO> moodHistory = DataBaseAccess.getMoodHistory(7);
+        List<com.dddryinside.models.Mood> moodHistory = DataBaseAccess.getMoodHistory(7);
         Collections.reverse(moodHistory);
 
         CategoryAxis xAxis = new CategoryAxis();

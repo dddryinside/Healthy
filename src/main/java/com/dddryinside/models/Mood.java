@@ -1,4 +1,4 @@
-package com.dddryinside.DTO;
+package com.dddryinside.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 
 @Data
 @AllArgsConstructor
-public class MoodDTO {
+public class Mood {
     int mood;
     String date;
 
@@ -16,7 +16,6 @@ public class MoodDTO {
         DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate date = LocalDate.parse(this.date, inputFormatter);
 
-        // Форматируем дату в нужный формат
         DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MM.dd");
         return date.format(outputFormatter);
     }

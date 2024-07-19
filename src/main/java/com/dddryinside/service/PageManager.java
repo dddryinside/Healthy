@@ -15,7 +15,8 @@ public class PageManager {
 
     public static void loadPage(Page page) {
         Scene scene = page.getInterface();
-        scene.getStylesheets().add("main.css");
+        scene.getStylesheets().add("styles.css");
+        scene.getStylesheets().add("fonts.css");
         stage.setScene(scene);
         stage.show();
     }

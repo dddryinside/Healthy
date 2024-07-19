@@ -1,0 +1,42 @@
+.root {
+    /*-primary-color: #935CB5;*/
+    /*-secondary-color: #346363;*/
+    -primary-color: #0095C8;
+    -secondary-color: grey;
+}
+
+.hyperlink {
+    -fx-text-fill: -primary-color;
+    -fx-font-size: 14px;
+    -fx-padding: 0;
+    -fx-underline: false;
+    -fx-focus-traversal-enabled: false;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.hyperlink:hover {
+    -fx-underline: false;
+}
+
+.text-field, .text-area, .spinner {
+    -fx-font-size: 14px;
+    -fx-focus-color: -primary-color;
+}
+
+.menu:hover, .menu:showing,
+.menu-item:focused {
+    -fx-background-color: -primary-color;
+}
+
+.chart-series-line,
+.chart-legend-item-symbol,
+.chart-line-symbol {
+    -fx-stroke: -secondary-color;
+    -fx-background-color: -secondary-color, white;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}

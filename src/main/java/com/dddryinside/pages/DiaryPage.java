@@ -10,15 +10,13 @@ import com.dddryinside.service.PageManager;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
 
 public class DiaryPage implements Page {
-    int pageNumber = 1;
+    private final int pageNumber;
 
     public DiaryPage(int pageNumber) {
         this.pageNumber = pageNumber;
@@ -26,13 +24,35 @@ public class DiaryPage implements Page {
 
     @Override
     public Scene getInterface() {
-        List<Note> notes = DataBaseAccess.getNotes(pageNumber, 4);
+        int pagesAmount = DataBaseAccess.getDiaryPagesAmount(5);
+        HBox pagination = new HBox(5);
 
+        if (pagesAmount != 1) {
+            if (pageNumber == 1) {
+                Hyperlink nextButton = new Hyperlink("Вперёд");
+                nextButton.setOnAction(event -> PageManager.loadPage(new DiaryPage(pageNumber + 1)));
+                pagination.getChildren().add(nextButton);
+            } else if (pageNumber == pagesAmount) {
+                Hyperlink backButton = new Hyperlink("Назад");
+                backButton.setOnAction(event -> PageManager.loadPage(new DiaryPage(pageNumber - 1)));
+                pagination.getChildren().add(backButton);
+            } else {
+                Hyperlink backButton = new Hyperlink("Назад");
+                backButton.setOnAction(event -> PageManager.loadPage(new DiaryPage(pageNumber - 1)));
+
+                Hyperlink nextButton = new Hyperlink("Вперёд");
+                nextButton.setOnAction(event -> PageManager.loadPage(new DiaryPage(pageNumber + 1)));
+
+                pagination.getChildren().addAll(backButton, nextButton);
+            }
+        }
+        VBox.setMargin(pagination, new Insets(0, 0, 20, 0));
+
+        List<Note> notes = DataBaseAccess.getNotes(pageNumber, 5);
         VBox notesContainer = new VBox(10);
         for (Note note : notes) {
             Box box = new Box();
             box.setSpacing(5);
-            //box.setPadding(new Insets(10));
 
             SuperLabel date = new SuperLabel(note.getStringDate());
             date.makeGrey();
@@ -43,23 +63,13 @@ public class DiaryPage implements Page {
             notesContainer.getChildren().add(box);
         }
 
-        int pagesAmount = DataBaseAccess.getDiaryPagesAmount(4);
-        HBox pagination = new HBox(5);
-        for (int i = 1; i <= pagesAmount; i++) {
-            Hyperlink hyperlinkPageNumber = new Hyperlink(String.valueOf(i));
+        SuperLabel title = new SuperLabel("Дневник");
+        title.makeTitle();
 
-            int temp = i;
-            hyperlinkPageNumber.setOnAction(event -> PageManager.loadPage(new DiaryPage(temp)));
-            if (pageNumber == i) {
-                hyperlinkPageNumber.setUnderline(true);
-            }
-            pagination.getChildren().add(hyperlinkPageNumber);
-        }
+        SuperLabel pageNumber = new SuperLabel("Страница №" + this.pageNumber);
+        pageNumber.makeGrey();
 
-        BorderPane container = new BorderPane();
-        VBox.setVgrow(container, Priority.ALWAYS);
-        container.setTop(notesContainer);
-        container.setBottom(pagination);
+        VBox container = new VBox(title, pageNumber, pagination, notesContainer);
 
         Root root = new Root();
         root.setToTopCenter(container);
