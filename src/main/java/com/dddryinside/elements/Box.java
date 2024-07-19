@@ -8,8 +8,8 @@ public class Box extends VBox {
     private static final BorderStroke greyStroke = new BorderStroke(
             Color.rgb(186, 186, 186),
             BorderStrokeStyle.SOLID,
-            new CornerRadii(2.0),
-            new BorderWidths(1.0)
+            new CornerRadii(2),
+            new BorderWidths(1)
     );
     private static final Border greyBorder = new Border(greyStroke);
 

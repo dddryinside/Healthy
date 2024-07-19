@@ -10,7 +10,6 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
-import java.util.Map;
 
 public class MoodChart extends VBox {
     public MoodChart() {
@@ -24,7 +23,7 @@ public class MoodChart extends VBox {
         LineChart<String, Number> lineChart = new LineChart<>(xAxis, yAxis);
 
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("Настроение");
+        series.setName("График настроения за 7 дней");
 
         for (int i = 0; i < moodHistory.size(); i++) {
             series.getData().add(new XYChart.Data<>(i + " (" + moodHistory.get(i).getDate() + ")",

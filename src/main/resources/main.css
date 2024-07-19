@@ -26,6 +26,14 @@
     -fx-text-fill: #935CB5;
     -fx-font-size: 14px;
     -fx-padding: 0;
+    -fx-underline: false;
+    -fx-focus-traversal-enabled: false;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.hyperlink :hover{
+    -fx-underline: true;
 }
 
 .label {
@@ -41,3 +49,10 @@
     -fx-font-size: 14px;
     -fx-focus-color: #B38ACA;
 }
+
+.menu:hover, .menu:showing,
+.menu-item:focused {
+    -fx-background-color: #B38ACA;
+}
+
+

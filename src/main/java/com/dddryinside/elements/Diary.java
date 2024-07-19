@@ -1,14 +1,16 @@
 package com.dddryinside.elements;
 
 import com.dddryinside.models.Note;
+import com.dddryinside.pages.DiaryPage;
 import com.dddryinside.service.DataBaseAccess;
+import com.dddryinside.service.PageManager;
 import com.dddryinside.service.SecurityManager;
 import javafx.geometry.Insets;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,7 +23,7 @@ public class Diary extends VBox {
         title.makeTitle();
 
         TextArea diaryTextArea = new TextArea();
-        diaryTextArea.setPromptText("Жизнь прекрасна!");
+        diaryTextArea.setWrapText(true);
 
         Hyperlink saveButton = new Hyperlink("Сохранить");
         saveButton.setOnAction(event -> {
@@ -41,7 +43,7 @@ public class Diary extends VBox {
         updateNotesBox();
 
         this.setSpacing(5);
-        this.setMinWidth(550);
+        this.setMaxWidth(500);
         this.getChildren().addAll(title, diaryTextArea, buttonsBox, notesBox);
 
 /*        Background DEFAULT_BACKGROUND = new Background(new BackgroundFill(Color.LIGHTBLUE, null, null));
@@ -55,7 +57,7 @@ public class Diary extends VBox {
         for (int i = 0; i < notes.size(); i++) {
             if (i == 2) {
                 Hyperlink seeMoreButton = new Hyperlink("Смотреть все записи");
-                VBox.setMargin(seeMoreButton, new Insets(10, 0, 0, 0));
+                seeMoreButton.setOnAction(event -> PageManager.loadPage(new DiaryPage(1)));
                 notesBox.getChildren().add(seeMoreButton);
                 break;
             } else {
@@ -67,9 +69,14 @@ public class Diary extends VBox {
                 SuperLabel date = new SuperLabel(currentNote.getStringDate());
                 date.makeSmall();
                 date.makeGrey();
-                Hyperlink link = new Hyperlink(currentNote.getShortTitle());
+
+                Label title = new Label(currentNote.getShortTitle());
+                title.setPrefWidth(350);
+                Hyperlink watch = new Hyperlink("Смотреть");
+
                 gridPane.add(date, 0, 0);
-                gridPane.add(link , 1, 0);
+                gridPane.add(title , 1, 0);
+                gridPane.add(watch , 2, 0);
 
                 Box box = new Box(gridPane);
                 box.setPadding(new Insets(5));

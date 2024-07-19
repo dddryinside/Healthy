@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
-public class About implements Page {
+public class AboutPage implements Page {
     @Override
     public Scene getInterface() {
         Image icon = new Image("icon.png");

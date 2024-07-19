@@ -39,6 +39,32 @@ public class DataBaseAccess {
         }
     }
 
+    public static List<Note> getNotes(int pageNumber, int pageSize) {
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            createDiaryTableIfNotExists();
+
+            String insertQuery = "SELECT * FROM diary WHERE user_id = ? ORDER BY id DESC LIMIT ? OFFSET ?";
+            PreparedStatement statement = connection.prepareStatement(insertQuery);
+            statement.setInt(1, SecurityManager.getUser().getId());
+            statement.setInt(2, pageSize);
+            statement.setInt(3, (pageNumber - 1) * pageSize);
+            ResultSet resultSet = statement.executeQuery();
+
+            List<Note> notes = new ArrayList<>();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String content = resultSet.getString("content");
+                LocalDate date = LocalDate.parse(resultSet.getString("date"));
+
+                Note diaryNote = new Note(id, SecurityManager.getUser(), content, date);
+                notes.add(diaryNote);
+            }
+            return notes;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void saveNote(Note note) {
         try (Connection connection = DriverManager.getConnection(DB_URL)) {
             createDiaryTableIfNotExists();
@@ -53,6 +79,31 @@ public class DataBaseAccess {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static int getDiaryPagesAmount(int pageSize) {
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            createDiaryTableIfNotExists();
+
+            String insertQuery = "SELECT COUNT(*) FROM diary WHERE user_id = ?";
+            PreparedStatement statement = connection.prepareStatement(insertQuery);
+            statement.setInt(1, SecurityManager.getUser().getId());
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int totalNotes = resultSet.getInt(1);
+
+                int totalPages = totalNotes / pageSize;
+                if (totalNotes % pageSize != 0) {
+                    totalPages++;
+                }
+
+                return totalPages;
+            } else {
+                return 1;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 

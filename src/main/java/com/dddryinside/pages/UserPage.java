@@ -21,9 +21,6 @@ public class UserPage implements Page {
         Profile profile = new Profile(user);
         Diary diary = new Diary();
 
-        //Clock clock = new Clock();
-        Researches researches = new Researches();
-
         Mood mood = new Mood();
         TimeObserver timeObserver = new TimeObserver();
         timeObserver.addWidget(mood);
@@ -34,11 +31,11 @@ public class UserPage implements Page {
         VBox leftContainer = new VBox(profile, diary);
         leftContainer.setSpacing(20);
 
-        VBox rightContainer = new VBox(researches, mood, moodChart);
+        VBox rightContainer = new VBox(mood, moodChart);
         rightContainer.setSpacing(20);
 
         HBox container = new HBox(leftContainer, rightContainer);
-        container.setSpacing(20);
+        container.setSpacing(70);
 
         Root root = new Root();
         root.setToTopCenter(container);

@@ -1,6 +1,6 @@
 package com.dddryinside.elements;
 
-import com.dddryinside.pages.About;
+import com.dddryinside.pages.AboutPage;
 import com.dddryinside.pages.UserPage;
 import com.dddryinside.service.PageManager;
 import javafx.geometry.Insets;
@@ -9,10 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
 public class Root extends BorderPane {
@@ -36,10 +33,10 @@ public class Root extends BorderPane {
 
         container.setMaxWidth(900);
         container.setMinWidth(900);
-        container.setPadding(new Insets(10, 0, 0, 0));
+        container.setPadding(new Insets(10, 0, 10, 0));
+        VBox.setVgrow(container, Priority.ALWAYS);
 
         container.getChildren().addAll(children);
-
 /*        Background DEFAULT_BACKGROUND = new Background(new BackgroundFill(Color.LIGHTGREEN, null, null));
         container.setBackground(DEFAULT_BACKGROUND);*/
 
@@ -56,7 +53,7 @@ public class Root extends BorderPane {
 
         Menu information = new Menu("Информация");
         MenuItem about = new MenuItem("О приложении");
-        about.setOnAction(event -> PageManager.loadPage(new About()));
+        about.setOnAction(event -> PageManager.loadPage(new AboutPage()));
         information.getItems().add(about);
 
         MenuBar menuBar = new MenuBar(menu, information);

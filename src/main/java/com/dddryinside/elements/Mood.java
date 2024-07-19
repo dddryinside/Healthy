@@ -4,10 +4,7 @@ import com.dddryinside.contracts.Widget;
 import com.dddryinside.service.DataBaseAccess;
 import com.dddryinside.service.PageManager;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 
 import java.time.LocalTime;
@@ -29,10 +26,19 @@ public class Mood extends Box implements Widget {
         avgMonthMoodLabel.makeTitle();
         defineColor(avgMonthMoodLabel, avgMonthMood);
 
+        GridPane gridPane = new GridPane();
+        gridPane.setHgap(10);
+        gridPane.setVgap(0);
+        gridPane.add(new Label("За всё время:"), 0, 0);
+        gridPane.add(avgMoodLabel , 1, 0);
+        gridPane.add(new Label("За месяц:") , 0, 1);
+        gridPane.add(avgMonthMoodLabel , 1, 1);
+        gridPane.add(new Hyperlink("Подробнее") , 0, 2);
+
         surveyBox = new VBox();
         surveyBox.setSpacing(5);
         fillTheSurveyBox();
-        this.getChildren().addAll(title, avgMoodLabel, surveyBox);
+        this.getChildren().addAll(title, gridPane, surveyBox);
 
         this.setPadding(new Insets(10));
         this.setMinWidth(330);
