@@ -1,5 +1,6 @@
 package com.dddryinside.elements;
 
+import com.dddryinside.contracts.Page;
 import com.dddryinside.models.Note;
 import com.dddryinside.pages.DiaryPage;
 import com.dddryinside.service.DataBaseAccess;
@@ -18,13 +19,14 @@ public class Diary extends VBox {
     private final VBox notesContainer = new VBox(5);
 
     public Diary() {
-        SuperLabel title = new SuperLabel("Дневник");
+        SuperLabel title = new SuperLabel();
+        title.setText(Page.localeRes.getString("diary"));
         title.makeTitle();
 
         TextArea diaryTextArea = new TextArea();
         diaryTextArea.setWrapText(true);
 
-        Hyperlink saveButton = new Hyperlink("Сохранить");
+        Hyperlink saveButton = new Hyperlink(Page.localeRes.getString("save"));
         saveButton.setOnAction(event -> {
             if (diaryTextArea.getText() != null) {
                 Note newNote = new Note(SecurityManager.getUser(), diaryTextArea.getText(), LocalDate.now());
@@ -33,7 +35,7 @@ public class Diary extends VBox {
                 updateNotesBox();
             }
         });
-        Hyperlink clearButton = new Hyperlink("Очистить");
+        Hyperlink clearButton = new Hyperlink(Page.localeRes.getString("clear"));
         clearButton.setOnAction(event -> diaryTextArea.setText(null));
 
         HBox buttonsBox = new HBox(10);
@@ -54,20 +56,6 @@ public class Diary extends VBox {
         List<Note> notes = DataBaseAccess.getNotes(2);
         notesContainer.getChildren().clear();
 
-
-/*        for (Note note : notes) {
-            Box box = new Box();
-            box.setSpacing(5);
-
-            SuperLabel date = new SuperLabel(note.getStringDate());
-            date.makeGrey();
-            SuperLabel title = new SuperLabel(note.getContent());
-            Hyperlink watch = new Hyperlink("Смотреть");
-            box.getChildren().addAll(date, title, watch);
-
-            notesContainer.getChildren().add(box);
-        }*/
-
         for (int i = 0; i < 1; i++) {
             Box box = new Box();
             box.setSpacing(5);
@@ -77,11 +65,11 @@ public class Diary extends VBox {
             SuperLabel title = new SuperLabel(notes.get(i).getContent());
 
             HBox buttons = new HBox(10);
-            Hyperlink watch = new Hyperlink("Смотреть");
+            Hyperlink watch = new Hyperlink(Page.localeRes.getString("view"));
             buttons.getChildren().add(watch);
 
             if (notes.size() > 1) {
-                Hyperlink seeMoreButton = new Hyperlink("Смотреть все записи");
+                Hyperlink seeMoreButton = new Hyperlink(Page.localeRes.getString("view_all_notes"));
                 seeMoreButton.setOnAction(event -> PageManager.loadPage(new DiaryPage(1)));
                 buttons.getChildren().add(seeMoreButton);
             }

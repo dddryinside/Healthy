@@ -1,6 +1,7 @@
 package com.dddryinside.elements;
 
 import com.dddryinside.pages.AboutPage;
+import com.dddryinside.pages.SettingsPage;
 import com.dddryinside.pages.UserPage;
 import com.dddryinside.service.PageManager;
 import javafx.geometry.Insets;
@@ -9,8 +10,9 @@ import javafx.scene.Node;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 
 public class Root extends BorderPane {
     public void setToCenter(Node... children) {
@@ -45,8 +47,8 @@ public class Root extends BorderPane {
         Menu menu = new Menu("Меню");
         MenuItem main = new MenuItem("Главная");
         main.setOnAction(event -> PageManager.loadPage(new UserPage()));
-        MenuItem tests = new MenuItem("Тесты");
-        //tests.setOnAction(event -> PageManager.loadPage(new AllTestsPage()));
+        MenuItem tests = new MenuItem("Настройки");
+        tests.setOnAction(event -> PageManager.loadPage(new SettingsPage()));
         menu.getItems().addAll(main, tests);
 
         Menu information = new Menu("Информация");

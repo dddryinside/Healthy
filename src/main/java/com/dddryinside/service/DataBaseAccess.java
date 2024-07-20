@@ -2,7 +2,6 @@ package com.dddryinside.service;
 
 import com.dddryinside.models.Mood;
 import com.dddryinside.models.Note;
-import com.dddryinside.models.Tests;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -217,12 +216,6 @@ public class DataBaseAccess {
         }
 
         return moodHistory;
-    }
-
-    public static List<Tests> getCurrentResearches() {
-        List<Tests> tests = new ArrayList<>();
-        tests.add(Tests.BDI2);
-        return tests;
     }
 
     private static void createDailySurveyTableIfNotExists() {

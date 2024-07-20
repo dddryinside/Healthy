@@ -4,23 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="the mood widget is fully working">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/MoodStatPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="made a few corrections with the diary, again changes in design">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/models/Locale.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/SettingsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/eng_locale.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/DTO/MoodDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/models/Mood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/Mental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/Mental.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/contracts/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/contracts/Page.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Diary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Diary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Mood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Mood.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Researches.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Root.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Root.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/models/Tests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/AboutPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/AboutPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/DiaryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/DiaryPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/LogInPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/LogInPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/RegistrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/RegPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/MoodStatPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/MoodStatPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/RegPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/RegPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/UserPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/PageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/PageManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1721376163735</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="made a few corrections with the diary, again changes in design">
+      <created>1721425519695</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1721425519695</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -360,7 +373,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="now we can add new patients to db" />
     <MESSAGE value="added view all added patients in patients page" />
     <MESSAGE value="started working on dass-21-test" />
     <MESSAGE value="still working on dass-21-test" />
@@ -385,7 +397,8 @@
     <MESSAGE value="still working on new interface and main user page" />
     <MESSAGE value="Made a lot of changes to widgets, design in general and the main page. I am actively working on the diary functionality" />
     <MESSAGE value="the mood widget is fully working" />
-    <option name="LAST_COMMIT_MESSAGE" value="the mood widget is fully working" />
+    <MESSAGE value="made a few corrections with the diary, again changes in design" />
+    <option name="LAST_COMMIT_MESSAGE" value="made a few corrections with the diary, again changes in design" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

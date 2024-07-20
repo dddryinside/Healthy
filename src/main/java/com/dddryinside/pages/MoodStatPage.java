@@ -15,7 +15,7 @@ import javafx.util.StringConverter;
 import java.util.Collections;
 import java.util.List;
 
-public class MoodStatPage implements Page {
+public class MoodStatPage extends Page {
     private final VBox moodChart = new VBox();
     @Override
     public Scene getInterface() {

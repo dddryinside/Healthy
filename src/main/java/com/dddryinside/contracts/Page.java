@@ -2,6 +2,9 @@ package com.dddryinside.contracts;
 
 import javafx.scene.Scene;
 
-public interface Page {
-    Scene getInterface();
+import java.util.ResourceBundle;
+
+public abstract class Page {
+    public static ResourceBundle localeRes;
+    public abstract Scene getInterface();
 }

@@ -7,8 +7,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class PageManager {
-    public static Stage stage;
-
+    private static Stage stage;
     public static void setStage(Stage stage) {
         PageManager.stage = stage;
     }
@@ -30,7 +29,7 @@ public class PageManager {
 
     public static void showNotification(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Сообщение");
+        alert.setTitle(Page.localeRes.getString("message"));
         alert.setHeaderText(null);
         alert.setContentText(message);
         Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();

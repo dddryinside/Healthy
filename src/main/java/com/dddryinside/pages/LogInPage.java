@@ -13,27 +13,27 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class LogInPage implements Page {
+public class LogInPage extends Page {
     @Override
     public Scene getInterface() {
         SuperLabel title = new SuperLabel("Mental");
         title.makeBold();
 
         TextField usernameInput = new TextField();
-        usernameInput.setPromptText("Имя пользователя (username):");
+        usernameInput.setPromptText(localeRes.getString("username"));
         PasswordField passwordInput = new PasswordField();
-        passwordInput.setPromptText("Пароль:");
+        passwordInput.setPromptText(localeRes.getString("password"));
 
         HBox buttonsBlock = new HBox();
-        Hyperlink createNewProfileButton = new Hyperlink("Создать новый профиль");
+        Hyperlink createNewProfileButton = new Hyperlink(localeRes.getString("create_new_profile"));
         createNewProfileButton.setOnAction(event -> PageManager.loadPage(new RegPage()));
 
-        Hyperlink enterButton = new Hyperlink("Войти");
+        Hyperlink enterButton = new Hyperlink(localeRes.getString("enter"));
         enterButton.setOnAction(event -> {
             if (usernameInput.getText().isEmpty()) {
-                PageManager.showNotification("Кажется, вы забыли ввести имя пользователя!");
+                PageManager.showNotification(localeRes.getString("forgot_username_message"));
             } else if (passwordInput.getText().isEmpty()) {
-                PageManager.showNotification("Кажется, вы забыли ввести пароль!");
+                PageManager.showNotification(localeRes.getString("forgot_password_message"));
             } else {
                 SecurityManager.logIn(usernameInput.getText(), passwordInput.getText());
 

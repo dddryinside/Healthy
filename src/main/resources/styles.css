@@ -19,7 +19,7 @@
     -fx-underline: false;
 }
 
-.text-field, .text-area, .spinner {
+.text-field, .text-area, .spinner, .combo-box, .check-box {
     -fx-font-size: 14px;
     -fx-focus-color: -primary-color;
 }

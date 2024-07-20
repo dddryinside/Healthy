@@ -1,23 +1,26 @@
 package com.dddryinside;
 
+import com.dddryinside.contracts.Page;
+import com.dddryinside.models.Locale;
 import com.dddryinside.pages.LogInPage;
 import com.dddryinside.service.PageManager;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class Mental extends Application {
     private final static int WINDOW_HEIGHT = 660;
     private final static int WINDOW_WIDTH = 960;
-
+    public final static Locale APP_LOCALE = Locale.ENG;
     @Override
     public void start(Stage stage) {
-        Locale.setDefault(new Locale("ru", "RU"));
         stage.setTitle("Mental");
         Image icon = new Image("icon.png");
         stage.getIcons().add(icon);
+
+        Page.localeRes = ResourceBundle.getBundle(APP_LOCALE.getFile());
 
         PageManager.setStage(stage);
         PageManager.setWindowSize(WINDOW_HEIGHT, WINDOW_WIDTH);

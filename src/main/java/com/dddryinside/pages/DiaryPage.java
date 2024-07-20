@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
 
 import java.util.List;
 
-public class DiaryPage implements Page {
+public class DiaryPage extends Page {
     private final int pageNumber;
 
     public DiaryPage(int pageNumber) {

@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class UserPage implements Page {
+public class UserPage extends Page {
     private final User user = SecurityManager.getUser();
 
     @Override

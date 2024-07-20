@@ -1,5 +1,6 @@
 package com.dddryinside.elements;
 
+import com.dddryinside.contracts.Page;
 import com.dddryinside.contracts.Widget;
 import com.dddryinside.pages.MoodStatPage;
 import com.dddryinside.service.DataBaseAccess;
@@ -56,7 +57,7 @@ public class Mood extends VBox implements Widget {
     private void getAvgValuesBox() {
         avgValuesBox.getChildren().clear();
 
-        SuperLabel title = new SuperLabel("Среднее настроение");
+        SuperLabel title = new SuperLabel(Page.localeRes.getString("avg_mood"));
         title.makeTitle();
 
         double avgMood = DataBaseAccess.getAverageMood();
@@ -72,17 +73,17 @@ public class Mood extends VBox implements Widget {
         GridPane moodTable = new GridPane();
         moodTable.setHgap(10);
 
-        SuperLabel allTime = new SuperLabel("За всё время:");
+        SuperLabel allTime = new SuperLabel(Page.localeRes.getString("for_30_days"));
         allTime.makeGrey();
         moodTable.add(allTime, 0, 0);
         moodTable.add(avgMoodLabel , 1, 0);
 
-        SuperLabel month = new SuperLabel("За месяц:");
+        SuperLabel month = new SuperLabel(Page.localeRes.getString("for_7_days"));
         month.makeGrey();
         moodTable.add(month, 0, 1);
         moodTable.add(avgMonthMoodLabel , 1, 1);
 
-        Hyperlink detailsButton = new Hyperlink("Подробнее");
+        Hyperlink detailsButton = new Hyperlink(Page.localeRes.getString("more"));
         detailsButton.setOnAction(event -> PageManager.loadPage(new MoodStatPage()));
         VBox.setMargin(detailsButton, new Insets(5, 0, 0, 0));
 

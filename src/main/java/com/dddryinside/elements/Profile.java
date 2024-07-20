@@ -1,5 +1,6 @@
 package com.dddryinside.elements;
 
+import com.dddryinside.contracts.Page;
 import com.dddryinside.models.User;
 import com.dddryinside.service.SecurityManager;
 import javafx.scene.control.Hyperlink;
@@ -15,30 +16,9 @@ public class Profile extends VBox {
         username.makeTitle();
         username.makeGrey();
 
-/*        GridPane gridPane = new GridPane();
-        gridPane.setHgap(10);
-        gridPane.setVgap(5);
-
-        SuperLabel usernameTitle = new SuperLabel("Имя пользователя:");
-        SuperLabel usernameValue = new SuperLabel(user.getUsername());
-        usernameValue.makePurple();
-        gridPane.add(usernameTitle, 0, 0);
-        gridPane.add(usernameValue , 1, 0);
-
-        SuperLabel birthDayTitle = new SuperLabel("Дата рождения:");
-        SuperLabel birthDayValue = new SuperLabel(user.getStringBirthDate());
-        gridPane.add(birthDayTitle, 0, 1);
-        gridPane.add(birthDayValue , 1, 1);
-
-        SuperLabel genderTitle = new SuperLabel("Пол:");
-        SuperLabel genderValue = new SuperLabel(user.getStringGender());
-        gridPane.add(genderTitle, 0, 2);
-        gridPane.add(genderValue , 1, 2);*/
-
-
-        Hyperlink editProfileButton = new Hyperlink("Редактировать");
+        Hyperlink editProfileButton = new Hyperlink(Page.localeRes.getString("edit"));
         //editProfileButton.setOnAction(event -> PageManager.loadPage(new UpdateUserPage()));
-        Hyperlink logOutButton = new Hyperlink("Выйти");
+        Hyperlink logOutButton = new Hyperlink(Page.localeRes.getString("exit"));
         logOutButton.setOnAction(event -> SecurityManager.logOut());
 
         HBox buttonsBox = new HBox(editProfileButton, logOutButton);
