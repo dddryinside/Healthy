@@ -8,6 +8,8 @@ module com.dddryinside.weightchecker {
     requires lombok;
     requires org.apache.commons.lang3;
     requires org.fxmisc.richtext;
+    requires java.desktop;
+    requires javafx.swing;
 
     opens com.dddryinside to javafx.fxml;
     exports com.dddryinside;

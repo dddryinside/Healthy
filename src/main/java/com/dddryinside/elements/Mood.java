@@ -10,8 +10,11 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.util.StringConverter;
 
 import java.time.LocalTime;
@@ -21,7 +24,7 @@ import java.util.List;
 public class Mood extends VBox implements Widget {
     private SuperLabel moodInputLabel;
     private final Spinner<Integer> moodInputSpinner = new Spinner<>();
-    private final Hyperlink saveButton = new Hyperlink("Сохранить");
+    private final Hyperlink saveButton = new Hyperlink(Page.localeRes.getString("save"));
     private final VBox moodChart = new VBox();
     private final VBox avgValuesBox = new VBox();
 
@@ -29,13 +32,13 @@ public class Mood extends VBox implements Widget {
         getAvgValuesBox();
 
         if (!DataBaseAccess.isCurrentMoodExist() && isEveningTime()) {
-            moodInputLabel = new SuperLabel("Оцените ваше настроение сегодня");
-            moodInputSpinner.setDisable(false);
-            saveButton.setDisable(false);
+            moodInputLabel = new SuperLabel(Page.localeRes.getString("rate_your_mood_today"));
+            moodInputSpinner.setVisible(true);
+            saveButton.setVisible(true);
         } else {
-            moodInputLabel = new SuperLabel("Оценка настроения будет доступна позже");
-            moodInputSpinner.setDisable(true);
-            saveButton.setDisable(true);
+            moodInputLabel = new SuperLabel(Page.localeRes.getString("assessment_is_not_available"));
+            moodInputSpinner.setVisible(false);
+            saveButton.setVisible(false);
         }
 
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 10, 0);
@@ -49,7 +52,6 @@ public class Mood extends VBox implements Widget {
         getMoodChart();
 
         this.getChildren().addAll(avgValuesBox, moodChart, assessmentBox);
-        //VBox.setMargin(this, new Insets(3, 0, 0, 0));
         this.setSpacing(20);
         this.setMinWidth(330);
     }
@@ -119,7 +121,8 @@ public class Mood extends VBox implements Widget {
         LineChart<String, Number> lineChart = new LineChart<>(xAxis, yAxis);
 
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("График настроения за 7 дней");
+        series.setName(Page.localeRes.getString("mood_chart_for_7_days"));
+
 
         for (int i = 0; i < moodHistory.size(); i++) {
             series.getData().add(new XYChart.Data<>(i + moodHistory.get(i).getShortStringDate(),
@@ -136,12 +139,16 @@ public class Mood extends VBox implements Widget {
 
     private void saveResult(Integer value) {
         if (value == null || value < 0 || value > 10) {
-            PageManager.showNotification("Оцените настроение от 0 до 10!");
+            PageManager.showNotification(Page.localeRes.getString("rate_your_mood_from_1_to_10"));
         } else {
             DataBaseAccess.saveMood(value);
 
             getMoodChart();
             getAvgValuesBox();
+
+            moodInputLabel.setText(Page.localeRes.getString("assessment_is_not_available"));
+            moodInputSpinner.setVisible(false);
+            saveButton.setVisible(false);
         }
     }
 
@@ -159,16 +166,16 @@ public class Mood extends VBox implements Widget {
 
     @Override
     public void onEveningReached() {
-        moodInputLabel = new SuperLabel("Оцените ваше настроение сегодня");
-        moodInputSpinner.setDisable(false);
-        saveButton.setDisable(false);
+        moodInputLabel = new SuperLabel(Page.localeRes.getString("rate_your_mood_today"));
+        moodInputSpinner.setVisible(true);
+        saveButton.setVisible(true);
     }
 
     @Override
     public void onMidnightReached() {
-        moodInputLabel = new SuperLabel("Оценка настроения будет доступна позже");
-        moodInputSpinner.setDisable(true);
-        saveButton.setDisable(true);
+        moodInputLabel = new SuperLabel(Page.localeRes.getString("assessment_is_not_available"));
+        moodInputSpinner.setVisible(false);
+        saveButton.setVisible(false);
     }
 
     private static boolean isEveningTime() {

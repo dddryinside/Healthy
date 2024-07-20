@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 public class AboutPage extends Page {
     @Override
     public Scene getInterface() {
-        Image icon = new Image("icon.png");
+        Image icon = new Image("img/icon.png");
         ImageView imageView = new ImageView(icon);
         SuperLabel title = new SuperLabel("Mental 1.0.2024");
         title.makeTitle();

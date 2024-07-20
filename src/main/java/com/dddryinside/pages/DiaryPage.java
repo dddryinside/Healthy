@@ -25,22 +25,22 @@ public class DiaryPage extends Page {
     @Override
     public Scene getInterface() {
         int pagesAmount = DataBaseAccess.getDiaryPagesAmount(5);
-        HBox pagination = new HBox(5);
+        HBox pagination = new HBox(15);
 
         if (pagesAmount != 1) {
             if (pageNumber == 1) {
-                Hyperlink nextButton = new Hyperlink("Вперёд");
+                Hyperlink nextButton = new Hyperlink(localeRes.getString("forward"));
                 nextButton.setOnAction(event -> PageManager.loadPage(new DiaryPage(pageNumber + 1)));
                 pagination.getChildren().add(nextButton);
             } else if (pageNumber == pagesAmount) {
-                Hyperlink backButton = new Hyperlink("Назад");
+                Hyperlink backButton = new Hyperlink(localeRes.getString("back"));
                 backButton.setOnAction(event -> PageManager.loadPage(new DiaryPage(pageNumber - 1)));
                 pagination.getChildren().add(backButton);
             } else {
-                Hyperlink backButton = new Hyperlink("Назад");
+                Hyperlink backButton = new Hyperlink(localeRes.getString("back"));
                 backButton.setOnAction(event -> PageManager.loadPage(new DiaryPage(pageNumber - 1)));
 
-                Hyperlink nextButton = new Hyperlink("Вперёд");
+                Hyperlink nextButton = new Hyperlink(localeRes.getString("forward"));
                 nextButton.setOnAction(event -> PageManager.loadPage(new DiaryPage(pageNumber + 1)));
 
                 pagination.getChildren().addAll(backButton, nextButton);
@@ -57,16 +57,16 @@ public class DiaryPage extends Page {
             SuperLabel date = new SuperLabel(note.getStringDate());
             date.makeGrey();
             SuperLabel title = new SuperLabel(note.getContent());
-            Hyperlink watch = new Hyperlink("Смотреть");
+            Hyperlink watch = new Hyperlink(localeRes.getString("view"));
             box.getChildren().addAll(date, title, watch);
 
             notesContainer.getChildren().add(box);
         }
 
-        SuperLabel title = new SuperLabel("Дневник");
+        SuperLabel title = new SuperLabel(localeRes.getString("diary"));
         title.makeTitle();
 
-        SuperLabel pageNumber = new SuperLabel("Страница №" + this.pageNumber);
+        SuperLabel pageNumber = new SuperLabel(localeRes.getString("page") + " №" + this.pageNumber);
         pageNumber.makeGrey();
 
         VBox container = new VBox(title, pageNumber, pagination, notesContainer);

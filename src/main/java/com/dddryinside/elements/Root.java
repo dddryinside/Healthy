@@ -1,5 +1,6 @@
 package com.dddryinside.elements;
 
+import com.dddryinside.contracts.Page;
 import com.dddryinside.pages.AboutPage;
 import com.dddryinside.pages.SettingsPage;
 import com.dddryinside.pages.UserPage;
@@ -44,15 +45,17 @@ public class Root extends BorderPane {
     }
 
     public void setMenuBar() {
-        Menu menu = new Menu("Меню");
-        MenuItem main = new MenuItem("Главная");
+        Menu menu = new Menu(Page.localeRes.getString("menu"));
+
+        MenuItem main = new MenuItem(Page.localeRes.getString("main"));
         main.setOnAction(event -> PageManager.loadPage(new UserPage()));
-        MenuItem tests = new MenuItem("Настройки");
+        MenuItem tests = new MenuItem(Page.localeRes.getString("settings"));
         tests.setOnAction(event -> PageManager.loadPage(new SettingsPage()));
         menu.getItems().addAll(main, tests);
 
-        Menu information = new Menu("Информация");
-        MenuItem about = new MenuItem("О приложении");
+        Menu information = new Menu(Page.localeRes.getString("information"));
+
+        MenuItem about = new MenuItem(Page.localeRes.getString("about_app"));
         about.setOnAction(event -> PageManager.loadPage(new AboutPage()));
         information.getItems().add(about);
 
