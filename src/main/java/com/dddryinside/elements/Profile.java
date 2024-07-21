@@ -2,7 +2,7 @@ package com.dddryinside.elements;
 
 import com.dddryinside.contracts.Page;
 import com.dddryinside.models.User;
-import com.dddryinside.service.SecurityManager;
+import com.dddryinside.service.AccountManager;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -21,7 +21,7 @@ public class Profile extends VBox {
         Hyperlink editProfileButton = new Hyperlink(Page.localeRes.getString("edit_profile"));
         //editProfileButton.setOnAction(event -> PageManager.loadPage(new UpdateUserPage()));
         Hyperlink logOutButton = new Hyperlink(Page.localeRes.getString("exit"));
-        logOutButton.setOnAction(event -> SecurityManager.logOut());
+        logOutButton.setOnAction(event -> AccountManager.logOut());
 
         HBox buttonsBox = new HBox(editProfileButton, logOutButton);
         buttonsBox.setSpacing(10);

@@ -48,7 +48,7 @@ public class DataBaseAccess {
 
             String insertQuery = "SELECT id, content, date FROM diary WHERE user_id = ? ORDER BY id DESC LIMIT ?";
             PreparedStatement statement = connection.prepareStatement(insertQuery);
-            statement.setInt(1, SecurityManager.getUser().getId());
+            statement.setInt(1, AccountManager.getUser().getId());
             statement.setInt(2, amount);
             ResultSet resultSet = statement.executeQuery();
 
@@ -58,7 +58,7 @@ public class DataBaseAccess {
                 String content = resultSet.getString("content");
                 LocalDate date = LocalDate.parse(resultSet.getString("date"));
 
-                Note diaryNote = new Note(id, SecurityManager.getUser(), content, date);
+                Note diaryNote = new Note(id, AccountManager.getUser(), content, date);
                 notes.add(diaryNote);
             }
             return notes;
@@ -73,7 +73,7 @@ public class DataBaseAccess {
 
             String insertQuery = "SELECT * FROM diary WHERE user_id = ? ORDER BY id DESC LIMIT ? OFFSET ?";
             PreparedStatement statement = connection.prepareStatement(insertQuery);
-            statement.setInt(1, SecurityManager.getUser().getId());
+            statement.setInt(1, AccountManager.getUser().getId());
             statement.setInt(2, pageSize);
             statement.setInt(3, (pageNumber - 1) * pageSize);
             ResultSet resultSet = statement.executeQuery();
@@ -84,7 +84,7 @@ public class DataBaseAccess {
                 String content = resultSet.getString("content");
                 LocalDate date = LocalDate.parse(resultSet.getString("date"));
 
-                Note diaryNote = new Note(id, SecurityManager.getUser(), content, date);
+                Note diaryNote = new Note(id, AccountManager.getUser(), content, date);
                 notes.add(diaryNote);
             }
             return notes;
@@ -99,7 +99,7 @@ public class DataBaseAccess {
 
             String insertQuery = "SELECT COUNT(*) FROM diary WHERE user_id = ?";
             PreparedStatement statement = connection.prepareStatement(insertQuery);
-            statement.setInt(1, SecurityManager.getUser().getId());
+            statement.setInt(1, AccountManager.getUser().getId());
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 int totalNotes = resultSet.getInt(1);
@@ -124,7 +124,7 @@ public class DataBaseAccess {
 
             String insertQuery = "SELECT id FROM daily_survey WHERE user_id = ? AND date = ?";
             try (PreparedStatement statement = connection.prepareStatement(insertQuery)) {
-                statement.setInt(1, SecurityManager.getUser().getId());
+                statement.setInt(1, AccountManager.getUser().getId());
                 statement.setString(2, String.valueOf(LocalDate.now()));
                 try (ResultSet resultSet = statement.executeQuery()) {
                     return resultSet.next();
@@ -144,7 +144,7 @@ public class DataBaseAccess {
             String insertQuery = "INSERT INTO daily_survey (user_id, mood, date) " +
                     "VALUES (?, ?, ?)";
             try (PreparedStatement statement = connection.prepareStatement(insertQuery)) {
-                statement.setInt(1, SecurityManager.getUser().getId());
+                statement.setInt(1, AccountManager.getUser().getId());
                 statement.setInt(2, mood);
                 statement.setString(3, String.valueOf(LocalDate.now()));
                 statement.executeUpdate();
@@ -161,7 +161,7 @@ public class DataBaseAccess {
 
             String selectQuery = "SELECT AVG(mood) AS mood_avg FROM daily_survey WHERE user_id = ?";
             try (PreparedStatement statement = connection.prepareStatement(selectQuery)) {
-                statement.setInt(1, SecurityManager.getUser().getId());
+                statement.setInt(1, AccountManager.getUser().getId());
                 try (ResultSet resultSet = statement.executeQuery()) {
                     if (resultSet.next()) {
                         return Math.ceil(resultSet.getDouble("mood_avg") * 10.0) / 10.0;
@@ -189,7 +189,7 @@ public class DataBaseAccess {
                     "LIMIT ?) " +
                     "AS recent_moods";
             try (PreparedStatement statement = connection.prepareStatement(selectQuery)) {
-                statement.setInt(1, SecurityManager.getUser().getId());
+                statement.setInt(1, AccountManager.getUser().getId());
                 statement.setInt(2, days);
                 try (ResultSet resultSet = statement.executeQuery()) {
                     if (resultSet.next()) {
@@ -214,7 +214,7 @@ public class DataBaseAccess {
 
             String selectQuery = "SELECT mood, date FROM daily_survey WHERE user_id = ?";
             PreparedStatement statement = connection.prepareStatement(selectQuery);
-                statement.setInt(1, SecurityManager.getUser().getId());
+                statement.setInt(1, AccountManager.getUser().getId());
                 ResultSet resultSet = statement.executeQuery();
 
                 while (resultSet.next()) {
@@ -239,7 +239,7 @@ public class DataBaseAccess {
 
             String selectQuery = "SELECT mood, date FROM daily_survey WHERE user_id = ? ORDER BY id DESC LIMIT ?";
             PreparedStatement statement = connection.prepareStatement(selectQuery);
-            statement.setInt(1, SecurityManager.getUser().getId());
+            statement.setInt(1, AccountManager.getUser().getId());
             statement.setInt(2, days);
             ResultSet resultSet = statement.executeQuery();
 
@@ -262,7 +262,7 @@ public class DataBaseAccess {
 
             String insertQuery = "SELECT COUNT(*) FROM daily_survey WHERE user_id = ?";
             PreparedStatement statement = connection.prepareStatement(insertQuery);
-            statement.setInt(1, SecurityManager.getUser().getId());
+            statement.setInt(1, AccountManager.getUser().getId());
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 int total = resultSet.getInt(1);
@@ -287,7 +287,7 @@ public class DataBaseAccess {
 
             String insertQuery = "SELECT * FROM daily_survey WHERE user_id = ? ORDER BY id DESC LIMIT ? OFFSET ?";
             PreparedStatement statement = connection.prepareStatement(insertQuery);
-            statement.setInt(1, SecurityManager.getUser().getId());
+            statement.setInt(1, AccountManager.getUser().getId());
             statement.setInt(2, pageSize);
             statement.setInt(3, (pageNumber - 1) * pageSize);
             ResultSet resultSet = statement.executeQuery();

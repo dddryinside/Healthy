@@ -4,9 +4,8 @@ import com.dddryinside.models.User;
 import com.dddryinside.pages.LogInPage;
 
 import java.sql.*;
-import java.time.LocalDate;
 
-public class SecurityManager {
+public class AccountManager {
     private static final String DB_URL = "jdbc:sqlite:./mental.db";
     private static User user;
 
@@ -16,55 +15,59 @@ public class SecurityManager {
         try (Connection connection = DriverManager.getConnection(DB_URL)) {
             isUserTableExists();
 
-            String insertQuery = "INSERT INTO user (name, second_name, additional_name, birth_date, gender, username, password) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO user (name, second_name, additional_name, username, password) " +
+                    "VALUES (?, ?, ?, ?, ?)";
             try (PreparedStatement statement = connection.prepareStatement(insertQuery)) {
                 statement.setString(1, user.getName());
                 statement.setString(2, user.getSecondName());
                 statement.setString(3, user.getAdditionalName());
-                statement.setString(4, String.valueOf(user.getBirthDate()));
-                statement.setInt(5, user.getGender());
-                statement.setString(6, user.getUsername());
-                statement.setString(7, user.getPassword());
+                statement.setString(4, user.getUsername());
+                statement.setString(5, user.getPassword());
                 statement.executeUpdate();
 
-                logIn(user.getUsername(), user.getPassword());
+                try {
+                    logIn(user.getUsername(), user.getPassword());
+                } catch (Exception e) {
+                    PageManager.showNotification(e.getMessage());
+                }
             }
         } catch (SQLException e) {
-            PageManager.showNotification("Ошибка базы данных!");
+            PageManager.showNotification("Data base error!");
         }
     }
 
     public static void updateUser(User newUser) {
         try (Connection connection = DriverManager.getConnection(DB_URL)) {
-            String sql = "UPDATE user SET name = ?, second_name = ?, additional_name = ?, birth_date = ?, gender = ?, password = ? WHERE id = ?";
+            String sql = "UPDATE user SET name = ?, second_name = ?, additional_name = ?, password = ? WHERE id = ?";
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
 
                 statement.setString(1, newUser.getName());
                 statement.setString(2, newUser.getSecondName());
                 statement.setString(3, newUser.getAdditionalName());
-                statement.setString(4, String.valueOf(newUser.getBirthDate()));
-                statement.setInt(5, newUser.getGender());
-                statement.setString(6, newUser.getPassword());
-                statement.setInt(7, user.getId());
+                statement.setString(4, newUser.getPassword());
+                statement.setInt(5, user.getId());
 
                 int rowsAffected = statement.executeUpdate();
                 if (rowsAffected == 1) {
-                    logIn(user.getUsername(), newUser.getPassword());
+                    try {
+                        logIn(user.getUsername(), user.getPassword());
+                    } catch (Exception e) {
+                        PageManager.showNotification(e.getMessage());
+                    }
                 } else {
-                    throw new RuntimeException("Не удалось обновить запись!");
+                    throw new RuntimeException("Data base error!");
                 }
             }
         } catch (SQLException e) {
-            PageManager.showNotification("Ошибка базы данных!");
+            PageManager.showNotification("Data base error!");
         }
     }
 
-    public static void logIn(String username, String password) {
+    public static void logIn(String username, String password) throws Exception {
         try (Connection connection = DriverManager.getConnection(DB_URL)) {
             isUserTableExists();
 
-            String insertQuery = "SELECT id, name, second_name, additional_name, birth_date, gender, username, password FROM user WHERE username = ? AND password = ?";
+            String insertQuery = "SELECT id, name, second_name, additional_name, username, password FROM user WHERE username = ? AND password = ?";
             try (PreparedStatement statement = connection.prepareStatement(insertQuery)) {
                 statement.setString(1, username);
                 statement.setString(2, password);
@@ -74,17 +77,15 @@ public class SecurityManager {
                         String name = resultSet.getString("name");
                         String secondName = resultSet.getString("second_name");
                         String additionalName = resultSet.getString("additional_name");
-                        LocalDate birthDate = LocalDate.parse(resultSet.getString("birth_date"));
-                        int gender = resultSet.getInt("gender");
 
-                        SecurityManager.user = new User(id, name, secondName, additionalName, birthDate, gender, username, password);
+                        AccountManager.user = new User(id, name, secondName, additionalName, username, password);
                     } else {
-                        PageManager.showNotification("Пользователь не найден!");
+                        throw new Exception("not_found");
                     }
                 }
             }
         } catch (SQLException e) {
-            PageManager.showNotification("Ошибка базы данных!");
+            PageManager.showNotification("Data base error!");
         }
     }
 
@@ -105,7 +106,7 @@ public class SecurityManager {
                 }
             }
         } catch (SQLException e) {
-            PageManager.showNotification("Ошибка базы данных!");
+            PageManager.showNotification("Data base error!");
             return false;
         }
     }
@@ -118,8 +119,6 @@ public class SecurityManager {
                         "name TEXT," +
                         "second_name TEXT," +
                         "additional_name TEXT," +
-                        "birth_date DATETIME," +
-                        "gender INT," +
                         "username TEXT," +
                         "password TEXT)";
                 try (Statement statement = connection.createStatement()) {
@@ -138,6 +137,6 @@ public class SecurityManager {
     }
 
     public static User getUser() {
-        return SecurityManager.user;
+        return AccountManager.user;
     }
 }

@@ -3,14 +3,14 @@ package com.dddryinside.pages;
 import com.dddryinside.contracts.Page;
 import com.dddryinside.elements.*;
 import com.dddryinside.models.User;
-import com.dddryinside.service.SecurityManager;
+import com.dddryinside.service.AccountManager;
 import com.dddryinside.service.TimeObserver;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class UserPage extends Page {
-    private final User user = SecurityManager.getUser();
+    private final User user = AccountManager.getUser();
 
     @Override
     public Scene getInterface() {

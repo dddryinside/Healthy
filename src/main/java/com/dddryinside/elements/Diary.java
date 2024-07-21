@@ -6,7 +6,7 @@ import com.dddryinside.pages.DiaryPage;
 import com.dddryinside.pages.NotePage;
 import com.dddryinside.service.DataBaseAccess;
 import com.dddryinside.service.PageManager;
-import com.dddryinside.service.SecurityManager;
+import com.dddryinside.service.AccountManager;
 import javafx.geometry.Insets;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextArea;
@@ -30,7 +30,7 @@ public class Diary extends VBox {
         Hyperlink saveButton = new Hyperlink(Page.localeRes.getString("save"));
         saveButton.setOnAction(event -> {
             if (diaryTextArea.getText() != null) {
-                Note newNote = new Note(SecurityManager.getUser(), diaryTextArea.getText(), LocalDate.now());
+                Note newNote = new Note(AccountManager.getUser(), diaryTextArea.getText(), LocalDate.now());
                 DataBaseAccess.saveNote(newNote);
                 diaryTextArea.setText(null);
                 updateNotesBox();

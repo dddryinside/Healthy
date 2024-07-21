@@ -4,7 +4,7 @@ import com.dddryinside.contracts.Page;
 import com.dddryinside.elements.Root;
 import com.dddryinside.elements.SuperLabel;
 import com.dddryinside.service.PageManager;
-import com.dddryinside.service.SecurityManager;
+import com.dddryinside.service.AccountManager;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
@@ -35,9 +35,18 @@ public class LogInPage extends Page {
             } else if (passwordInput.getText().isEmpty()) {
                 PageManager.showNotification(localeRes.getString("forgot_password_message"));
             } else {
-                SecurityManager.logIn(usernameInput.getText(), passwordInput.getText());
+                try {
+                    AccountManager.logIn(usernameInput.getText(), passwordInput.getText());
+                } catch (Exception e) {
+                    if (e.getMessage().equals("not_found")) {
+                        PageManager.showNotification(localeRes.getString("not_found"));
+                    } else {
+                        PageManager.showNotification(e.getMessage());
+                    }
+                }
 
-                if (SecurityManager.getUser() != null) {
+                // If user was found
+                if (AccountManager.getUser() != null) {
                     PageManager.loadPage(new UserPage());
                 }
             }
