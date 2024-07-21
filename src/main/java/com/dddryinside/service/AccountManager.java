@@ -38,14 +38,13 @@ public class AccountManager {
 
     public static void updateUser(User newUser) {
         try (Connection connection = DriverManager.getConnection(DB_URL)) {
-            String sql = "UPDATE user SET name = ?, second_name = ?, additional_name = ?, password = ? WHERE id = ?";
+            String sql = "UPDATE user SET name = ?, second_name = ?, additional_name = ? WHERE id = ?";
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
 
                 statement.setString(1, newUser.getName());
                 statement.setString(2, newUser.getSecondName());
                 statement.setString(3, newUser.getAdditionalName());
-                statement.setString(4, newUser.getPassword());
-                statement.setInt(5, user.getId());
+                statement.setInt(4, user.getId());
 
                 int rowsAffected = statement.executeUpdate();
                 if (rowsAffected == 1) {
@@ -61,6 +60,20 @@ public class AccountManager {
         } catch (SQLException e) {
             PageManager.showNotification("Data base error!");
         }
+    }
+
+    public static void updatePassword(String newPassword) {
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            String sql = "UPDATE user SET password = ? WHERE id = ?";
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setString(1, newPassword);
+                statement.setInt(2, user.getId());
+                statement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            PageManager.showNotification("Data base error!");
+        }
+
     }
 
     public static void logIn(String username, String password) throws Exception {
