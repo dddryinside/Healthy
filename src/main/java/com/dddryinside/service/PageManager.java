@@ -6,27 +6,16 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.util.Objects;
-
 public class PageManager {
     private static Stage stage;
     public static void setStage(Stage stage) {
         PageManager.stage = stage;
     }
 
-    public static Stage getStage() {
-        return stage;
-    }
-
     public static void loadPage(Page page) {
         Scene scene = page.getInterface();
-
-        String styles = Objects.requireNonNull(PageManager.class.getResource("/styles/styles.css")).toExternalForm();
-        scene.getStylesheets().add(styles);
-
-        String fonts = Objects.requireNonNull(PageManager.class.getResource("/styles/fonts.css")).toExternalForm();
-        scene.getStylesheets().add(fonts);
-
+        scene.getStylesheets().add(ResourceManager.loadStyle("/styles/styles.css"));
+        scene.getStylesheets().add(ResourceManager.loadStyle("/styles/fonts.css"));
         stage.setScene(scene);
         stage.show();
     }
@@ -44,7 +33,7 @@ public class PageManager {
         alert.setHeaderText(null);
         alert.setContentText(message);
         Stage alertStage = (Stage) alert.getDialogPane().getScene().getWindow();
-        alertStage.getIcons().add(new Image("img/icon.png"));
+        alertStage.getIcons().add(new Image(ResourceManager.loadImage("/img/icon.png")));
         alert.showAndWait();
     }
 }

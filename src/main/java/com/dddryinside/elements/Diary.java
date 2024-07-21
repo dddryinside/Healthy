@@ -3,6 +3,7 @@ package com.dddryinside.elements;
 import com.dddryinside.contracts.Page;
 import com.dddryinside.models.Note;
 import com.dddryinside.pages.DiaryPage;
+import com.dddryinside.pages.NotePage;
 import com.dddryinside.service.DataBaseAccess;
 import com.dddryinside.service.PageManager;
 import com.dddryinside.service.SecurityManager;
@@ -56,27 +57,33 @@ public class Diary extends VBox {
         List<Note> notes = DataBaseAccess.getNotes(2);
         notesContainer.getChildren().clear();
 
-        for (int i = 0; i < 1; i++) {
-            Box box = new Box();
-            box.setSpacing(5);
+        if (notes.size() != 0) {
+            for (int i = 0; i < 1; i++) {
+                VBox box = new VBox();
+                box.setSpacing(5);
 
-            SuperLabel date = new SuperLabel(notes.get(i).getStringDate());
-            date.makeGrey();
-            SuperLabel title = new SuperLabel(notes.get(i).getContent());
+                SuperLabel date = new SuperLabel(notes.get(i).getStringDate());
+                date.makeGrey();
+                SuperLabel title = new SuperLabel(notes.get(i).getContent());
 
-            HBox buttons = new HBox(10);
-            Hyperlink watch = new Hyperlink(Page.localeRes.getString("view"));
-            buttons.getChildren().add(watch);
+                HBox buttons = new HBox(10);
+                Hyperlink watch = new Hyperlink(Page.localeRes.getString("view"));
+                int temp = i;
+                watch.setOnAction(event -> PageManager.loadPage(new NotePage(notes.get(temp))));
+                buttons.getChildren().add(watch);
 
-            if (notes.size() > 1) {
-                Hyperlink seeMoreButton = new Hyperlink(Page.localeRes.getString("view_all_notes"));
-                seeMoreButton.setOnAction(event -> PageManager.loadPage(new DiaryPage(1)));
-                buttons.getChildren().add(seeMoreButton);
+                if (notes.size() > 1) {
+                    Hyperlink seeMoreButton = new Hyperlink(Page.localeRes.getString("view_all_notes"));
+                    seeMoreButton.setOnAction(event -> PageManager.loadPage(new DiaryPage(1)));
+                    buttons.getChildren().add(seeMoreButton);
+                }
+
+                box.getChildren().addAll(date, title, buttons);
+                notesContainer.getChildren().add(box);
             }
-
-            box.getChildren().addAll(date, title, buttons);
-
-            notesContainer.getChildren().add(box);
+        } else {
+            SuperLabel noNotesLabel = new SuperLabel(Page.localeRes.getString("no_notes"));
+            notesContainer.getChildren().add(noNotesLabel);
         }
     }
 }

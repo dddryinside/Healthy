@@ -19,7 +19,7 @@ public class Mental extends Application {
     public void start(Stage stage) {
         stage.setTitle("Mental");
 
-        Image icon = new Image(ResourceManager.loadResource("/img/icon.png"));
+        Image icon = new Image(ResourceManager.loadImage("/img/icon.png"));
         stage.getIcons().add(icon);
 
         Page.localeRes = ResourceBundle.getBundle(APP_LOCALE.getFile());

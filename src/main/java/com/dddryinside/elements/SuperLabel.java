@@ -28,7 +28,7 @@ public class SuperLabel extends Label {
     }
 
     public void makeYellow() {
-        this.setStyle("-fx-text-fill: yellow;");
+        this.setStyle("-fx-text-fill: #FFC300;");
     }
 
     public void makeRed() {

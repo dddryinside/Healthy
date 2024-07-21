@@ -4,25 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="making the application multilingual">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/ResourceManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ru_locale.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="working on avatar functions">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/NotePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/Mental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/Mental.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Box.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Diary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Diary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Mood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Mood.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Root.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Root.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/models/Locale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/models/Locale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/AboutPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/AboutPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/SuperLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/SuperLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/models/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/models/Note.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/DiaryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/DiaryPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/MoodStatPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/MoodStatPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/DataBaseAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/PageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/PageManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/eng_locale.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/en_locale.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/fonts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/en_locale.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/en_locale.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1721440387661</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="working on avatar functions">
+      <created>1721507332288</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1721507332288</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -376,7 +380,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="started working on dass-21-test" />
     <MESSAGE value="still working on dass-21-test" />
     <MESSAGE value="saving dass-21 test results to DB is working now" />
     <MESSAGE value="added icon and &quot;about&quot; page" />
@@ -401,7 +404,8 @@
     <MESSAGE value="the mood widget is fully working" />
     <MESSAGE value="made a few corrections with the diary, again changes in design" />
     <MESSAGE value="making the application multilingual" />
-    <option name="LAST_COMMIT_MESSAGE" value="making the application multilingual" />
+    <MESSAGE value="working on avatar functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on avatar functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -12,6 +12,7 @@ public class Note {
     int user_id;
     String content;
     LocalDate date;
+    Integer diaryPage;
 
     public Note(int id, User user, String content, LocalDate date) {
         this.id = id;

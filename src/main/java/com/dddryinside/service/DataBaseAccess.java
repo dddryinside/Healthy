@@ -11,6 +11,37 @@ import java.util.List;
 public class DataBaseAccess {
     private static final String DB_URL = "jdbc:sqlite:./mental.db";
 
+    public static void saveNote(Note note) {
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            createDiaryTableIfNotExists();
+
+            String insertQuery = "INSERT INTO diary (user_id, content, date) " +
+                    "VALUES (?, ?, ?)";
+            try (PreparedStatement statement = connection.prepareStatement(insertQuery)) {
+                statement.setInt(1, note.getUser_id());
+                statement.setString(2, note.getContent());
+                statement.setString(3, String.valueOf(note.getDate()));
+                statement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteNote(Note note) {
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            createDiaryTableIfNotExists();
+
+            String deleteQuery = "DELETE FROM diary WHERE id = ?";
+            try (PreparedStatement statement = connection.prepareStatement(deleteQuery)) {
+                statement.setInt(1, note.getId());
+                statement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static List<Note> getNotes(int amount) {
         try (Connection connection = DriverManager.getConnection(DB_URL)) {
             createDiaryTableIfNotExists();
@@ -59,23 +90,6 @@ public class DataBaseAccess {
             return notes;
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }
-    }
-
-    public static void saveNote(Note note) {
-        try (Connection connection = DriverManager.getConnection(DB_URL)) {
-            createDiaryTableIfNotExists();
-
-            String insertQuery = "INSERT INTO diary (user_id, content, date) " +
-                    "VALUES (?, ?, ?)";
-            try (PreparedStatement statement = connection.prepareStatement(insertQuery)) {
-                statement.setInt(1, note.getUser_id());
-                statement.setString(2, note.getContent());
-                statement.setString(3, String.valueOf(note.getDate()));
-                statement.executeUpdate();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 
@@ -164,7 +178,32 @@ public class DataBaseAccess {
     }
 
     public static double getAverageMood(int days) {
-        return 8.0;
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            createDailySurveyTableIfNotExists();
+
+            String selectQuery = "SELECT AVG(mood) AS mood_avg " +
+                    "FROM (SELECT mood " +
+                    "FROM daily_survey " +
+                    "WHERE user_id = ? " +
+                    "ORDER BY date DESC " +
+                    "LIMIT ?) " +
+                    "AS recent_moods";
+            try (PreparedStatement statement = connection.prepareStatement(selectQuery)) {
+                statement.setInt(1, SecurityManager.getUser().getId());
+                statement.setInt(2, days);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        return Math.ceil(resultSet.getDouble("mood_avg") * 10.0) / 10.0;
+                    } else {
+                        return 0.0;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            PageManager.showNotification("Ошибка базы данных!");
+        }
+        return 0.0;
     }
 
     public static List<Mood> getMoodHistory() {
@@ -214,8 +253,58 @@ public class DataBaseAccess {
             e.printStackTrace();
             PageManager.showNotification("Ошибка базы данных!");
         }
-
         return moodHistory;
+    }
+
+    public static int getMoodChartPagesAmount(int pageSize) {
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            createDiaryTableIfNotExists();
+
+            String insertQuery = "SELECT COUNT(*) FROM daily_survey WHERE user_id = ?";
+            PreparedStatement statement = connection.prepareStatement(insertQuery);
+            statement.setInt(1, SecurityManager.getUser().getId());
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int total = resultSet.getInt(1);
+
+                int totalPages = total / pageSize;
+                if (total % pageSize != 0) {
+                    totalPages++;
+                }
+
+                return totalPages;
+            } else {
+                return 1;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static List<Mood> getMoodHistory(int pageNumber, int pageSize) {
+        try (Connection connection = DriverManager.getConnection(DB_URL)) {
+            createDiaryTableIfNotExists();
+
+            String insertQuery = "SELECT * FROM daily_survey WHERE user_id = ? ORDER BY id DESC LIMIT ? OFFSET ?";
+            PreparedStatement statement = connection.prepareStatement(insertQuery);
+            statement.setInt(1, SecurityManager.getUser().getId());
+            statement.setInt(2, pageSize);
+            statement.setInt(3, (pageNumber - 1) * pageSize);
+            ResultSet resultSet = statement.executeQuery();
+
+            List<Mood> moodHistory = new ArrayList<>();
+            while (resultSet.next()) {
+                int mood = resultSet.getInt("mood");
+                String date = resultSet.getString("date");
+
+                Mood moodObj = new Mood(mood, date);
+                moodHistory.add(moodObj);
+            }
+
+            return moodHistory;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private static void createDailySurveyTableIfNotExists() {

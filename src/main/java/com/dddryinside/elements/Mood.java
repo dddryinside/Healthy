@@ -22,23 +22,19 @@ import java.util.Collections;
 import java.util.List;
 
 public class Mood extends VBox implements Widget {
+    private final VBox avgValuesBox = new VBox();
+    private final VBox moodChart = new VBox();
     private SuperLabel moodInputLabel;
     private final Spinner<Integer> moodInputSpinner = new Spinner<>();
     private final Hyperlink saveButton = new Hyperlink(Page.localeRes.getString("save"));
-    private final VBox moodChart = new VBox();
-    private final VBox avgValuesBox = new VBox();
 
     public Mood() {
         getAvgValuesBox();
 
         if (!DataBaseAccess.isCurrentMoodExist() && isEveningTime()) {
-            moodInputLabel = new SuperLabel(Page.localeRes.getString("rate_your_mood_today"));
-            moodInputSpinner.setVisible(true);
-            saveButton.setVisible(true);
+            activateSurveyBox();
         } else {
-            moodInputLabel = new SuperLabel(Page.localeRes.getString("assessment_is_not_available"));
-            moodInputSpinner.setVisible(false);
-            saveButton.setVisible(false);
+            deactivateSurveyBox();
         }
 
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 10, 0);
@@ -56,21 +52,35 @@ public class Mood extends VBox implements Widget {
         this.setMinWidth(330);
     }
 
+    private void activateSurveyBox() {
+        moodInputLabel = new SuperLabel(Page.localeRes.getString("rate_your_mood_today"));
+        moodInputSpinner.setVisible(true);
+        saveButton.setVisible(true);
+    }
+
+    private void deactivateSurveyBox() {
+        moodInputLabel = new SuperLabel(Page.localeRes.getString("assessment_is_not_available"));
+        moodInputSpinner.setVisible(false);
+        saveButton.setVisible(false);
+    }
+
+
+
     private void getAvgValuesBox() {
         avgValuesBox.getChildren().clear();
 
         SuperLabel title = new SuperLabel(Page.localeRes.getString("avg_mood"));
         title.makeTitle();
 
-        double avgMood = DataBaseAccess.getAverageMood();
-        SuperLabel avgMoodLabel = new SuperLabel(String.valueOf(avgMood));
-        avgMoodLabel.makeTitle();
-        defineColor(avgMoodLabel, avgMood);
-
         double avgMonthMood = DataBaseAccess.getAverageMood(30);
         SuperLabel avgMonthMoodLabel = new SuperLabel(String.valueOf(avgMonthMood));
         avgMonthMoodLabel.makeTitle();
         defineColor(avgMonthMoodLabel, avgMonthMood);
+
+        double avgWeekMood = DataBaseAccess.getAverageMood(7);
+        SuperLabel avgWeekMoodLabel = new SuperLabel(String.valueOf(avgWeekMood));
+        avgWeekMoodLabel.makeTitle();
+        defineColor(avgWeekMoodLabel, avgWeekMood);
 
         GridPane moodTable = new GridPane();
         moodTable.setHgap(10);
@@ -78,15 +88,15 @@ public class Mood extends VBox implements Widget {
         SuperLabel allTime = new SuperLabel(Page.localeRes.getString("for_30_days"));
         allTime.makeGrey();
         moodTable.add(allTime, 0, 0);
-        moodTable.add(avgMoodLabel , 1, 0);
+        moodTable.add(avgMonthMoodLabel , 1, 0);
 
         SuperLabel month = new SuperLabel(Page.localeRes.getString("for_7_days"));
         month.makeGrey();
         moodTable.add(month, 0, 1);
-        moodTable.add(avgMonthMoodLabel , 1, 1);
+        moodTable.add(avgWeekMoodLabel , 1, 1);
 
         Hyperlink detailsButton = new Hyperlink(Page.localeRes.getString("more"));
-        detailsButton.setOnAction(event -> PageManager.loadPage(new MoodStatPage()));
+        detailsButton.setOnAction(event -> PageManager.loadPage(new MoodStatPage(1)));
         VBox.setMargin(detailsButton, new Insets(5, 0, 0, 0));
 
         avgValuesBox.getChildren().addAll(title, moodTable, detailsButton);
@@ -146,9 +156,7 @@ public class Mood extends VBox implements Widget {
             getMoodChart();
             getAvgValuesBox();
 
-            moodInputLabel.setText(Page.localeRes.getString("assessment_is_not_available"));
-            moodInputSpinner.setVisible(false);
-            saveButton.setVisible(false);
+            deactivateSurveyBox();
         }
     }
 
@@ -166,16 +174,12 @@ public class Mood extends VBox implements Widget {
 
     @Override
     public void onEveningReached() {
-        moodInputLabel = new SuperLabel(Page.localeRes.getString("rate_your_mood_today"));
-        moodInputSpinner.setVisible(true);
-        saveButton.setVisible(true);
+        activateSurveyBox();
     }
 
     @Override
     public void onMidnightReached() {
-        moodInputLabel = new SuperLabel(Page.localeRes.getString("assessment_is_not_available"));
-        moodInputSpinner.setVisible(false);
-        saveButton.setVisible(false);
+        deactivateSurveyBox();
     }
 
     private static boolean isEveningTime() {
