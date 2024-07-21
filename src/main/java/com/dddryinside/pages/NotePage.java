@@ -8,7 +8,9 @@ import com.dddryinside.service.DataBaseAccess;
 import com.dddryinside.service.PageManager;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
@@ -23,9 +25,10 @@ public class NotePage extends Page {
         SuperLabel date = new SuperLabel(note.getStringDate());
         date.makeGrey();
         SuperLabel content = new SuperLabel(note.getContent());
+        content.setWrapText(true);
 
         HBox buttons = new HBox(10);
-        Hyperlink deleteButton = new Hyperlink("Delete");
+        Hyperlink deleteButton = new Hyperlink(Page.localeRes.getString("delete"));
         deleteButton.setOnAction(event -> {
             DataBaseAccess.deleteNote(note);
 
@@ -56,7 +59,7 @@ public class NotePage extends Page {
 
 
         if (note.getDiaryPage() != null) {
-            Hyperlink backButton = new Hyperlink("Back");
+            Hyperlink backButton = new Hyperlink(Page.localeRes.getString("back"));
             backButton.setOnAction(event -> PageManager.loadPage(new DiaryPage(note.getDiaryPage())));
             buttons.getChildren().addAll(backButton, deleteButton);
         } else {
@@ -65,10 +68,14 @@ public class NotePage extends Page {
 
         VBox container = new VBox(date, content, buttons);
         container.setSpacing(10);
+        ScrollPane scrollPane = new ScrollPane(container);
+        scrollPane.setFitToWidth(true);
+        VBox.setVgrow(scrollPane, Priority.ALWAYS);
 
         Root root = new Root();
-        root.setToTopCenter(container);
+        root.setToTopCenter(scrollPane);
         root.setMenuBar();
+
         return new Scene(root);
     }
 }

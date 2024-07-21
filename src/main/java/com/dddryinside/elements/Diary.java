@@ -4,9 +4,9 @@ import com.dddryinside.contracts.Page;
 import com.dddryinside.models.Note;
 import com.dddryinside.pages.DiaryPage;
 import com.dddryinside.pages.NotePage;
+import com.dddryinside.service.AccountManager;
 import com.dddryinside.service.DataBaseAccess;
 import com.dddryinside.service.PageManager;
-import com.dddryinside.service.AccountManager;
 import javafx.geometry.Insets;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextArea;
@@ -64,7 +64,7 @@ public class Diary extends VBox {
 
                 SuperLabel date = new SuperLabel(notes.get(i).getStringDate());
                 date.makeGrey();
-                SuperLabel title = new SuperLabel(notes.get(i).getContent());
+                SuperLabel title = new SuperLabel(notes.get(i).getShortTitle());
 
                 HBox buttons = new HBox(10);
                 Hyperlink watch = new Hyperlink(Page.localeRes.getString("view"));

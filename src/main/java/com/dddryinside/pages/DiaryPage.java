@@ -59,7 +59,7 @@ public class DiaryPage extends Page {
 
             SuperLabel date = new SuperLabel(note.getStringDate());
             date.makeGrey();
-            SuperLabel title = new SuperLabel(note.getContent());
+            SuperLabel title = new SuperLabel(note.getShortTitle());
             Hyperlink watch = new Hyperlink(localeRes.getString("view"));
             watch.setOnAction(event -> PageManager.loadPage(new NotePage(note)));
             box.getChildren().addAll(date, title, watch);

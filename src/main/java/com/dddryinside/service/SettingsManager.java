@@ -24,7 +24,7 @@ public final class SettingsManager {
             settings.load(new FileInputStream(SETTINGS_FILE));
         } catch (IOException e) {
             // Create file if not exist
-            settings.setProperty(LOCALE, Locale.EN.getFile());
+            settings.setProperty(LOCALE, Locale.RU.getFile());
             settings.setProperty(SHOW_NOTIFICATION, String.valueOf(true));
             saveSettings();
         }

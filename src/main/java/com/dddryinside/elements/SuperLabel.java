@@ -11,7 +11,10 @@ public class SuperLabel extends Label {
         this.setPadding(Insets.EMPTY);
     }
 
-    public SuperLabel() {}
+    public SuperLabel() {
+        this.setFont(Font.font("Roboto", 14));
+        this.setPadding(Insets.EMPTY);
+    }
 
     public void makeSmall() { this.setFont(Font.font(10)); }
 

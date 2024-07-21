@@ -5,6 +5,7 @@ import com.dddryinside.models.Locale;
 import com.dddryinside.pages.LogInPage;
 import com.dddryinside.service.PageManager;
 import com.dddryinside.service.ResourceManager;
+import com.dddryinside.service.SettingsManager;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -14,7 +15,7 @@ import java.util.ResourceBundle;
 public class Mental extends Application {
     private final static int WINDOW_HEIGHT = 660;
     private final static int WINDOW_WIDTH = 960;
-    public final static Locale APP_LOCALE = Locale.EN;
+    public final static Locale APP_LOCALE = SettingsManager.getLocale();
     @Override
     public void start(Stage stage) {
         stage.setTitle("Mental");

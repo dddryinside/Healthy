@@ -1,7 +1,10 @@
 package com.dddryinside.pages;
 
 import com.dddryinside.contracts.Page;
-import com.dddryinside.elements.*;
+import com.dddryinside.elements.Diary;
+import com.dddryinside.elements.Mood;
+import com.dddryinside.elements.Profile;
+import com.dddryinside.elements.Root;
 import com.dddryinside.models.User;
 import com.dddryinside.service.AccountManager;
 import com.dddryinside.service.TimeObserver;

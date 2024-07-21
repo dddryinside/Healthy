@@ -4,15 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="simplified the registration process, minor improvements">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/EditProfilePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/SettingsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="c1ab2db7-1944-48ef-9b0e-df816e8bbe89" name="Changes" comment="settings now works">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/by_locale.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/pl_locale.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ua_locale.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/SettingsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/SettingsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/AccountManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/AccountManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/Mental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/Mental.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Diary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Diary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Mood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/Mood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/SuperLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/elements/SuperLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/models/Locale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/models/Locale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/DiaryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/DiaryPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/LogInPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/LogInPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/NotePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/NotePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/pages/UserPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/SettingsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dddryinside/service/SettingsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/en_locale.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/en_locale.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ru_locale.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ru_locale.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +73,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Msolutions Projects/Healthy/src/main/resources",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.47471264",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+    "settings.editor.selected.configurable": "File.Encoding"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -74,9 +86,9 @@
       <recent name="C:\Msolutions Projects\Healthy\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Msolutions Projects\Healthy\src\main\resources" />
       <recent name="C:\Msolutions Projects\Healthy\src\main\resources\styles" />
       <recent name="C:\Msolutions Projects\Healthy\src\main\resources\img" />
-      <recent name="C:\Msolutions Projects\Healthy\src\main\resources" />
       <recent name="C:\Msolutions Projects\Healthy\src\main\resources\tests\dass-21" />
       <recent name="C:\Msolutions Projects\Healthy\src\main\resources\calculators\weight-calculator" />
     </key>
@@ -330,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1721566076119</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="settings now works">
+      <created>1721583531607</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1721583531607</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -387,7 +406,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added icon and &quot;about&quot; page" />
     <MESSAGE value="now personal page for patients exist, also updated page loader, now it works more correct" />
     <MESSAGE value="passed tests are displayed on users’ personal pages" />
     <MESSAGE value="program becomes more polymorphic, and now we can see patient's research results" />
@@ -412,7 +430,8 @@
     <MESSAGE value="working on avatar functions" />
     <MESSAGE value="fixed some bugs, completed some functions" />
     <MESSAGE value="simplified the registration process, minor improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="simplified the registration process, minor improvements" />
+    <MESSAGE value="now the settings are working" />
+    <option name="LAST_COMMIT_MESSAGE" value="now the settings are working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -423,6 +442,10 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/WeightChecker$MedicalCalculator.ic" NAME="MedicalCalculator Coverage Results" MODIFIED="1719761442468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

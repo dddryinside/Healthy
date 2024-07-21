@@ -5,6 +5,7 @@ import com.dddryinside.contracts.Widget;
 import com.dddryinside.pages.MoodStatPage;
 import com.dddryinside.service.DataBaseAccess;
 import com.dddryinside.service.PageManager;
+import com.dddryinside.service.SettingsManager;
 import javafx.geometry.Insets;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
@@ -17,6 +18,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.util.StringConverter;
 
+import java.awt.*;
 import java.time.LocalTime;
 import java.util.Collections;
 import java.util.List;
@@ -24,7 +26,7 @@ import java.util.List;
 public class Mood extends VBox implements Widget {
     private final VBox avgValuesBox = new VBox();
     private final VBox moodChart = new VBox();
-    private SuperLabel moodInputLabel;
+    private final SuperLabel moodInputLabel = new SuperLabel();
     private final Spinner<Integer> moodInputSpinner = new Spinner<>();
     private final Hyperlink saveButton = new Hyperlink(Page.localeRes.getString("save"));
 
@@ -53,18 +55,46 @@ public class Mood extends VBox implements Widget {
     }
 
     private void activateSurveyBox() {
-        moodInputLabel = new SuperLabel(Page.localeRes.getString("rate_your_mood_today"));
+        moodInputLabel.setText(Page.localeRes.getString("rate_your_mood_today"));
         moodInputSpinner.setVisible(true);
         saveButton.setVisible(true);
+
+        if (SettingsManager.getShowNotification()) {
+            showNotification(Page.localeRes.getString("message"), Page.localeRes.getString("rate_your_mood_today"));
+        }
     }
 
     private void deactivateSurveyBox() {
-        moodInputLabel = new SuperLabel(Page.localeRes.getString("assessment_is_not_available"));
+        moodInputLabel.setText(Page.localeRes.getString("assessment_is_not_available"));
         moodInputSpinner.setVisible(false);
         saveButton.setVisible(false);
     }
 
+    public static void showNotification(String title, String message) {
+        try {
+            // Проверяем, поддерживается ли SystemTray в текущей системе
+            if (SystemTray.isSupported()) {
+                SystemTray tray = SystemTray.getSystemTray();
 
+                // Загружаем иконку для уведомления
+                Image image = Toolkit.getDefaultToolkit().getImage("/img/icon.png");
+
+                // Создаем объект TrayIcon с заголовком, сообщением и иконкой
+                TrayIcon trayIcon = new TrayIcon(image, title);
+                trayIcon.setImageAutoSize(true);
+                trayIcon.setToolTip(message);
+
+                // Показываем уведомление
+                tray.add(trayIcon);
+                trayIcon.displayMessage(title, message, TrayIcon.MessageType.INFO);
+                tray.remove(trayIcon);
+            } else {
+                System.out.println("SystemTray don't supporting!");
+            }
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void getAvgValuesBox() {
         avgValuesBox.getChildren().clear();

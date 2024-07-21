@@ -10,6 +10,7 @@ module com.dddryinside.weightchecker {
     requires org.fxmisc.richtext;
     requires java.desktop;
     requires javafx.swing;
+    requires quartz;
 
     opens com.dddryinside to javafx.fxml;
     exports com.dddryinside;
